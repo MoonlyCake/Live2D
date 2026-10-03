@@ -2,7 +2,7 @@
 // Invoked only inside a separate signed prototype .app, never the user's app/profile.
 const {app}=require('electron');const {join}=require('node:path'),fs=require('node:fs'),assert=require('node:assert/strict');
 const {MacInputPrototype}=require('./adapter.cjs');
-app.setPath('userData',join(app.getPath('temp'),'whale-input-prototype-smoke'));
+const profile=join(app.getPath('temp'),'whale-input-prototype-smoke');fs.mkdirSync(profile,{recursive:true});app.setPath('userData',profile);
 app.whenReady().then(async()=>{
  const addon=require(join(process.resourcesPath,'../Frameworks/whale-mac-input.node'));
  const input=new MacInputPrototype(addon),granted=input.permissionGranted();

@@ -14,7 +14,7 @@ import type { PhysicalInputSnapshot } from '../src/shared/physical-input';
 // Only imported services are replaced; the startup, visibility and draw wiring run.
 const scripts = Object.fromEntries(['settings', 'pet'].map(entry => {
   const source = readFileSync(new URL(`../src/renderer/${entry}.ts`, import.meta.url), 'utf8');
-  return [entry, transformSync(`(async () => {${source.replace(/^import .*;\n/gm, '')}})()`, {
+  return [entry, transformSync(`(async () => {${source.replace(/^import .*;\r?\n/gm, '')}})()`, {
     loader: 'ts', target: 'es2022',
   }).code];
 }));

@@ -27,7 +27,7 @@ export function collectLicenses(results){
  }
  mkdirSync('licenses',{recursive:true});
  writeFileSync('licenses/BUNDLED-NPM.txt',notices.join('\n\n')+'\n');
- // These files come from the exact Electron runtime installed on the build platform.
- for(const name of ['LICENSE','LICENSES.chromium.html'])copyFileSync(join('node_modules/electron/dist',name),join('licenses',name==='LICENSE'?'LICENSE.electron.txt':name));
+ // The npm package always carries Electron's full MIT notice, even without dist.
+ copyFileSync('node_modules/electron/LICENSE','licenses/LICENSE.electron.txt');
  console.log(`Collected complete licenses for ${packages.size} bundled/external npm packages and Electron.`);
 }

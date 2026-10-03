@@ -1,0 +1,16 @@
+Whale Mac Input Prototype
+
+BongoCat
+Copyright 2025-present ayangweb
+Licensed under the Apache License, Version 2.0.
+Reference: https://github.com/ayangweb/BongoCat/tree/85ecd8275d99c088ca042f1c6a6f4910fdf9ce33
+
+This experimental module adapts the listen-only event tap and held-state
+reconciliation design to Whale's existing 83-key protocol and a Node-API
+boundary. It adds wheel input, asynchronous ownership/cleanup, bounded queue
+handling and a no-prompt isolated-app acceptance harness. It does not include
+BongoCat application binaries, permission-flow, Swift UI, gamepads, Cubism or
+character assets. BongoCat's root contains no NOTICE file at that revision.
+
+Exact Rust dependency license texts and available notices are included in
+BUNDLED-RUST.txt, generated from Cargo.lock. See THIRD_PARTY_NOTICES.md.

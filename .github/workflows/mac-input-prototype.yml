@@ -1,0 +1,52 @@
+name: Experimental Rust Mac input (not production)
+on:
+  workflow_dispatch:
+  push:
+    branches: [prototype/mac-rust-input]
+permissions:
+  contents: read
+jobs:
+  native-arm:
+    runs-on: macos-15
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Verify native platform and install fixed official Rust toolchain
+        run: |
+          test "$(uname -m)" = arm64
+          rustup toolchain install 1.97.1 --profile minimal
+          rustup override set 1.97.1
+          rustc --version
+      - name: Install existing app dependencies
+        run: npm ci
+      - name: Pure protocol tests and actual native addon build
+        run: |
+          node --test native/mac-input-prototype/adapter.test.cjs
+          node scripts/build-mac-input-prototype.mjs
+          node scripts/collect-mac-input-licenses.mjs
+      - name: Package and sign isolated prototype app
+        run: node scripts/package-mac-input-prototype.mjs
+      - name: Load actual signed addon and verify no-prompt permission/lifecycle behavior
+        run: |
+          set -euo pipefail
+          APP='release/mac-input-prototype/Whale Input Prototype.app'
+          codesign --verify --deep --strict --verbose=4 "$APP"
+          WHALE_INPUT_PROTOTYPE_REPORT="$PWD/release/mac-input-prototype/report.json" "$APP/Contents/MacOS/Electron" > release/mac-input-prototype/smoke.log 2>&1
+          cat release/mac-input-prototype/report.json
+      - name: Preserve explicit verification boundaries
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: experimental-mac-input-arm-${{ github.sha }}
+          retention-days: 7
+          path: |
+            release/mac-input-prototype/report.json
+            release/mac-input-prototype/smoke.log
+            native/mac-input-prototype/BUNDLED-RUST.txt
+            native/mac-input-prototype/build/whale-mac-input.node

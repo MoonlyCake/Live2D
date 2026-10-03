@@ -1,0 +1,28 @@
+{
+  "mode": "after",
+  "host": "linux",
+  "elapsedMs": 2004,
+  "source": "Actual native Electron callback/draw counts; no OS input capture. Not a battery or CPU-power measurement.",
+  "windows": [
+    {
+      "role": "hidden-panel",
+      "counts": {
+        "raf": 0,
+        "draw": 0
+      },
+      "backend": "CPU\u771f\u5b9e\u4e09\u89d2\u7f51\u683c\uff08\u8282\u80fd\u9650\u5e27\uff09"
+    },
+    {
+      "role": "visible-pet",
+      "counts": {
+        "raf": 22,
+        "draw": 8
+      },
+      "backend": "CPU\u771f\u5b9e\u4e09\u89d2\u7f51\u683c\uff08\u8282\u80fd\u9650\u5e27\uff09"
+    }
+  ],
+  "restoredPanel": {
+    "raf": 15,
+    "draw": 2
+  }
+}

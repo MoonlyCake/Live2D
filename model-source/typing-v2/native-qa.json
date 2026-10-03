@@ -1,0 +1,15 @@
+{
+  "editor": "Official Inochi Creator 0.8.6 Linux",
+  "source": "WhaleGirl-input.inx",
+  "checks": [
+    "Loads complete 42-Part, 44-parameter model",
+    "Neutral preserves original reference character",
+    "Native both-hand opposite keyboard extremes use positive sleeve rotation and scale",
+    "Native mouse far corner plus left button deformation loads and renders",
+    "Saved editable source through Ctrl+S"
+  ],
+  "export_status": "Official Creator File > Export > Inochi2D Puppet succeeded, 2048 atlas, separate WhaleGirl-input.inp",
+  "static_mesh_qa": "83 physical keys and 9 mouse positions: no triangle orientation inversions; independent artwork review accepted endpoints",
+  "dynamic_qa": "Application worker validating actual event-to-key/hand paths",
+  "export_runtime_regression": "Actual Creator-exported INP passed all 83 physical-key and 9 mouse endpoint poses through application triangle interpreter with zero mesh orientation inversions."
+}

@@ -1,0 +1,12 @@
+import layout from '../../../assets/keyboard.layout.json';
+import rig from '../../../assets/inochi/input-rig.json';
+import type {PhysicalInputSnapshot} from '../../shared/physical-input';
+const key=(id:string|null)=>layout.keys.find(k=>k.id===id);
+export const PHYSICAL_PARAMETERS=['ParamTypingMode','ParamTypingHandLX','ParamTypingHandLY','ParamTypingHandRX','ParamTypingHandRY','ParamTypingPressL','ParamTypingPressR','ParamTypingSleeveLAngle','ParamTypingSleeveLLength','ParamTypingSleeveRAngle','ParamTypingSleeveRLength','ParamMouseMode','ParamMouseX','ParamMouseY','ParamMouseLeft','ParamMouseRight','ParamMouseWheel','ParamMouseSleeveRAngle','ParamMouseSleeveRLength'];
+function sleeve(out:Record<string,number>,s:typeof rig.hands.L.sleeve,reference:number[],x:number,y:number,press:number){const dx=s.moving[0]+x-reference[0]-s.fixed[0],dy=s.moving[1]+y-reference[1]+press-s.fixed[1];let a=Math.atan2(dy,dx)-s.base_angle;while(a>Math.PI)a-=2*Math.PI;while(a< -Math.PI)a+=2*Math.PI;out[s.angle_parameter]=a;out[s.length_parameter]=Math.hypot(dx,dy)/s.base_length;}
+export function physicalPose(state:PhysicalInputSnapshot|undefined,enabled:boolean):Record<string,number>{
+ const left=key(state?.targets.left??null)??key(layout.home.left)!,right=key(state?.targets.right==='mouse'?null:state?.targets.right??null)??key(layout.home.right)!;const mouse=state?.mouse;const t=layout.mouse.travel,mx=mouse?t.minX+(mouse.x+1)/2*(t.maxX-t.minX):layout.mouse.home.x,my=mouse?t.minY+(mouse.y+1)/2*(t.maxY-t.minY):layout.mouse.home.y;
+ const lp=enabled&&!!state?.targets.left?1:0,rp=enabled&&!!state?.targets.right&&state.targets.right!=='mouse'?1:0;
+ const out:Record<string,number>={ParamTypingMode:enabled?1:0,ParamTyping:0,ParamTypingHandLX:left.x,ParamTypingHandLY:left.y,ParamTypingHandRX:right.x,ParamTypingHandRY:right.y,ParamTypingPressL:lp,ParamTypingPressR:rp,ParamMouseMode:enabled&&state?.targets.right==='mouse'?1:0,ParamMouseX:mx,ParamMouseY:my,ParamMouseLeft:enabled&&mouse?.buttons.left?1:0,ParamMouseRight:enabled&&mouse?.buttons.right?1:0,ParamMouseWheel:enabled?(mouse?.wheel.y||mouse?.wheel.x||0):0};
+ sleeve(out,rig.hands.L.sleeve,rig.hands.L.finger_anchor,left.x,left.y,lp*rig.hands.L.press_pixels);sleeve(out,rig.hands.R.sleeve,rig.hands.R.finger_anchor,right.x,right.y,rp*rig.hands.R.press_pixels);sleeve(out,rig.hands.mouse.sleeve,rig.hands.mouse.reference_anchor,mx,my,0);return out;
+}

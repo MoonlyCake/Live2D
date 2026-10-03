@@ -1,0 +1,27 @@
+{
+  "kind": "Synthetic hook callback timing in cloud Node; excludes native OS delivery, IPC, compositor and display latency",
+  "keyboardToPublishMs": {
+    "samples": 20,
+    "min": 0.03536400000007234,
+    "median": 0.03981999999996333,
+    "p95": 0.26165500000001884,
+    "max": 0.26165500000001884
+  },
+  "mouseEventToPublishMs": {
+    "samples": 23,
+    "min": 0.06915400000002592,
+    "median": 0.09375099999988379,
+    "p95": 0.12953600000014376,
+    "max": 0.5080769999999575
+  },
+  "idle": {
+    "durationMs": 1101.33174,
+    "osPointerPolls": 1
+  },
+  "continuousSameHand": {
+    "from": "KeyA",
+    "to": "KeyF",
+    "deltaSourcePixels": 84,
+    "intermediateFrames": 0
+  }
+}

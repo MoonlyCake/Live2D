@@ -1,0 +1,775 @@
+{
+  "status": "passed",
+  "model": "assets/inochi/WhaleGirl.inp",
+  "cases": 85,
+  "backend": "CPU actual triangle rasterizer",
+  "syntheticPhysicalStates": true,
+  "notNativeKeyboardCapture": true,
+  "evidence": [
+    {
+      "name": "Backquote",
+      "left": "Backquote",
+      "right": null,
+      "handLX": 389,
+      "handLY": 865,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "Digit1",
+      "left": "Digit1",
+      "right": null,
+      "handLX": 417,
+      "handLY": 865,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "Digit2",
+      "left": "Digit2",
+      "right": null,
+      "handLX": 445,
+      "handLY": 865,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "Digit3",
+      "left": "Digit3",
+      "right": null,
+      "handLX": 473,
+      "handLY": 865,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "Digit4",
+      "left": "Digit4",
+      "right": null,
+      "handLX": 501,
+      "handLY": 865,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "Digit5",
+      "left": "Digit5",
+      "right": null,
+      "handLX": 529,
+      "handLY": 865,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "Digit6",
+      "left": "Digit6",
+      "right": null,
+      "handLX": 557,
+      "handLY": 865,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "Digit7",
+      "left": null,
+      "right": "Digit7",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 585,
+      "handRY": 865
+    },
+    {
+      "name": "Digit8",
+      "left": null,
+      "right": "Digit8",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 613,
+      "handRY": 865
+    },
+    {
+      "name": "Digit9",
+      "left": null,
+      "right": "Digit9",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 641,
+      "handRY": 865
+    },
+    {
+      "name": "Digit0",
+      "left": null,
+      "right": "Digit0",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 669,
+      "handRY": 865
+    },
+    {
+      "name": "Minus",
+      "left": null,
+      "right": "Minus",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 697,
+      "handRY": 865
+    },
+    {
+      "name": "Equal",
+      "left": null,
+      "right": "Equal",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 725,
+      "handRY": 865
+    },
+    {
+      "name": "Backspace",
+      "left": null,
+      "right": "Backspace",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 767,
+      "handRY": 865
+    },
+    {
+      "name": "Tab",
+      "left": "Tab",
+      "right": null,
+      "handLX": 396,
+      "handLY": 887,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyQ",
+      "left": "KeyQ",
+      "right": null,
+      "handLX": 431,
+      "handLY": 887,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyW",
+      "left": "KeyW",
+      "right": null,
+      "handLX": 459,
+      "handLY": 887,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyE",
+      "left": "KeyE",
+      "right": null,
+      "handLX": 487,
+      "handLY": 887,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyR",
+      "left": "KeyR",
+      "right": null,
+      "handLX": 515,
+      "handLY": 887,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyT",
+      "left": "KeyT",
+      "right": null,
+      "handLX": 543,
+      "handLY": 887,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyY",
+      "left": null,
+      "right": "KeyY",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 571,
+      "handRY": 887
+    },
+    {
+      "name": "KeyU",
+      "left": null,
+      "right": "KeyU",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 599,
+      "handRY": 887
+    },
+    {
+      "name": "KeyI",
+      "left": null,
+      "right": "KeyI",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 627,
+      "handRY": 887
+    },
+    {
+      "name": "KeyO",
+      "left": null,
+      "right": "KeyO",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 655,
+      "handRY": 887
+    },
+    {
+      "name": "KeyP",
+      "left": null,
+      "right": "KeyP",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 683,
+      "handRY": 887
+    },
+    {
+      "name": "BracketLeft",
+      "left": null,
+      "right": "BracketLeft",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 711,
+      "handRY": 887
+    },
+    {
+      "name": "BracketRight",
+      "left": null,
+      "right": "BracketRight",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 739,
+      "handRY": 887
+    },
+    {
+      "name": "Backslash",
+      "left": null,
+      "right": "Backslash",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 774,
+      "handRY": 887
+    },
+    {
+      "name": "CapsLock",
+      "left": "CapsLock",
+      "right": null,
+      "handLX": 399.5,
+      "handLY": 909,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyA",
+      "left": "KeyA",
+      "right": null,
+      "handLX": 438,
+      "handLY": 909,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyS",
+      "left": "KeyS",
+      "right": null,
+      "handLX": 466,
+      "handLY": 909,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyD",
+      "left": "KeyD",
+      "right": null,
+      "handLX": 494,
+      "handLY": 909,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyF",
+      "left": "KeyF",
+      "right": null,
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyG",
+      "left": "KeyG",
+      "right": null,
+      "handLX": 550,
+      "handLY": 909,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyH",
+      "left": null,
+      "right": "KeyH",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 578,
+      "handRY": 909
+    },
+    {
+      "name": "KeyJ",
+      "left": null,
+      "right": "KeyJ",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyK",
+      "left": null,
+      "right": "KeyK",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 634,
+      "handRY": 909
+    },
+    {
+      "name": "KeyL",
+      "left": null,
+      "right": "KeyL",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 662,
+      "handRY": 909
+    },
+    {
+      "name": "Semicolon",
+      "left": null,
+      "right": "Semicolon",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 690,
+      "handRY": 909
+    },
+    {
+      "name": "Quote",
+      "left": null,
+      "right": "Quote",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 718,
+      "handRY": 909
+    },
+    {
+      "name": "Enter",
+      "left": null,
+      "right": "Enter",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 763.5,
+      "handRY": 909
+    },
+    {
+      "name": "ShiftLeft",
+      "left": "ShiftLeft",
+      "right": null,
+      "handLX": 406.5,
+      "handLY": 931,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyZ",
+      "left": "KeyZ",
+      "right": null,
+      "handLX": 452,
+      "handLY": 931,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyX",
+      "left": "KeyX",
+      "right": null,
+      "handLX": 480,
+      "handLY": 931,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyC",
+      "left": "KeyC",
+      "right": null,
+      "handLX": 508,
+      "handLY": 931,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyV",
+      "left": "KeyV",
+      "right": null,
+      "handLX": 536,
+      "handLY": 931,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "KeyB",
+      "left": null,
+      "right": "KeyB",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 564,
+      "handRY": 931
+    },
+    {
+      "name": "KeyN",
+      "left": null,
+      "right": "KeyN",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 592,
+      "handRY": 931
+    },
+    {
+      "name": "KeyM",
+      "left": null,
+      "right": "KeyM",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 620,
+      "handRY": 931
+    },
+    {
+      "name": "Comma",
+      "left": null,
+      "right": "Comma",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 648,
+      "handRY": 931
+    },
+    {
+      "name": "Period",
+      "left": null,
+      "right": "Period",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 676,
+      "handRY": 931
+    },
+    {
+      "name": "Slash",
+      "left": null,
+      "right": "Slash",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 704,
+      "handRY": 931
+    },
+    {
+      "name": "ShiftRight",
+      "left": null,
+      "right": "ShiftRight",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 756.5,
+      "handRY": 931
+    },
+    {
+      "name": "ControlLeft",
+      "left": "ControlLeft",
+      "right": null,
+      "handLX": 396,
+      "handLY": 953,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "AltLeft",
+      "left": "AltLeft",
+      "right": null,
+      "handLX": 434.5,
+      "handLY": 953,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "MetaLeft",
+      "left": "MetaLeft",
+      "right": null,
+      "handLX": 473,
+      "handLY": 953,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "Space",
+      "left": "Space",
+      "right": null,
+      "handLX": 585,
+      "handLY": 953,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "MetaRight",
+      "left": null,
+      "right": "MetaRight",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 697,
+      "handRY": 953
+    },
+    {
+      "name": "AltRight",
+      "left": null,
+      "right": "AltRight",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 735.5,
+      "handRY": 953
+    },
+    {
+      "name": "ControlRight",
+      "left": null,
+      "right": "ControlRight",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 774,
+      "handRY": 953
+    },
+    {
+      "name": "Escape",
+      "left": "Escape",
+      "right": null,
+      "handLX": 389,
+      "handLY": 839,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "F1",
+      "left": "F1",
+      "right": null,
+      "handLX": 431,
+      "handLY": 839,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "F2",
+      "left": "F2",
+      "right": null,
+      "handLX": 461,
+      "handLY": 839,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "F3",
+      "left": "F3",
+      "right": null,
+      "handLX": 491,
+      "handLY": 839,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "F4",
+      "left": "F4",
+      "right": null,
+      "handLX": 521,
+      "handLY": 839,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "F5",
+      "left": "F5",
+      "right": null,
+      "handLX": 551,
+      "handLY": 839,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "F6",
+      "left": null,
+      "right": "F6",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 581,
+      "handRY": 839
+    },
+    {
+      "name": "F7",
+      "left": null,
+      "right": "F7",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 611,
+      "handRY": 839
+    },
+    {
+      "name": "F8",
+      "left": null,
+      "right": "F8",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 641,
+      "handRY": 839
+    },
+    {
+      "name": "F9",
+      "left": null,
+      "right": "F9",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 671,
+      "handRY": 839
+    },
+    {
+      "name": "F10",
+      "left": null,
+      "right": "F10",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 701,
+      "handRY": 839
+    },
+    {
+      "name": "F11",
+      "left": null,
+      "right": "F11",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 731,
+      "handRY": 839
+    },
+    {
+      "name": "F12",
+      "left": null,
+      "right": "F12",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 761,
+      "handRY": 839
+    },
+    {
+      "name": "Insert",
+      "left": null,
+      "right": "Insert",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 828,
+      "handRY": 865
+    },
+    {
+      "name": "Home",
+      "left": null,
+      "right": "Home",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 857,
+      "handRY": 865
+    },
+    {
+      "name": "PageUp",
+      "left": null,
+      "right": "PageUp",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 886,
+      "handRY": 865
+    },
+    {
+      "name": "Delete",
+      "left": null,
+      "right": "Delete",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 828,
+      "handRY": 887
+    },
+    {
+      "name": "End",
+      "left": null,
+      "right": "End",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 857,
+      "handRY": 887
+    },
+    {
+      "name": "PageDown",
+      "left": null,
+      "right": "PageDown",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 886,
+      "handRY": 887
+    },
+    {
+      "name": "ArrowUp",
+      "left": null,
+      "right": "ArrowUp",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 857,
+      "handRY": 931
+    },
+    {
+      "name": "ArrowLeft",
+      "left": null,
+      "right": "ArrowLeft",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 828,
+      "handRY": 953
+    },
+    {
+      "name": "ArrowDown",
+      "left": null,
+      "right": "ArrowDown",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 857,
+      "handRY": 953
+    },
+    {
+      "name": "ArrowRight",
+      "left": null,
+      "right": "ArrowRight",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 886,
+      "handRY": 953
+    },
+    {
+      "name": "mouse-left",
+      "left": null,
+      "right": "mouse",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 606,
+      "handRY": 909
+    },
+    {
+      "name": "mouse-right-wheel",
+      "left": null,
+      "right": "mouse",
+      "handLX": 522,
+      "handLY": 909,
+      "handRX": 606,
+      "handRY": 909
+    }
+  ]
+}

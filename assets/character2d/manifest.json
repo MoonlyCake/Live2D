@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "base": "body.png",
+  "design": {
+    "width": 1254,
+    "height": 1254
+  },
+  "face": [
+    0.505,
+    0.421,
+    0.3,
+    0.18
+  ],
+  "anchor": [
+    0.5,
+    0.991228
+  ],
+  "sprites": {
+    "neutral": {
+      "file": "body.png",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ]
+    },
+    "happy": {
+      "file": "moods-atlas.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "scale": 1.012568,
+      "offset": [
+        -0.010271,
+        -0.002839
+      ]
+    },
+    "shy": {
+      "file": "moods-atlas.png",
+      "rect": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "scale": 1.016634,
+      "offset": [
+        0.008545,
+        -0.004801
+      ]
+    },
+    "aggrieved": {
+      "file": "moods-atlas.png",
+      "rect": [
+        1024,
+        0,
+        512,
+        512
+      ],
+      "scale": 1.014597,
+      "offset": [
+        0.010512,
+        -0.004809
+      ]
+    },
+    "sleepy": {
+      "file": "moods-atlas.png",
+      "rect": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "scale": 1.016634,
+      "offset": [
+        -0.033153,
+        0.011084
+      ]
+    },
+    "unimpressed": {
+      "file": "moods-atlas.png",
+      "rect": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "scale": 1.014597,
+      "offset": [
+        0.014476,
+        0.011044
+      ]
+    },
+    "blink": {
+      "file": "moods-atlas.png",
+      "rect": [
+        1024,
+        512,
+        512,
+        512
+      ],
+      "scale": 1.020734,
+      "offset": [
+        0.011563,
+        0.011164
+      ]
+    },
+    "eat": {
+      "file": "rice-atlas.png",
+      "rect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "scale": 1.006494,
+      "offset": [
+        -0.019273,
+        -0.002351
+      ]
+    },
+    "bite": {
+      "file": "rice-atlas.png",
+      "rect": [
+        627,
+        0,
+        627,
+        627
+      ],
+      "scale": 1.001616,
+      "offset": [
+        0.014375,
+        -0.00398
+      ]
+    },
+    "chew": {
+      "file": "rice-atlas.png",
+      "rect": [
+        0,
+        627,
+        627,
+        627
+      ],
+      "scale": 1.019737,
+      "offset": [
+        -0.031746,
+        0.009118
+      ]
+    },
+    "caught": {
+      "file": "rice-atlas.png",
+      "rect": [
+        627,
+        627,
+        627,
+        627
+      ],
+      "scale": 1.006494,
+      "offset": [
+        0.008016,
+        0.00407
+      ]
+    },
+    "typing": {
+      "file": "interaction-atlas-v2.png",
+      "rect": [
+        95,
+        103,
+        471,
+        471
+      ],
+      "scale": 1.005921,
+      "offset": [
+        0.001595,
+        -0.000229
+      ]
+    },
+    "typingAlt": {
+      "file": "interaction-atlas-v2.png",
+      "rect": [
+        688,
+        102,
+        471,
+        471
+      ],
+      "scale": 1.005921,
+      "offset": [
+        0.001595,
+        -0.000229
+      ]
+    },
+    "music": {
+      "file": "interaction-atlas-v2.png",
+      "rect": [
+        109,
+        692,
+        470,
+        470
+      ],
+      "scale": 1.005958,
+      "offset": [
+        0.000525,
+        -0.000211
+      ]
+    },
+    "musicAlt": {
+      "file": "interaction-atlas-v2.png",
+      "rect": [
+        676,
+        691,
+        475,
+        475
+      ],
+      "scale": 1.005775,
+      "offset": [
+        0.000536,
+        -0.000302
+      ]
+    },
+    "wave": {
+      "file": "moods-atlas.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "scale": 1.012568,
+      "offset": [
+        -0.010271,
+        -0.002839
+      ]
+    }
+  },
+  "artworkType": "ordinary-2d-raster-atlas",
+  "notes": "Generated PNG artwork. A sprite atlas does not constitute a Cubism model or moc3 file."
+}

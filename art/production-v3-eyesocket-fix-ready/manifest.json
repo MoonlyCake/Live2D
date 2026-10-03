@@ -1,0 +1,47 @@
+{
+  "status": "Native Creator full 35-texture model visually passed EyeOpen .25/.5/.75: original blue arc gone, round iris naturally occluded.",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "method": "Fill disconnected accidental holes in EyeSocket with corresponding already-generated FaceBase skin; retain central eye aperture and all other frozen art. No whole-face redraw.",
+  "source": "../production-v3-core-ready",
+  "layers": [
+    {
+      "name": "EyeSocketL",
+      "file": "EyeSocketL.png",
+      "sha256": "f17bec88dc5cbc10fa2b28453571cf5ebd599c04f4405acf389e7046bc45fd04",
+      "filled_pixels": 978,
+      "retained_aperture_bbox": [
+        437,
+        494,
+        585,
+        592
+      ]
+    },
+    {
+      "name": "EyeSocketR",
+      "file": "EyeSocketR.png",
+      "sha256": "764fd1a9d32a2dc2beb812bba40f768e3f85c6adfb3109edcfe9ff5e914994a0",
+      "filled_pixels": 716,
+      "retained_aperture_bbox": [
+        657,
+        464,
+        797,
+        566
+      ]
+    }
+  ],
+  "binding": "Replace only EyeSocketL/R textures, same canvas coordinates and ordinary alpha; rebuild their meshes from candidate alpha bbox. Frozen layers not changed.",
+  "frozen": true,
+  "validation": {
+    "by": "complete_native_live2d_model",
+    "time_utc": "2026-10-03T16:06:28Z",
+    "method": "Actual Creator window, not SaveScreenshot alpha-bug export",
+    "reported_checks": [
+      0.25,
+      0.5,
+      0.75
+    ]
+  }
+}

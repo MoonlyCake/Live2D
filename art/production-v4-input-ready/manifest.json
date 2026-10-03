@@ -1,0 +1,234 @@
+{
+  "status": "Production input artwork frozen after home-pose composition review. Native key/mouse motion integration and all-target reach checks still pending.",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "layers": [
+    {
+      "name": "TypingHandL",
+      "file": "layers/TypingHandL.png",
+      "sha256": "4b1494ab3cfafdfd6246240293fd5492375f1c41ef27b30ed9ed8c3ef6b633be",
+      "bbox": [
+        483,
+        811,
+        553,
+        911
+      ]
+    },
+    {
+      "name": "TypingSleeveBridgeL",
+      "file": "layers/TypingSleeveBridgeL.png",
+      "sha256": "75a807d2b3dc598c3c773bbca914900506d95eb98fa7aa6691623ece3c062500",
+      "bbox": [
+        440,
+        776,
+        530,
+        865
+      ]
+    },
+    {
+      "name": "TypingHandR",
+      "file": "layers/TypingHandR.png",
+      "sha256": "5977ff264f527756d7af0ce8e9f9ccae547004e6fb7658ef7128735c83187958",
+      "bbox": [
+        575,
+        810,
+        645,
+        910
+      ]
+    },
+    {
+      "name": "TypingSleeveBridgeR",
+      "file": "layers/TypingSleeveBridgeR.png",
+      "sha256": "c95d7092a2bb526d5565cc0931bb979f18882422ce7dbf880acce3e41d64c9fe",
+      "bbox": [
+        594,
+        770,
+        813,
+        865
+      ]
+    },
+    {
+      "name": "MouseHandR",
+      "file": "layers/MouseHandR.png",
+      "sha256": "23e88d5041c50416580f5cd99ec5b51341893851cb36135b2cae9eb63eb5ddeb",
+      "bbox": [
+        920,
+        855,
+        993,
+        951
+      ]
+    },
+    {
+      "name": "MouseSleeveBridgeR",
+      "file": "layers/MouseSleeveBridgeR.png",
+      "sha256": "5b9dc5601c84730d55235c0a8e37b604d58328535d9378a0500782b2369337d7",
+      "bbox": [
+        796,
+        772,
+        981,
+        893
+      ]
+    }
+  ],
+  "hands": {
+    "L": {
+      "finger_anchor": [
+        522.0,
+        909.0
+      ],
+      "wrist_anchor": [
+        519.12,
+        858.36
+      ],
+      "upper_fixed_anchor": [
+        451.0,
+        795.0
+      ],
+      "bridge_moving_anchor": [
+        520.8,
+        825.24
+      ],
+      "hand_layer": "TypingHandL",
+      "bridge_layer": "TypingSleeveBridgeL",
+      "deform": {
+        "method": "Rigid bridge rotation about upper_fixed_anchor plus axial length scaling to bridge_moving_anchor; runtime computes endpoint delta from hand target. Preserve transverse cloth width. Do not use additive XY weighted deformation, which caused extreme-key mesh inversion.",
+        "hand": "Rigid XY translation to exact key center; no hand/palm scaling.",
+        "overlap": "Bridge connects at bridge_moving_anchor (cuff top), not wrist_anchor. Upper cloth overlaps original UpperArm. Keyboard covers bridge beneath front edge."
+      },
+      "press_travel": [
+        0,
+        4
+      ]
+    },
+    "R": {
+      "finger_anchor": [
+        606.0,
+        909.0
+      ],
+      "wrist_anchor": [
+        609.5999999999999,
+        858.12
+      ],
+      "upper_fixed_anchor": [
+        803.0,
+        795.0
+      ],
+      "bridge_moving_anchor": [
+        607.92,
+        825.0
+      ],
+      "hand_layer": "TypingHandR",
+      "bridge_layer": "TypingSleeveBridgeR",
+      "deform": {
+        "method": "Rigid bridge rotation about upper_fixed_anchor plus axial length scaling to bridge_moving_anchor; runtime computes endpoint delta from hand target. Preserve transverse cloth width. Do not use additive XY weighted deformation, which caused extreme-key mesh inversion.",
+        "hand": "Rigid XY translation to exact key center; no hand/palm scaling.",
+        "overlap": "Bridge connects at bridge_moving_anchor (cuff top), not wrist_anchor. Upper cloth overlaps original UpperArm. Keyboard covers bridge beneath front edge."
+      },
+      "press_travel": [
+        0,
+        4
+      ]
+    }
+  },
+  "source": "raw/TypingArms.png",
+  "source_method": "Built-in imagegen matching original navy/gold/white whale maid costume, exact affine registration and transparent layer segmentation.",
+  "visibility": "TypingHand replaces original ForearmHand on same side. Rice, idle, typing and mouse hand groups must be mutually exclusive on each side.",
+  "draw_order": "Original girl torso/upper arms -> typing or mouse sleeve bridges -> runtime keyboard and mouse/pad -> active rigid hands. Idle/eating/typing/mouse anatomy mutually exclusive per side.",
+  "limits": "Hands remain rigid except optional small finger press. Only sleeve cloth extends; no palm stretching. Test actual all-key endpoints; crossing extreme opposite-side bounds not approved.",
+  "mouse": {
+    "reference_anchor": [
+      955.0,
+      921.0
+    ],
+    "reference_meaning": "Mouse body center under palm, not fingertip. Fingers face toward canvas bottom.",
+    "wrist_anchor": [
+      954.49,
+      899.41
+    ],
+    "upper_fixed_anchor": [
+      803.0,
+      795.0
+    ],
+    "bridge_moving_anchor": [
+      956.7,
+      868.98
+    ],
+    "left_finger_anchor": [
+      942.9300000000001,
+      949.22
+    ],
+    "right_finger_anchor": [
+      954.49,
+      948.71
+    ],
+    "hand_layer": "MouseHandR",
+    "bridge_layer": "MouseSleeveBridgeR",
+    "left_finger_deform_region": {
+      "center": [
+        942.9300000000001,
+        940.38
+      ],
+      "radius": [
+        9,
+        15
+      ]
+    },
+    "right_finger_deform_region": {
+      "center": [
+        954.49,
+        939.53
+      ],
+      "radius": [
+        9,
+        15
+      ]
+    },
+    "deform": "Same anchored bridge axis rotation and longitudinal scale as typing; mouse palm rigid XY. Left/right distal finger regions may deform locally 2-4 source pixels for button/wheel feedback.",
+    "travel": {
+      "minX": 938,
+      "maxX": 1002,
+      "minY": 897,
+      "maxY": 957
+    },
+    "suggested_mouse_body": {
+      "center": [
+        955.0,
+        921.0
+      ],
+      "width": 58,
+      "height": 70,
+      "orientation": "button end points toward canvas bottom"
+    },
+    "visibility": "Hide original ForearmHandR, TypingHandR/bridge and all right rice hand assets when mouse right hand active. Left hand remains typing if keyboard visible."
+  },
+  "frozen": true,
+  "source_provenance": [
+    {
+      "file": "raw/TypingArms.png",
+      "sha256": "909da73251295eecfb10f91b4f4bb1dfdda6e0dd20cbc1694e53d6bf49bd9220",
+      "generator": "built-in imagegen",
+      "description": "Reference-preserving isolated chibi navy/gold/white maid forearms and hands; generated transparency retained. Local mask separation and affine registration into1254 canvas."
+    },
+    {
+      "file": "raw/MouseArm.png",
+      "sha256": "56d4ac394dd3d4dafe4de07d6ff07f3e775df698a1a7122e9fb3f681afcc6832",
+      "generator": "built-in imagegen",
+      "description": "Reference-preserving isolated chibi navy/gold/white maid forearms and hands; generated transparency retained. Local mask separation and affine registration into1254 canvas."
+    }
+  ],
+  "qa": {
+    "checked": "Static home F(522,909), J(606,909), mouse center(955,921), original identity/costume and exactly two hands",
+    "pending": [
+      "native all83 key contact and sleeve reach",
+      "native mouse extrema and click/wheel finger deformation",
+      "event-driven app integration"
+    ],
+    "previews": [
+      "qa/typing-home.png",
+      "qa/mouse-home.png"
+    ],
+    "keyboard_art_note": "Preview keyboard/mouse are geometric QA placeholders based on actual layout; runtime engineer owns final code-generated props."
+  }
+}

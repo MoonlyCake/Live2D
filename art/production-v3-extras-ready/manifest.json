@@ -1,0 +1,189 @@
+{
+  "version": "production-v3-extras",
+  "frozen": true,
+  "canvas": [
+    1254,
+    1254
+  ],
+  "requires_core": "../production-v3-core-ready/manifest.json",
+  "status": "artwork reviewed at 320px; native bindings and runtime transitions still require validation",
+  "layers": [
+    {
+      "name": "RiceElbowBridgeL",
+      "file": "layers/RiceElbowBridgeL.png",
+      "default_visible": false,
+      "sha256": "985b3237f448ef55a92987f550cf1a5c3e5c61c1059591e082daad38afadf5a4"
+    },
+    {
+      "name": "RiceElbowBridgeR",
+      "file": "layers/RiceElbowBridgeR.png",
+      "default_visible": false,
+      "sha256": "0f54f6123da923fee682bd047f6c6aff111d27a9c33cd328e951585aed4c7c7d"
+    },
+    {
+      "name": "RiceHoldingArmBowl",
+      "file": "layers/RiceHoldingArmBowl.png",
+      "default_visible": false,
+      "sha256": "2a8e56bf612ebf68bbb666db299ebbbbe9e7601f61364f9fc6b9181596899cc5"
+    },
+    {
+      "name": "RiceSpoonArmEmpty",
+      "file": "layers/RiceSpoonArmEmpty.png",
+      "default_visible": false,
+      "sha256": "cdda8687507deac30c2dcb790daf4906d4e3f93ff340f42539e102eff85ab803"
+    },
+    {
+      "name": "RiceBite",
+      "file": "layers/RiceBite.png",
+      "default_visible": false,
+      "sha256": "b09cc9dfec0ba2519db0aaef2d11962380e3480f61b62b0f18545c04cbaf9f0d"
+    },
+    {
+      "name": "MouthAggrieved",
+      "file": "layers/MouthAggrieved.png",
+      "default_visible": false,
+      "sha256": "ff4d67f28f1f53e0e880e24fc1de5a86fc30d3444ebfa3a58920746e7eca40d4"
+    },
+    {
+      "name": "MouthUnimpressed",
+      "file": "layers/MouthUnimpressed.png",
+      "default_visible": false,
+      "sha256": "be81f1f8f2a013f3c35ebb1da1c945074f54fc34f49f7887763226b017d35acc"
+    },
+    {
+      "name": "MouthShy",
+      "file": "layers/MouthShy.png",
+      "default_visible": false,
+      "sha256": "e4c89fe68e31be07d53dca8a1e5d18d4ac1db087af09bf4ffd3489e4352fa20f"
+    },
+    {
+      "name": "BlushL",
+      "file": "layers/BlushL.png",
+      "default_visible": false,
+      "sha256": "3972d34ee987da3773f10f907aea9e98798b253ad69730f29077419bc696284d"
+    },
+    {
+      "name": "BlushR",
+      "file": "layers/BlushR.png",
+      "default_visible": false,
+      "sha256": "1edde4ad378bbe0d86c3f313fab56554a27461032aebfa9fa84e57670ef76f53"
+    },
+    {
+      "name": "TearL",
+      "file": "layers/TearL.png",
+      "default_visible": false,
+      "sha256": "712743742fdcf3175a171061a3c06f2a52cec0656bac98f4e73bd5bd5c98b3c0"
+    },
+    {
+      "name": "TearR",
+      "file": "layers/TearR.png",
+      "default_visible": false,
+      "sha256": "f482cef9d2bd2de73b8c5ff23ba4a3c71981845d3c1072bac2bb2d2ce06d386c"
+    }
+  ],
+  "rice": {
+    "left_group": "RiceHoldingArmBowl",
+    "right_group": "RiceSpoonArmEmpty",
+    "removable_food": "RiceBite",
+    "elbow_overlap": [
+      "RiceElbowBridgeL",
+      "RiceElbowBridgeR"
+    ],
+    "right_pivot": [
+      793,
+      783
+    ],
+    "RiceArm_rotation_degrees": {
+      "0_pickup": 34,
+      "1_mouth": 0
+    },
+    "pose_coordinate_convention": "Pillow positive rotation is counterclockwise; adjust sign to native coordinate convention and match the QA pose images.",
+    "drawing_order": [
+      "core BackHair/Tail/BodyUnderpaint",
+      "core UpperArmL/R",
+      "RiceElbowBridgeL/R",
+      "core BodyFrontOriginal",
+      "RiceHoldingArmBowl",
+      "core Face/eyes/mouth/hair/ahoge",
+      "RiceSpoonArmEmpty",
+      "RiceBite"
+    ],
+    "visibility_rule": "Exactly two hands: hide both core ForearmHandL/R whenever rice alternate arms are visible. Keep core UpperArms. Use exclusive switching, not overlapping idle/rice limb cross-fades.",
+    "food_rule": "RiceBite shares all right-arm/spoon transforms; hide food after it reaches mouth to reveal silver spoon underpainting. Restore food near bowl.",
+    "rice_is_white": true,
+    "qa_poses": [
+      "qa/rice_at_bowl.png",
+      "qa/rice_at_mouth.png",
+      "qa/rice_bite_eaten.png"
+    ]
+  },
+  "moods": {
+    "Happy": {
+      "eye_open": 1.0,
+      "mouth": "core MouthOpen",
+      "extras": []
+    },
+    "Shy": {
+      "eye_open": 0.82,
+      "mouth": "MouthShy",
+      "extras": [
+        "BlushL",
+        "BlushR"
+      ]
+    },
+    "Aggrieved": {
+      "eye_open": 0.65,
+      "mouth": "MouthAggrieved",
+      "extras": [
+        "TearL",
+        "TearR"
+      ]
+    },
+    "Sleepy": {
+      "eye_open": 0.25,
+      "mouth": "MouthUnimpressed",
+      "extras": []
+    },
+    "Unimpressed": {
+      "eye_open": 0.5,
+      "mouth": "MouthUnimpressed",
+      "extras": []
+    }
+  },
+  "mouth_pivot": [
+    626,
+    599
+  ],
+  "eye_pivots": {
+    "L": [
+      517,
+      545
+    ],
+    "R": [
+      720,
+      515
+    ]
+  },
+  "cheek_puff_suggestion": {
+    "requires_native_mesh_not_new_texture": true,
+    "centers": [
+      [
+        476,
+        591
+      ],
+      [
+        757,
+        569
+      ]
+    ],
+    "initial_displacement_limit_source_pixels": 3
+  },
+  "limits": [
+    "Mood QA uses composed endpoint transforms for visual guidance, not native motion validation; inspect in-between eyelids and iris behavior.",
+    "Sleepy is not the sleep lock: actual sleep must force core closed-eye parts and suppress rice/audio/input mouth animation.",
+    "Rice group includes bowl, left hand and sleeve together; do not claim independently rigged bowl-front/rice-back anatomy.",
+    "Generated hidden body/arm fill supports only reviewed modest movement ranges.",
+    "Do not overwrite the frozen core or extras directories during binding."
+  ],
+  "provenance": "Rice group, empty silver spoon, blush and tears generated from supplied whale-girl design references. Three extra mouth shapes extracted from original supplied reference expressions and registered to the existing face. All pieces share the 1254-square canvas."
+}

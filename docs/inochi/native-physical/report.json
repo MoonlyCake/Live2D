@@ -1,0 +1,11 @@
+{
+  "host": "linux",
+  "source": "Actual production uiohook + OS desktop events, not input:test",
+  "nativeKeyDown": true,
+  "nativeKeyUp": true,
+  "mouseMoved": true,
+  "mouseClick": true,
+  "keyboardObserved": true,
+  "coarseKeyboardCount": 3,
+  "modelCapability": true
+}

@@ -1,0 +1,882 @@
+{
+  "version": 1,
+  "name": "Mac-labelled ANSI 83 physical-key view",
+  "canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "bounds": {
+    "x": 360,
+    "y": 820,
+    "width": 550,
+    "height": 210
+  },
+  "coordinateMeaning": "Key centers and fingertip targets in original1254 canvas pixels; model origin subtracts627. Press adds4px downward.",
+  "unsupported": [
+    "Fn/Globe",
+    "Pause",
+    "PrintScreen",
+    "ScrollLock",
+    "ContextMenu",
+    "ISO extra key",
+    "JIS keys",
+    "Numpad",
+    "media/brightness/touchbar keys"
+  ],
+  "keys": [
+    {
+      "id": "Backquote",
+      "nativeCode": 41,
+      "labelMac": "`",
+      "x": 389.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "Digit1",
+      "nativeCode": 2,
+      "labelMac": "1",
+      "x": 417.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "Digit2",
+      "nativeCode": 3,
+      "labelMac": "2",
+      "x": 445.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "Digit3",
+      "nativeCode": 4,
+      "labelMac": "3",
+      "x": 473.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "Digit4",
+      "nativeCode": 5,
+      "labelMac": "4",
+      "x": 501.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "Digit5",
+      "nativeCode": 6,
+      "labelMac": "5",
+      "x": 529.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "Digit6",
+      "nativeCode": 7,
+      "labelMac": "6",
+      "x": 557.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "Digit7",
+      "nativeCode": 8,
+      "labelMac": "7",
+      "x": 585.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Digit8",
+      "nativeCode": 9,
+      "labelMac": "8",
+      "x": 613.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Digit9",
+      "nativeCode": 10,
+      "labelMac": "9",
+      "x": 641.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Digit0",
+      "nativeCode": 11,
+      "labelMac": "0",
+      "x": 669.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Minus",
+      "nativeCode": 12,
+      "labelMac": "−",
+      "x": 697.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Equal",
+      "nativeCode": 13,
+      "labelMac": "=",
+      "x": 725.0,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Backspace",
+      "nativeCode": 14,
+      "labelMac": "⌫",
+      "x": 767.0,
+      "y": 865,
+      "width": 54,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Tab",
+      "nativeCode": 15,
+      "labelMac": "⇥",
+      "x": 396.0,
+      "y": 887,
+      "width": 40.0,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyQ",
+      "nativeCode": 16,
+      "labelMac": "Q",
+      "x": 431.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyW",
+      "nativeCode": 17,
+      "labelMac": "W",
+      "x": 459.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyE",
+      "nativeCode": 18,
+      "labelMac": "E",
+      "x": 487.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyR",
+      "nativeCode": 19,
+      "labelMac": "R",
+      "x": 515.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyT",
+      "nativeCode": 20,
+      "labelMac": "T",
+      "x": 543.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyY",
+      "nativeCode": 21,
+      "labelMac": "Y",
+      "x": 571.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "KeyU",
+      "nativeCode": 22,
+      "labelMac": "U",
+      "x": 599.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "KeyI",
+      "nativeCode": 23,
+      "labelMac": "I",
+      "x": 627.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "KeyO",
+      "nativeCode": 24,
+      "labelMac": "O",
+      "x": 655.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "KeyP",
+      "nativeCode": 25,
+      "labelMac": "P",
+      "x": 683.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "BracketLeft",
+      "nativeCode": 26,
+      "labelMac": "[",
+      "x": 711.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "BracketRight",
+      "nativeCode": 27,
+      "labelMac": "]",
+      "x": 739.0,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Backslash",
+      "nativeCode": 43,
+      "labelMac": "\\",
+      "x": 774.0,
+      "y": 887,
+      "width": 40.0,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "CapsLock",
+      "nativeCode": 58,
+      "labelMac": "⇪",
+      "x": 399.5,
+      "y": 909,
+      "width": 47.0,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyA",
+      "nativeCode": 30,
+      "labelMac": "A",
+      "x": 438.0,
+      "y": 909,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyS",
+      "nativeCode": 31,
+      "labelMac": "S",
+      "x": 466.0,
+      "y": 909,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyD",
+      "nativeCode": 32,
+      "labelMac": "D",
+      "x": 494.0,
+      "y": 909,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyF",
+      "nativeCode": 33,
+      "labelMac": "F",
+      "x": 522.0,
+      "y": 909,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyG",
+      "nativeCode": 34,
+      "labelMac": "G",
+      "x": 550.0,
+      "y": 909,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyH",
+      "nativeCode": 35,
+      "labelMac": "H",
+      "x": 578.0,
+      "y": 909,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "KeyJ",
+      "nativeCode": 36,
+      "labelMac": "J",
+      "x": 606.0,
+      "y": 909,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "KeyK",
+      "nativeCode": 37,
+      "labelMac": "K",
+      "x": 634.0,
+      "y": 909,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "KeyL",
+      "nativeCode": 38,
+      "labelMac": "L",
+      "x": 662.0,
+      "y": 909,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Semicolon",
+      "nativeCode": 39,
+      "labelMac": ";",
+      "x": 690.0,
+      "y": 909,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Quote",
+      "nativeCode": 40,
+      "labelMac": "'",
+      "x": 718.0,
+      "y": 909,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Enter",
+      "nativeCode": 28,
+      "labelMac": "↩",
+      "x": 763.5,
+      "y": 909,
+      "width": 61.0,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "ShiftLeft",
+      "nativeCode": 42,
+      "labelMac": "⇧",
+      "x": 406.5,
+      "y": 931,
+      "width": 61.0,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyZ",
+      "nativeCode": 44,
+      "labelMac": "Z",
+      "x": 452.0,
+      "y": 931,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyX",
+      "nativeCode": 45,
+      "labelMac": "X",
+      "x": 480.0,
+      "y": 931,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyC",
+      "nativeCode": 46,
+      "labelMac": "C",
+      "x": 508.0,
+      "y": 931,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyV",
+      "nativeCode": 47,
+      "labelMac": "V",
+      "x": 536.0,
+      "y": 931,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "KeyB",
+      "nativeCode": 48,
+      "labelMac": "B",
+      "x": 564.0,
+      "y": 931,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "KeyN",
+      "nativeCode": 49,
+      "labelMac": "N",
+      "x": 592.0,
+      "y": 931,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "KeyM",
+      "nativeCode": 50,
+      "labelMac": "M",
+      "x": 620.0,
+      "y": 931,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Comma",
+      "nativeCode": 51,
+      "labelMac": ",",
+      "x": 648.0,
+      "y": 931,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Period",
+      "nativeCode": 52,
+      "labelMac": ".",
+      "x": 676.0,
+      "y": 931,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Slash",
+      "nativeCode": 53,
+      "labelMac": "/",
+      "x": 704.0,
+      "y": 931,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "ShiftRight",
+      "nativeCode": 54,
+      "labelMac": "⇧",
+      "x": 756.5,
+      "y": 931,
+      "width": 75.0,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "ControlLeft",
+      "nativeCode": 29,
+      "labelMac": "⌃",
+      "x": 396.0,
+      "y": 953,
+      "width": 40.0,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "AltLeft",
+      "nativeCode": 56,
+      "labelMac": "⌥",
+      "x": 434.5,
+      "y": 953,
+      "width": 33.0,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "MetaLeft",
+      "nativeCode": 3675,
+      "labelMac": "⌘",
+      "x": 473.0,
+      "y": 953,
+      "width": 40.0,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "Space",
+      "nativeCode": 57,
+      "labelMac": "space",
+      "x": 585.0,
+      "y": 953,
+      "width": 180.0,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "MetaRight",
+      "nativeCode": 3676,
+      "labelMac": "⌘",
+      "x": 697.0,
+      "y": 953,
+      "width": 40.0,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "AltRight",
+      "nativeCode": 3640,
+      "labelMac": "⌥",
+      "x": 735.5,
+      "y": 953,
+      "width": 33.0,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "ControlRight",
+      "nativeCode": 3613,
+      "labelMac": "⌃",
+      "x": 774.0,
+      "y": 953,
+      "width": 40.0,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Escape",
+      "nativeCode": 1,
+      "labelMac": "esc",
+      "x": 389,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "F1",
+      "nativeCode": 59,
+      "labelMac": "F1",
+      "x": 431,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "F2",
+      "nativeCode": 60,
+      "labelMac": "F2",
+      "x": 461,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "F3",
+      "nativeCode": 61,
+      "labelMac": "F3",
+      "x": 491,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "F4",
+      "nativeCode": 62,
+      "labelMac": "F4",
+      "x": 521,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "F5",
+      "nativeCode": 63,
+      "labelMac": "F5",
+      "x": 551,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "left"
+    },
+    {
+      "id": "F6",
+      "nativeCode": 64,
+      "labelMac": "F6",
+      "x": 581,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "F7",
+      "nativeCode": 65,
+      "labelMac": "F7",
+      "x": 611,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "F8",
+      "nativeCode": 66,
+      "labelMac": "F8",
+      "x": 641,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "F9",
+      "nativeCode": 67,
+      "labelMac": "F9",
+      "x": 671,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "F10",
+      "nativeCode": 68,
+      "labelMac": "F10",
+      "x": 701,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "F11",
+      "nativeCode": 87,
+      "labelMac": "F11",
+      "x": 731,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "F12",
+      "nativeCode": 88,
+      "labelMac": "F12",
+      "x": 761,
+      "y": 839,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Insert",
+      "nativeCode": 3666,
+      "labelMac": "Insert",
+      "x": 828,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Home",
+      "nativeCode": 3655,
+      "labelMac": "Home",
+      "x": 857,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "PageUp",
+      "nativeCode": 3657,
+      "labelMac": "PageUp",
+      "x": 886,
+      "y": 865,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "Delete",
+      "nativeCode": 3667,
+      "labelMac": "Delete",
+      "x": 828,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "End",
+      "nativeCode": 3663,
+      "labelMac": "End",
+      "x": 857,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "PageDown",
+      "nativeCode": 3665,
+      "labelMac": "PageDown",
+      "x": 886,
+      "y": 887,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "ArrowUp",
+      "nativeCode": 57416,
+      "labelMac": "↑",
+      "x": 857,
+      "y": 931,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "ArrowLeft",
+      "nativeCode": 57419,
+      "labelMac": "←",
+      "x": 828,
+      "y": 953,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "ArrowDown",
+      "nativeCode": 57424,
+      "labelMac": "↓",
+      "x": 857,
+      "y": 953,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    },
+    {
+      "id": "ArrowRight",
+      "nativeCode": 57421,
+      "labelMac": "→",
+      "x": 886,
+      "y": 953,
+      "width": 26,
+      "height": 18,
+      "hand": "right"
+    }
+  ],
+  "home": {
+    "left": "KeyF",
+    "right": "KeyJ"
+  },
+  "mouse": {
+    "pad": {
+      "x": 910,
+      "y": 865,
+      "width": 120,
+      "height": 125
+    },
+    "travel": {
+      "minX": 938,
+      "maxX": 1002,
+      "minY": 897,
+      "maxY": 957
+    },
+    "home": {
+      "x": 955,
+      "y": 921
+    },
+    "coordinateMeaning": "Mouse center; hand palm and authored finger anchors follow this center. Current desktop pointer maps continuously to travel range.",
+    "pressDepth": 4
+  }
+}

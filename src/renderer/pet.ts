@@ -1,0 +1,41 @@
+import { AnimationFrameLoop } from '../shared/animation-frame-loop';
+import keyboardLayout from '../../assets/keyboard.layout.json';
+import {physicalDemo} from '../shared/physical-demo';
+import type { PhysicalInputSnapshot } from '../shared/physical-input';
+import { PetDrag } from '../shared/drag';
+import { createPetState,reducePetState,getPetView,type PetEvent } from '../shared/domain';
+import { Character2D } from './character2d';
+import { Live2DRenderer } from './live2d';
+import { InochiRenderer } from './inochi';
+window.__errors=[];window.addEventListener('error',event=>window.__errors!.push(event.message));window.addEventListener('unhandledrejection',event=>window.__errors!.push(String(event.reason)));
+const canvas=document.querySelector<HTMLCanvasElement>('#character')!;const bubble=document.querySelector<HTMLElement>('#pet-bubble')!;const missing=document.querySelector<HTMLElement>('#model-missing')!;
+let renderLoop:AnimationFrameLoop|undefined;let lastPhysicalWake=-Infinity;const wake=()=>renderLoop?.wake();
+// Keep the latest input even while bootstrap or model decoding is pending.
+let physical:PhysicalInputSnapshot|undefined,physicalReceived=false,physicalPreviewStarted=-Infinity;
+window.whale.on('physical-input',snapshot=>{physicalReceived=true;physical=snapshot;physicalPreviewStarted=-Infinity;lastPhysicalWake=performance.now();wake();});
+window.whale.on('physical-preview',()=>{physicalPreviewStarted=performance.now();lastPhysicalWake=performance.now();wake();});
+const boot=await window.whale.bootstrap();
+if(!physicalReceived)physical=boot.physical;
+if(boot.ciSmoke)window.__setPhysicalQA=snapshot=>{physical=snapshot;physicalPreviewStarted=-Infinity;lastPhysicalWake=performance.now();wake();};
+let settings=boot.settings;let state=createPetState(performance.now());let renderer!:Character2D|Live2DRenderer|InochiRenderer;let liveStatus='';
+const onStatus=(status:{state:string;message:string;capabilities?:{warnings:string[]}})=>{liveStatus=status.message;missing.hidden=status.state==='ready';missing.querySelector('span')!.textContent=status.message;window.whale.reportModelStatus({state:status.state,message:status.message,warnings:status.capabilities?.warnings??[]});};
+async function loadRenderer(model:any){renderer?.destroy();if(boot.edition==='2d'){renderer=new Character2D(canvas);await renderer.load();}else if(model.rendererType==='inochi-0.8-subset'){renderer=new InochiRenderer({canvas,onStatus});await renderer.load(model);}else if(model.rendererType==='cubism'){renderer=new Live2DRenderer({canvas,onStatus});await renderer.load(model);}else throw Error('Unsupported explicit renderer type');}
+await loadRenderer(boot.model);
+const context=()=>({now:performance.now(),date:new Date(),rng:Math.random});const dispatch=(event:PetEvent)=>{state=reducePetState(state,event,settings,context());if(event.type!=='tick')wake();};
+window.whale.on('settings',next=>{settings=next;if(settings.positionLocked||settings.clickThrough)drag.cancel();paintLock();dispatch({type:'tick'});wake();});window.whale.on('activity',data=>{dispatch({type:'activity',kind:data.kind});if(data.gaze)dispatch({type:'gaze',...data.gaze});});window.whale.on('audio:level',level=>dispatch({type:'audio',level}));window.whale.on('model',()=>window.location.reload());
+document.querySelector('#settings-button')!.addEventListener('click',()=>window.whale.openPanel());document.querySelector('#import-button')!.addEventListener('click',()=>window.whale.openPanel());
+let lastPointer=0;canvas.addEventListener('pointermove',e=>{if(performance.now()-lastPointer<100)return;lastPointer=performance.now();const r=canvas.getBoundingClientRect();window.whale.activity({kind:'pointer',gaze:{x:((e.clientX-r.left)/r.width-.5)*2,y:((e.clientY-r.top)/r.height-.5)*2}});});canvas.addEventListener('pointerdown',()=>window.whale.activity({kind:'click'}));window.addEventListener('keydown',()=>window.whale.activity({kind:'typing'}));
+const handle=document.querySelector<HTMLButtonElement>('#drag-handle')!;
+const lock=document.querySelector<HTMLButtonElement>('#lock-button')!;
+const drag=new PetDrag();
+const canMove=()=>!settings.positionLocked&&!settings.clickThrough;
+function paintLock(){lock.textContent=settings.positionLocked?'🔒':'🔓';lock.title=settings.positionLocked?'解锁位置':'锁定位置';lock.setAttribute('aria-label',lock.title);lock.setAttribute('aria-pressed',String(settings.positionLocked));handle.disabled=settings.positionLocked;document.body.dataset.locked=String(settings.positionLocked);}
+lock.addEventListener('click',async()=>{try{settings=await window.whale.updateSettings({positionLocked:!settings.positionLocked});drag.cancel();paintLock();}catch{bubble.textContent='位置设置未保存，请在控制面板重试';}});
+for(const target of [handle,canvas] as HTMLElement[]){
+ target.addEventListener('pointerdown',e=>{if(e.button!==0||!canMove())return;target.setPointerCapture(e.pointerId);void drag.begin(e.pointerId,e.screenX,e.screenY,()=>window.whale.bounds(),canMove).catch(()=>drag.cancel());});
+ target.addEventListener('pointermove',e=>{const point=drag.move(e.pointerId,e.screenX,e.screenY,canMove());if(point)window.whale.move(point);});
+ for(const name of ['pointerup','pointercancel','lostpointercapture'] as const)target.addEventListener(name,()=>drag.cancel());
+}
+paintLock();
+new ResizeObserver(()=>{renderer.resize(canvas.clientWidth,canvas.clientHeight);wake();}).observe(canvas);renderer.resize(canvas.clientWidth,canvas.clientHeight);
+let lastFrame=performance.now(),lastTick=0,lastClock=0;function frame(){let nextInterval=100;const now=performance.now();if(renderer instanceof InochiRenderer||now-lastFrame>=(settings.reducedMotion?40:16)){if(now-lastTick>=100){dispatch({type:'tick'});lastTick=now;}const view=getPetView(state,settings,context());nextInterval=view.sleeping||view.reducedMotion?500:physical?.pressed.length||physical?.targets.right==='mouse'||now-lastPhysicalWake<700||now-physicalPreviewStarted<1700||view.typing||view.eating||view.hidingBowl||view.bouncing||view.audioLevel>.01||now/1000%4.7<.28?16:100;renderer.update({physical:physicalDemo(now-physicalPreviewStarted)??physical,timeSeconds:now/1000,deltaSeconds:Math.min(.1,(now-lastFrame)/1000),gaze:renderer instanceof Live2DRenderer?{x:view.gaze.x,y:-view.gaze.y}:view.gaze,typing:view.typing?1:0,bounce:view.bouncing?1:0,audioLevel:view.audioLevel,eating:view.eating?(renderer instanceof Character2D?1:Math.max(.001,view.mealProgress)):0,mealProgress:view.mealProgress,waving:view.waving?1:0,mood:view.mood,sleeping:view.sleeping,hidingBowl:view.hidingBowl,innocent:view.innocent,reducedMotion:view.reducedMotion});if(renderer instanceof InochiRenderer)window.__inochiQA={modelName:boot.model.name,modelUrl:boot.model.modelUrl,backend:renderer.backend,renderMilliseconds:renderer.renderMilliseconds,drivenParameters:renderer.lastParameters,capabilities:renderer.capabilities};const hasEating=!(renderer instanceof InochiRenderer)||(renderer.capabilities?.eating&&!view.reducedMotion);const hasTyping=!(renderer instanceof InochiRenderer)||renderer.capabilities?.typing;const heldLabels=physical?.pressed.map(id=>keyboardLayout.keys.find(k=>k.id===id)?.labelMac||id).slice(0,8).join(' + ');const nextBubble=heldLabels&&!view.sleeping?heldLabels:view.hidingBowl&&hasEating?'我、我什么都没吃哦…':view.eating&&hasEating?'就吃一小口… 🍚':view.sleeping?'晚安，明天见 ☾':view.typing&&hasTyping?'陪你认真敲敲敲':view.bouncing?'被你发现啦':view.audioLevel>.12?'跟着声音晃一晃♪':'';if(bubble.textContent!==nextBubble)bubble.textContent=nextBubble;lastFrame=now;}if(now-lastClock>1000){document.querySelector('#pet-clock')!.textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});lastClock=now;}return nextInterval;}renderLoop=new AnimationFrameLoop({onFrame:frame});const syncVisibility=()=>{if(document.hidden)renderLoop?.pause();else renderLoop?.resume();};document.addEventListener('visibilitychange',syncVisibility);syncVisibility();document.body.dataset.ready='true';window.addEventListener('beforeunload',()=>{renderLoop?.destroy();renderer.destroy();});

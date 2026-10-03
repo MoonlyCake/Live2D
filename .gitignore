@@ -1,0 +1,18 @@
+node_modules/
+dist/
+release/
+*.log
+.DS_Store
+# Isolated renderer experiment build caches, not project sources
+inochi-proof/toolchain/
+inochi-proof/.cache/
+inochi-proof/.config/
+inochi-proof/.electron-profile/
+inochi-proof/stable-helper/.dub/
+inochi-proof/stable-helper/inochi-stable-helper
+**/__pycache__/
+
+inochi-proof/.subset-profile/
+
+# Generated from the exact platform runtime during packaging
+licenses/LICENSES.chromium.html

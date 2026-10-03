@@ -1,0 +1,390 @@
+{
+  "delivery": "Whale girl production artwork v3",
+  "status": "frozen art accepted for actual native rigging and continuous-motion QA",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "layer_count": 35,
+  "core_manifest": "art/production-v3-core-ready/manifest.json",
+  "extras_manifest": "art/production-v3-extras-ready/manifest.json",
+  "layer_integrity": [
+    {
+      "name": "BackHairComplete",
+      "file": "art/production-v3-core-ready/layers/00_BackHairComplete.png",
+      "sha256": "0ed49eda5237c98b09e5654e6b3ca59f861aa49b33c0f05b4057f8c33d549f2b",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "TailVisible",
+      "file": "art/production-v3-core-ready/layers/01_TailVisible.png",
+      "sha256": "b8839fb8ec85b89ddf44084e7e9c4270608f04b1119e027092b0d24d36e6adbf",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "BodyUnderpaint",
+      "file": "art/production-v3-core-ready/layers/02_BodyUnderpaint.png",
+      "sha256": "976793aaebca6917337b9a08d1d2a410dffd243f6c45f9330df6440a084dedd1",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "UpperArmL",
+      "file": "art/production-v3-core-ready/layers/03_UpperArmL.png",
+      "sha256": "adb79de7f195afcd35dbbbfacff7f5c1f3666e377df19d5235a89df7ad67bd5b",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "UpperArmR",
+      "file": "art/production-v3-core-ready/layers/04_UpperArmR.png",
+      "sha256": "9e08c9fe3509acbb296c56cbbd60f2e083799eee50c91187e7ff8f69da8a52cc",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "BodyFrontOriginal",
+      "file": "art/production-v3-core-ready/layers/05_BodyFrontOriginal.png",
+      "sha256": "d7be438e03f753a99370b6c4c6548dc4d54541f02b001841656e71b3c21ec4ed",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "ForearmHandL",
+      "file": "art/production-v3-core-ready/layers/06_ForearmHandL.png",
+      "sha256": "ef4aa91da9615837ca873c06a94a6d72429ee1ab2fd41fb95dffb228b21905ae",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "ForearmHandR",
+      "file": "art/production-v3-core-ready/layers/07_ForearmHandR.png",
+      "sha256": "2c7b09164d75fdaf72f3f802e42a4d4ac2a9f9aea8a2d99151b06692c88cb8c8",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "FaceBase",
+      "file": "art/production-v3-core-ready/layers/08_FaceBase.png",
+      "sha256": "42258eb5a35e6dce221200ca8da0569e7cacc977af9b9a54b4a69cda330a983a",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "EyeWhiteL",
+      "file": "art/production-v3-core-ready/layers/09_EyeWhiteL.png",
+      "sha256": "fe61623ea1243ab7d940dc36181a870e28d35c50c1f8fad378c1655d6b4db15b",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "EyeWhiteR",
+      "file": "art/production-v3-core-ready/layers/10_EyeWhiteR.png",
+      "sha256": "7c3e6ec19a033dbe0ab934b15748cbeed375718b8e5aab8298f8fef86624247f",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "IrisL",
+      "file": "art/production-v3-core-ready/layers/11_IrisL.png",
+      "sha256": "04c9b42b945e620745f8aca4fc0a44a33b231f18109afe46b492634bbab7cd29",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "IrisR",
+      "file": "art/production-v3-core-ready/layers/12_IrisR.png",
+      "sha256": "88e35f6b998ae1e3f693e3c74736532b82a1663358594dbad47300d732d50f2e",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "EyeSocketL",
+      "file": "art/production-v3-core-ready/layers/13_EyeSocketL.png",
+      "sha256": "1607286a2ab666902c3d0e8b9e2dbc80693f5d5b790cb2686e8fea2c06834451",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "EyeSocketR",
+      "file": "art/production-v3-core-ready/layers/14_EyeSocketR.png",
+      "sha256": "2484fb65f67b67f09442e6deb0e71ede603fb692f4026a8d37dbe12f4a731c1c",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "EyeLashL",
+      "file": "art/production-v3-core-ready/layers/15_EyeLashL.png",
+      "sha256": "45cb8093a7ebe53ad7f15d109f2d9759c1c3aab9783f0e5cf0097819f43ab240",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "EyeLashR",
+      "file": "art/production-v3-core-ready/layers/16_EyeLashR.png",
+      "sha256": "d81d724fed153c1ed94d07255b7cf0165ca26fa563dafc3dcf2679d60e18220a",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "EyeClosedL",
+      "file": "art/production-v3-core-ready/layers/17_EyeClosedL.png",
+      "sha256": "4cf952b1f01e9c3a816cd1a215f652803299b5ab697a10d310ebb449ce6b30fe",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "EyeClosedR",
+      "file": "art/production-v3-core-ready/layers/18_EyeClosedR.png",
+      "sha256": "75f51317bb99d74ac9fa5722c67ed95711daf194a4af560a39c6eb6580cb5e3d",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "MouthClosed",
+      "file": "art/production-v3-core-ready/layers/19_MouthClosed.png",
+      "sha256": "17759cab6b87b9e82591c1196681ac9d095d546a368a63194554385857096c98",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "MouthOpen",
+      "file": "art/production-v3-core-ready/layers/20_MouthOpen.png",
+      "sha256": "f3905c331dd78599928e662eb90819f8059a101499606d96a6248a8d2fbd410d",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "HairFrontAndHeaddress",
+      "file": "art/production-v3-core-ready/layers/21_HairFrontAndHeaddress.png",
+      "sha256": "e16d31a157cb060f99c0895cf51056e9b3d7abc0d27bc097784527df929745af",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "Ahoge",
+      "file": "art/production-v3-core-ready/layers/22_Ahoge.png",
+      "sha256": "3287f8f7af0a3339cc4851698ec9dc1b06ccf4d72f39067f492d438a9ce5eaf0",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "RiceElbowBridgeL",
+      "file": "art/production-v3-extras-ready/layers/RiceElbowBridgeL.png",
+      "sha256": "985b3237f448ef55a92987f550cf1a5c3e5c61c1059591e082daad38afadf5a4",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "RiceElbowBridgeR",
+      "file": "art/production-v3-extras-ready/layers/RiceElbowBridgeR.png",
+      "sha256": "0f54f6123da923fee682bd047f6c6aff111d27a9c33cd328e951585aed4c7c7d",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "RiceHoldingArmBowl",
+      "file": "art/production-v3-extras-ready/layers/RiceHoldingArmBowl.png",
+      "sha256": "2a8e56bf612ebf68bbb666db299ebbbbe9e7601f61364f9fc6b9181596899cc5",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "RiceSpoonArmEmpty",
+      "file": "art/production-v3-extras-ready/layers/RiceSpoonArmEmpty.png",
+      "sha256": "cdda8687507deac30c2dcb790daf4906d4e3f93ff340f42539e102eff85ab803",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "RiceBite",
+      "file": "art/production-v3-extras-ready/layers/RiceBite.png",
+      "sha256": "b09cc9dfec0ba2519db0aaef2d11962380e3480f61b62b0f18545c04cbaf9f0d",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "MouthAggrieved",
+      "file": "art/production-v3-extras-ready/layers/MouthAggrieved.png",
+      "sha256": "ff4d67f28f1f53e0e880e24fc1de5a86fc30d3444ebfa3a58920746e7eca40d4",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "MouthUnimpressed",
+      "file": "art/production-v3-extras-ready/layers/MouthUnimpressed.png",
+      "sha256": "be81f1f8f2a013f3c35ebb1da1c945074f54fc34f49f7887763226b017d35acc",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "MouthShy",
+      "file": "art/production-v3-extras-ready/layers/MouthShy.png",
+      "sha256": "e4c89fe68e31be07d53dca8a1e5d18d4ac1db087af09bf4ffd3489e4352fa20f",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "BlushL",
+      "file": "art/production-v3-extras-ready/layers/BlushL.png",
+      "sha256": "3972d34ee987da3773f10f907aea9e98798b253ad69730f29077419bc696284d",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "BlushR",
+      "file": "art/production-v3-extras-ready/layers/BlushR.png",
+      "sha256": "1edde4ad378bbe0d86c3f313fab56554a27461032aebfa9fa84e57670ef76f53",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "TearL",
+      "file": "art/production-v3-extras-ready/layers/TearL.png",
+      "sha256": "712743742fdcf3175a171061a3c06f2a52cec0656bac98f4e73bd5bd5c98b3c0",
+      "matches_frozen_manifest": true
+    },
+    {
+      "name": "TearR",
+      "file": "art/production-v3-extras-ready/layers/TearR.png",
+      "sha256": "f482cef9d2bd2de73b8c5ff23ba4a3c71981845d3c1072bac2bb2d2ce06d386c",
+      "matches_frozen_manifest": true
+    }
+  ],
+  "all_frozen_hashes_match": true,
+  "reference_art": [
+    {
+      "file": "reference-inputs/17101.jpg",
+      "sha256": "48f111beb5e6fb9e1e97da1b229f44f8c13a138191124b30d179c6ee0a83c079",
+      "role": "user-supplied character/design/emotion reference"
+    },
+    {
+      "file": "reference-inputs/17102.jpg",
+      "sha256": "eaaa655867e7835553ceb9db923ad88f6e06ba3bf93739e0e13487ec3e2e3f91",
+      "role": "user-supplied character/design/emotion reference"
+    },
+    {
+      "file": "reference-inputs/17103.jpg",
+      "sha256": "e7f4df67a659bf0a58011b32a7345c9174a191e6018e6c455b0000fa831014c0",
+      "role": "user-supplied character/design/emotion reference"
+    },
+    {
+      "file": "reference-inputs/17104.jpg",
+      "sha256": "4c3a6c3b7c7fffd2216d37d5b3fa11c028cde802ef500d812e12c8c78e2e2a69",
+      "role": "user-supplied character/design/emotion reference"
+    },
+    {
+      "file": "reference-inputs/17105.jpg",
+      "sha256": "ed35c8e083581a4c9caec461649095ca34594af8536a9f647b36bbc6d77af5af",
+      "role": "user-supplied character/design/emotion reference"
+    }
+  ],
+  "neutral_visual_anchor": {
+    "file": "assets/character2d/body.png",
+    "sha256": "a6dfc7da0d1e4b759d848b8f65af19420594d6c8499dbb1b3e87f95e2342d072"
+  },
+  "generated_sources": [
+    {
+      "file": "art/production-v3/raw/ArmLUnderpaint.png",
+      "sha256": "1ec762d6512990e95ab55f3928a37e02e50f85edca1319e14060a7fc925b2312",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    },
+    {
+      "file": "art/production-v3/raw/BackHairUnderpaint.png",
+      "sha256": "da5e21c9c880c5e0d7effae4a2a3edb4873b46d3b5faf0d62b96c5daf6c73cfa",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    },
+    {
+      "file": "art/production-v3/raw/BlushOverlay.png",
+      "sha256": "01154a9203b69cb6b60464875f51f64f52702a47890b7b787c7e37646dd71aa3",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    },
+    {
+      "file": "art/production-v3/raw/BodyUnderpaint.png",
+      "sha256": "de8ce2047b9960939cc6c2b24b3a140d5e118593964767fd9632ac428339be76",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    },
+    {
+      "file": "art/production-v3/raw/ClosedLashesPair.png",
+      "sha256": "4a0b80ee30c17243e1494011a1678355e3f89ed91032e5e0273b9b63e33bd73d",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    },
+    {
+      "file": "art/production-v3/raw/EmptySpoon.png",
+      "sha256": "2a8a64cc773e2665ce40fed27942029bcca7f0b45dd2ccfb466bc59c237c945e",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    },
+    {
+      "file": "art/production-v3/raw/EyeWhitePair.png",
+      "sha256": "cde1d75f903c558c69eefb15d4dda0b4d9e781617166ffc54965608bd387084c",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    },
+    {
+      "file": "art/production-v3/raw/FaceSkinUnderpaint.png",
+      "sha256": "19fbf8f8ab65c5da5949b04bab0bc3b16692c13af9099303e4ab21e774601285",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    },
+    {
+      "file": "art/production-v3/raw/IrisComplete.png",
+      "sha256": "751b2c3c80e26efcc482fa08267ade619182d70c4d3baec14ef77e9b89317743",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    },
+    {
+      "file": "art/production-v3/raw/MouthOpen.png",
+      "sha256": "b4921b465b7ba7bbceec2e7e395c467fd1d41e8306ad7161f3fceb64d90faac8",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    },
+    {
+      "file": "art/production-v3/raw/RicePoseArms.png",
+      "sha256": "6f472815952d448a2b004940dabd55f2aabc1afa7c9feebee6d9272ac9d4914e",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    },
+    {
+      "file": "art/production-v3/raw/TearPoolsPair.png",
+      "sha256": "27102610fb95cefd7776079ad43176799213cc9f16efa030406f3674fad67eef",
+      "role": "reference-guided generated component or underpainting; final transformed/masked derivative is in frozen layers"
+    }
+  ],
+  "production_method": [
+    "Keep approved original pixels for recognizability where feasible.",
+    "Generate missing face skin, rear hair, covered garment regions, sleeve overlap, complete irises/eye whites, closed lashes, oral interior, rice utensils/arms, blush and tears in the supplied character style.",
+    "Affine-register generated components on the 1254-square original canvas, then use deliberate semantic masks/overlaps; all final parts are true RGBA, not rectangular screenshot crops.",
+    "Separate reference-derived mood mouth shapes from the supplied expression drawings and register them at the shared mouth pivot.",
+    "Keep the source exact-mask experiments and frozen runtime-art subsets separate, with no overwriting of existing app/frozen package images."
+  ],
+  "qa": {
+    "core_panel": "art/production-v3-core-ready/qa/core-320px-review.png",
+    "core_motion_panel": "art/production-v3-core-ready/qa/core-motion-320px-review.png",
+    "rice_panel": "art/production-v3-extras-ready/qa/rice-320px-review.png",
+    "mood_panel": "art/production-v3-extras-ready/qa/moods-320px-review.png"
+  },
+  "known_limits": [
+    "These files are layered artwork, not a completed Cubism or Inochi model; no .moc3/.cmo3/.inp is claimed by this artwork delivery.",
+    "Static endpoint assemblies were reviewed at 320px display and 640px Retina scale. Native mesh interpolation, blink transitions, audio lip-sync, opacity switching and motion physics still require actual renderer QA.",
+    "Head/face motion is supported only at reviewed modest frontal ranges: gaze +/-3 source pixels, head translation example +6/-4 source pixels, forearm example +/-4 degrees. Large turns, profile anatomy and wide arm excursions are not completed.",
+    "Front hair and headdress are a combined visible layer; eyebrows remain embedded in that artwork. Do not claim independent eyebrow/bangs control.",
+    "Torso, apron, skirt and legs use a foreground/body-underpaint group; independent shoe/leg choreography is not supplied.",
+    "Independent tail motion remains blocked in the frozen core. A separate tail-underpaint experiment exists but is not accepted for release.",
+    "RiceHoldingArmBowl combines the left sleeve, supporting hand and bowl in one component; the pose is coherent but is not independent bowl-front/rice-back anatomical separation. Right spoon arm and removable rice bite are separate.",
+    "When rice arms show, core idle ForearmHandL/R must be hidden exclusively. Core UpperArms and RiceElbowBridge pieces preserve elbow overlap. Avoid simultaneous idle/rice limb cross-fades that show four hands.",
+    "Mood preview eye narrowing is a composited endpoint guide. Native partial eyelids and iris behavior must be inspected rather than assuming static endpoint transforms prove realistic intermediate blinking.",
+    "Sleepy expression is separate from the actual sleep lock; full sleep must show closed-eye assets and suppress eating and audio/input mouth responses.",
+    "Some source-scale one-pixel fringe/temple/contact-edge artifacts remain but were not visibly disruptive in the accepted 320px proofs. Follow actual renderer findings rather than restarting static perfection loops.",
+    "Production v3 uses authorized generated fill and registered redraw, so the old stage1 zero-pixel-difference claim does not apply to v3."
+  ],
+  "supersedes": "Old separation proofs and stage1-original-pixel-layers-DRAFT.psd are preliminary history, not the v3 production artwork source.",
+  "eye_socket_repair": {
+    "manifest": "production-v3-eyesocket-fix-ready/manifest.json",
+    "supersedes": [
+      "production-v3-core-ready/layers/13_EyeSocketL.png",
+      "production-v3-core-ready/layers/14_EyeSocketR.png"
+    ],
+    "layers": [
+      {
+        "name": "EyeSocketL",
+        "file": "EyeSocketL.png",
+        "sha256": "f17bec88dc5cbc10fa2b28453571cf5ebd599c04f4405acf389e7046bc45fd04",
+        "filled_pixels": 978,
+        "retained_aperture_bbox": [
+          437,
+          494,
+          585,
+          592
+        ]
+      },
+      {
+        "name": "EyeSocketR",
+        "file": "EyeSocketR.png",
+        "sha256": "764fd1a9d32a2dc2beb812bba40f768e3f85c6adfb3109edcfe9ff5e914994a0",
+        "filled_pixels": 716,
+        "retained_aperture_bbox": [
+          657,
+          464,
+          797,
+          566
+        ]
+      }
+    ],
+    "validation": {
+      "by": "complete_native_live2d_model",
+      "time_utc": "2026-10-03T16:06:28Z",
+      "method": "Actual Creator window, not SaveScreenshot alpha-bug export",
+      "reported_checks": [
+        0.25,
+        0.5,
+        0.75
+      ]
+    }
+  },
+  "path_base": "repository root",
+  "historical_sources_note": "reference-inputs/ and art/production-v3/raw/ identify original reference and intermediate inputs that are not distributed. Final ready layers used for model rebuilding are included."
+}

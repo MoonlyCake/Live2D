@@ -1,2 +1,76 @@
-# Live2D
-Whale Companion Inochi desktop pet — Apple Silicon Mac and Windows.
+# 鲸伴 · Inochi2D 网格版 v0.2.2
+
+完整鲸鱼娘桌宠：蓝渐变长发、蓝白金鲸鱼女仆服，真实网格呼吸、头身与视线跟随、
+眨眼、五种心情、逐键键盘与握鼠标手、轻弹、音量律动、白米饭动作与被发现后的藏碗反应。
+默认使用官方 Inochi Creator 导出的 **INP**；不是 Cubism MOC3，也不需要 Cubism Core。
+
+目标平台：**Apple 芯片 Mac（arm64）与 Windows（x64）**。Linux 是开发与验证环境。
+
+## 0.2.2 优化
+
+鼠标首帧即时响应，连续位置16ms合并；手与鼠标共享短过渡，键盘触点不变。隐藏面板停止绘制循环，闲置降低唤醒频率，输入立即恢复。详见[验证记录](docs/OPTIMIZATION-QA.md)。本版补全第三方许可及可替换的原生输入组件源码。
+
+## 模型与操作
+
+- 内置模型：42个Part实例、44个实际绑定参数；运行时为一个2048²图集。
+- 五种心情可手动选，也可每30–60秒随机变化。作息使用操作系统本地时间。
+- 可直接拖动角色；锁定位置防误拖。托盘或 Ctrl/⌘+Shift+W 可解锁并恢复交互。
+- 空闲时偷吃；收到输入后先在约220ms内收回勺子，再同时切换碗和双手。
+  不用透明手臂淡出来掩盖切换，不会同时出现两套手。
+- 手动预览仅对同一次启动点击保留150ms宽限；后续输入仍会打断。
+- 这是正面小幅形变模型，不是可大角度转身的3D模型。
+
+## 实时键鼠
+
+83个ANSI物理位置逐键按下/松开，键帽独立高亮下沉，左右手到对应键中心；组合键全显示，两只手最多各到一个目标。长按保持，松开归位。鼠标移动、左右按钮和滚轮映射到面前的鼠标垫及握鼠标手。鼠标按住时优先占右手，左手仍可敲键；新右键位可接管已停止的鼠标移动。
+
+Fn/Globe、媒体键、ISO/JIS额外键、小键盘以及Pause/PrintScreen/ScrollLock/ContextMenu未映射。使用物理位置，不把输入法产生的字符当作键位。没有独立十指动画的承诺。
+
+## 开发与打包
+
+```sh
+npm ci
+npm run check
+npm run qa:inochi
+npm start
+npm run dist:mac
+npm run dist:win
+```
+
+Mac发行包必须在原生 Apple Silicon 云端runner构建、ad-hoc签名和验证。
+Windows工作流会构建后运行真正的EXE；不会把仅ZIP检查称为原生启动通过。
+两种平台的云端验收工作流为 `.github/workflows/native-release.yml`。
+不提供 Intel Mac 目标，也不需要额外API密钥。
+
+## 验证边界
+
+完整模型已通过正常沙盒 Linux Electron 实际桌宠/面板及19项动作参数与截图验收。
+当前云端没有可用的 WebGL2/WebGL1，验证后备为真正的CPU三角网格光栅化，
+并非整张图片晃动。GPU路径和目标平台结果请以各原生CI报告为准。
+CPU后备按状态限帧，不承诺60帧效果。[详细QA](docs/QA.md)。
+
+Mac的ad-hoc签名不是Developer ID/公证；Windows没有Authenticode签名。
+若系统阻止应用，请不要关闭 Gatekeeper、SmartScreen、沙盒或执行策略。
+
+## 隐私
+
+键鼠互动记住开关，新设置默认尝试启动；系统权限仍由你手动授权。鼠标跟随与键盘
+钩子分别诊断，提供临时事件计数和重新检测。程序不保存文字、按键序列或窗口标题。
+音频默认关闭，仅分析本地音量，不录制或上传。所有网络请求被阻止，没有遥测或账号。
+
+## 源码与格式
+
+- `src/`：程序、行为、受限Inochi解释器及WebGL/CPU渲染器
+- `assets/inochi/WhaleGirl.inp`：内置官方导出模型
+- `model-source/WhaleGirl.inx`：可在Creator编辑的原生源模型；另附生成器与说明
+- `art/production-v4-input-ready/`：新工作手和袖桥；`assets/keyboard.layout.json`是唯一键位坐标来源
+- `art/production-v3-*-ready/`：可编辑源图层；Socket修正版替换相应旧层
+- `tests/`：可在干净checkout运行的测试与小型样本
+- `docs/inochi/native-full/`：实际窗口、动作参数及图像证据
+
+导出文件的原始作者元数据保留不改写；发行验收以实际模型能力、驱动参数和画面为准。
+渲染器只支持本文模型采用的Inochi0.8子集；未支持的功能明确报错，不自动伪装成普通2D。
+可选Cubism开发接口保留在高级功能中，须另行取得合法Core/MOC3，内置角色不使用它。
+
+### 0.2.1 键盘权限
+首次开启全局互动时，macOS 会先看到用途说明。点“现在授权”，在系统辅助功能中允许当前 Whale Companion Inochi；应用会重新检测。选“暂不”不会反复弹窗，可之后在互动设置中手动请求。旧2D版或旧签名的授权可能不覆盖当前版本。请切换到其他应用输入，以“系统键盘”计数增加为准；预览按钮只是播放动作。睡眠/减少动作可能抑制打字动作。

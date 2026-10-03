@@ -1,0 +1,705 @@
+{
+  "passed": 80,
+  "sequences": [
+    {
+      "startArm": 0,
+      "bite": 0,
+      "rows": [
+        {
+          "elapsed": 0,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 55,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 110,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 165,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 219,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 220,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 221,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 400,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        }
+      ]
+    },
+    {
+      "startArm": 0,
+      "bite": 1,
+      "rows": [
+        {
+          "elapsed": 0,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 1
+        },
+        {
+          "elapsed": 55,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 1
+        },
+        {
+          "elapsed": 110,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 1
+        },
+        {
+          "elapsed": 165,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 1
+        },
+        {
+          "elapsed": 219,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 1
+        },
+        {
+          "elapsed": 220,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 221,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 400,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        }
+      ]
+    },
+    {
+      "startArm": 0.25,
+      "bite": 0,
+      "rows": [
+        {
+          "elapsed": 0,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.25,
+          "arm": 0.25,
+          "bite": 0
+        },
+        {
+          "elapsed": 55,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.25,
+          "arm": 0.2109375,
+          "bite": 0
+        },
+        {
+          "elapsed": 110,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.25,
+          "arm": 0.125,
+          "bite": 0
+        },
+        {
+          "elapsed": 165,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.25,
+          "arm": 0.0390625,
+          "bite": 0
+        },
+        {
+          "elapsed": 219,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.25,
+          "arm": 0.00001544891059354625,
+          "bite": 0
+        },
+        {
+          "elapsed": 220,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 221,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 400,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        }
+      ]
+    },
+    {
+      "startArm": 0.25,
+      "bite": 1,
+      "rows": [
+        {
+          "elapsed": 0,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.25,
+          "arm": 0.25,
+          "bite": 1
+        },
+        {
+          "elapsed": 55,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.25,
+          "arm": 0.2109375,
+          "bite": 1
+        },
+        {
+          "elapsed": 110,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.25,
+          "arm": 0.125,
+          "bite": 1
+        },
+        {
+          "elapsed": 165,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.25,
+          "arm": 0.0390625,
+          "bite": 1
+        },
+        {
+          "elapsed": 219,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.25,
+          "arm": 0.00001544891059354625,
+          "bite": 1
+        },
+        {
+          "elapsed": 220,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 221,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 400,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        }
+      ]
+    },
+    {
+      "startArm": 0.5,
+      "bite": 0,
+      "rows": [
+        {
+          "elapsed": 0,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.5,
+          "arm": 0.5,
+          "bite": 0
+        },
+        {
+          "elapsed": 55,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.5,
+          "arm": 0.421875,
+          "bite": 0
+        },
+        {
+          "elapsed": 110,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.5,
+          "arm": 0.25,
+          "bite": 0
+        },
+        {
+          "elapsed": 165,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.5,
+          "arm": 0.078125,
+          "bite": 0
+        },
+        {
+          "elapsed": 219,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.5,
+          "arm": 0.0000308978211870925,
+          "bite": 0
+        },
+        {
+          "elapsed": 220,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 221,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 400,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        }
+      ]
+    },
+    {
+      "startArm": 0.5,
+      "bite": 1,
+      "rows": [
+        {
+          "elapsed": 0,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.5,
+          "arm": 0.5,
+          "bite": 1
+        },
+        {
+          "elapsed": 55,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.5,
+          "arm": 0.421875,
+          "bite": 1
+        },
+        {
+          "elapsed": 110,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.5,
+          "arm": 0.25,
+          "bite": 1
+        },
+        {
+          "elapsed": 165,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.5,
+          "arm": 0.078125,
+          "bite": 1
+        },
+        {
+          "elapsed": 219,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.5,
+          "arm": 0.0000308978211870925,
+          "bite": 1
+        },
+        {
+          "elapsed": 220,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 221,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 400,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        }
+      ]
+    },
+    {
+      "startArm": 0.75,
+      "bite": 0,
+      "rows": [
+        {
+          "elapsed": 0,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.75,
+          "arm": 0.75,
+          "bite": 0
+        },
+        {
+          "elapsed": 55,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.75,
+          "arm": 0.6328125,
+          "bite": 0
+        },
+        {
+          "elapsed": 110,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.75,
+          "arm": 0.375,
+          "bite": 0
+        },
+        {
+          "elapsed": 165,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.75,
+          "arm": 0.1171875,
+          "bite": 0
+        },
+        {
+          "elapsed": 219,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.75,
+          "arm": 0.00004634673178063875,
+          "bite": 0
+        },
+        {
+          "elapsed": 220,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 221,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 400,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        }
+      ]
+    },
+    {
+      "startArm": 0.75,
+      "bite": 1,
+      "rows": [
+        {
+          "elapsed": 0,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.75,
+          "arm": 0.75,
+          "bite": 1
+        },
+        {
+          "elapsed": 55,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.75,
+          "arm": 0.6328125,
+          "bite": 1
+        },
+        {
+          "elapsed": 110,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.75,
+          "arm": 0.375,
+          "bite": 1
+        },
+        {
+          "elapsed": 165,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.75,
+          "arm": 0.1171875,
+          "bite": 1
+        },
+        {
+          "elapsed": 219,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 0.75,
+          "arm": 0.00004634673178063875,
+          "bite": 1
+        },
+        {
+          "elapsed": 220,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 221,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 400,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        }
+      ]
+    },
+    {
+      "startArm": 1,
+      "bite": 0,
+      "rows": [
+        {
+          "elapsed": 0,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 1,
+          "arm": 1,
+          "bite": 0
+        },
+        {
+          "elapsed": 55,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 1,
+          "arm": 0.84375,
+          "bite": 0
+        },
+        {
+          "elapsed": 110,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 1,
+          "arm": 0.5,
+          "bite": 0
+        },
+        {
+          "elapsed": 165,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 1,
+          "arm": 0.15625,
+          "bite": 0
+        },
+        {
+          "elapsed": 219,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 1,
+          "arm": 0.000061795642374185,
+          "bite": 0
+        },
+        {
+          "elapsed": 220,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 221,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 400,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        }
+      ]
+    },
+    {
+      "startArm": 1,
+      "bite": 1,
+      "rows": [
+        {
+          "elapsed": 0,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 1,
+          "arm": 1,
+          "bite": 1
+        },
+        {
+          "elapsed": 55,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 1,
+          "arm": 0.84375,
+          "bite": 1
+        },
+        {
+          "elapsed": 110,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 1,
+          "arm": 0.5,
+          "bite": 1
+        },
+        {
+          "elapsed": 165,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 1,
+          "arm": 0.15625,
+          "bite": 1
+        },
+        {
+          "elapsed": 219,
+          "visible": true,
+          "hidingSince": 100,
+          "returnFrom": 1,
+          "arm": 0.000061795642374185,
+          "bite": 1
+        },
+        {
+          "elapsed": 220,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 221,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        },
+        {
+          "elapsed": 400,
+          "visible": false,
+          "hidingSince": null,
+          "returnFrom": 0,
+          "arm": 0,
+          "bite": 0
+        }
+      ]
+    }
+  ]
+}

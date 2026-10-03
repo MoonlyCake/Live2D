@@ -1,0 +1,349 @@
+{
+  "format": "RGBA PNG; built-in image generation; no programmatic image edits",
+  "files": [
+    {
+      "file": "body.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "fullyTransparentPercent": 46.2
+    },
+    {
+      "file": "moods-atlas.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 40.989
+    },
+    {
+      "file": "rice-atlas.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "fullyTransparentPercent": 41.86
+    },
+    {
+      "file": "interaction-atlas-v2.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "fullyTransparentPercent": 66.678
+    }
+  ],
+  "frames": [
+    {
+      "name": "happy",
+      "file": "moods-atlas.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "silhouetteBoundsInCell": [
+        33,
+        9,
+        491,
+        509
+      ],
+      "normalizedScale": 1.012568,
+      "normalizedOffset": [
+        -0.010271,
+        -0.002839
+      ]
+    },
+    {
+      "name": "shy",
+      "file": "moods-atlas.png",
+      "rect": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "silhouetteBoundsInCell": [
+        38,
+        12,
+        467,
+        510
+      ],
+      "normalizedScale": 1.016634,
+      "normalizedOffset": [
+        0.008545,
+        -0.004801
+      ]
+    },
+    {
+      "name": "aggrieved",
+      "file": "moods-atlas.png",
+      "rect": [
+        1024,
+        0,
+        512,
+        512
+      ],
+      "silhouetteBoundsInCell": [
+        32,
+        11,
+        471,
+        510
+      ],
+      "normalizedScale": 1.014597,
+      "normalizedOffset": [
+        0.010512,
+        -0.004809
+      ]
+    },
+    {
+      "name": "sleepy",
+      "file": "moods-atlas.png",
+      "rect": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "silhouetteBoundsInCell": [
+        55,
+        4,
+        492,
+        502
+      ],
+      "normalizedScale": 1.016634,
+      "normalizedOffset": [
+        -0.033153,
+        0.011084
+      ]
+    },
+    {
+      "name": "unimpressed",
+      "file": "moods-atlas.png",
+      "rect": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "silhouetteBoundsInCell": [
+        31,
+        3,
+        468,
+        502
+      ],
+      "normalizedScale": 1.014597,
+      "normalizedOffset": [
+        0.014476,
+        0.011044
+      ]
+    },
+    {
+      "name": "blink",
+      "file": "moods-atlas.png",
+      "rect": [
+        1024,
+        512,
+        512,
+        512
+      ],
+      "silhouetteBoundsInCell": [
+        30,
+        6,
+        472,
+        502
+      ],
+      "normalizedScale": 1.020734,
+      "normalizedOffset": [
+        0.011563,
+        0.011164
+      ]
+    },
+    {
+      "name": "eat",
+      "file": "rice-atlas.png",
+      "rect": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "silhouetteBoundsInCell": [
+        47,
+        7,
+        606,
+        623
+      ],
+      "normalizedScale": 1.006494,
+      "normalizedOffset": [
+        -0.019273,
+        -0.002351
+      ]
+    },
+    {
+      "name": "bite",
+      "file": "rice-atlas.png",
+      "rect": [
+        627,
+        0,
+        627,
+        627
+      ],
+      "silhouetteBoundsInCell": [
+        25,
+        5,
+        586,
+        624
+      ],
+      "normalizedScale": 1.001616,
+      "normalizedOffset": [
+        0.014375,
+        -0.00398
+      ]
+    },
+    {
+      "name": "chew",
+      "file": "rice-atlas.png",
+      "rect": [
+        0,
+        627,
+        627,
+        627
+      ],
+      "silhouetteBoundsInCell": [
+        43,
+        8,
+        625,
+        616
+      ],
+      "normalizedScale": 1.019737,
+      "normalizedOffset": [
+        -0.031746,
+        0.009118
+      ]
+    },
+    {
+      "name": "caught",
+      "file": "rice-atlas.png",
+      "rect": [
+        627,
+        627,
+        627,
+        627
+      ],
+      "silhouetteBoundsInCell": [
+        27,
+        3,
+        592,
+        619
+      ],
+      "normalizedScale": 1.006494,
+      "normalizedOffset": [
+        0.008016,
+        0.00407
+      ]
+    },
+    {
+      "name": "typing",
+      "file": "interaction-atlas-v2.png",
+      "rect": [
+        95,
+        103,
+        471,
+        471
+      ],
+      "silhouetteBoundsInCell": [
+        122,
+        107,
+        539,
+        570
+      ],
+      "normalizedScale": 1.005921,
+      "normalizedOffset": [
+        0.001595,
+        -0.000229
+      ]
+    },
+    {
+      "name": "typingAlt",
+      "file": "interaction-atlas-v2.png",
+      "rect": [
+        688,
+        102,
+        471,
+        471
+      ],
+      "silhouetteBoundsInCell": [
+        87,
+        106,
+        506,
+        569
+      ],
+      "normalizedScale": 1.005921,
+      "normalizedOffset": [
+        0.001595,
+        -0.000229
+      ]
+    },
+    {
+      "name": "music",
+      "file": "interaction-atlas-v2.png",
+      "rect": [
+        109,
+        692,
+        470,
+        470
+      ],
+      "silhouetteBoundsInCell": [
+        125,
+        69,
+        564,
+        531
+      ],
+      "normalizedScale": 1.005958,
+      "normalizedOffset": [
+        0.000525,
+        -0.000211
+      ]
+    },
+    {
+      "name": "musicAlt",
+      "file": "interaction-atlas-v2.png",
+      "rect": [
+        676,
+        691,
+        475,
+        475
+      ],
+      "silhouetteBoundsInCell": [
+        69,
+        68,
+        505,
+        535
+      ],
+      "normalizedScale": 1.005775,
+      "normalizedOffset": [
+        0.000536,
+        -0.000302
+      ]
+    }
+  ]
+}

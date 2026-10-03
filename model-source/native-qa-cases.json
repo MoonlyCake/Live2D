@@ -1,0 +1,24 @@
+{
+  "status": "prepared for official Creator visual inspection, not yet approved",
+  "source": "WhaleGirl-core-packed-DRAFT.inx",
+  "cases": {
+    "q1": {
+      "ParamEyeLOpen": 0,
+      "ParamEyeROpen": 0
+    },
+    "q2": {
+      "ParamEyeLOpen": 0.45,
+      "ParamEyeROpen": 0.45
+    },
+    "q3": {
+      "ParamMouthOpenY": 1
+    },
+    "q4": {
+      "ParamAngleX": 1,
+      "ParamAngleY": 1,
+      "ParamEyeBallX": 1,
+      "ParamEyeBallY": 1,
+      "ParamTyping": 1
+    }
+  }
+}

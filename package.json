@@ -1,0 +1,104 @@
+{
+  "name": "whale-inochi-companion",
+  "version": "0.2.2",
+  "private": true,
+  "description": "鲸伴 Inochi2D：完整鲸鱼娘网格、五种表情与偷吃互动",
+  "author": "Whale Companion",
+  "license": "UNLICENSED",
+  "main": "dist/main/index.cjs",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "check": "npm run typecheck && npm test && npm run build",
+    "start": "npm run build && electron .",
+    "dev": "npm run start",
+    "dist:mac": "npm run check && node scripts/package.mjs mac inochi arm64",
+    "dist:win": "npm run check && node scripts/package.mjs win inochi x64",
+    "dist:linux": "npm run check && electron-builder --linux dir --x64",
+    "start:live2d": "npm run build && electron . --live2d-dev",
+    "qa:art": "node --import tsx scripts/render-character-qa.mts",
+    "qa:inochi": "node --test tests/inochi-subset.test.mjs && node --import tsx scripts/qa-inochi-interrupt.mts"
+  },
+  "dependencies": {
+    "uiohook-napi": "1.5.5"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "0.1.80",
+    "@types/node": "^24.0.0",
+    "electron": "44.5.1",
+    "electron-builder": "26.15.3",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "pixi.js": "6.5.10",
+    "pixi-live2d-display": "0.4.0",
+    "@pixi/unsafe-eval": "6.5.10"
+  },
+  "build": {
+    "appId": "local.whale.companion.inochi",
+    "productName": "Whale Companion Inochi",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "assets/**/*",
+      "package.json",
+      "README.md",
+      "THIRD_PARTY_NOTICES.md",
+      "docs/QA.md",
+      "docs/OPTIMIZATION-QA.md",
+      "docs/MODEL-CONTRACT.md",
+      "!assets/inochi/*DRAFT*",
+      "!assets/inochi/*stage1*",
+      "licenses/**/*",
+      "!licenses/LICENSES.chromium.html"
+    ],
+    "asar": true,
+    "npmRebuild": false,
+    "asarUnpack": [
+      "node_modules/uiohook-napi/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "target": [
+        "zip"
+      ],
+      "hardenedRuntime": false,
+      "identity": null,
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "仅在你主动开启音频律动时，在本机计算音量，不录音或上传。",
+        "NSAudioCaptureUsageDescription": "仅在你主动选择系统声音律动时，在本机计算音量，不存储或上传。",
+        "NSScreenCaptureUsageDescription": "仅在你主动选择系统声音律动时请求系统音频共享。"
+      },
+      "icon": "assets/icon.icns"
+    },
+    "win": {
+      "target": [
+        "zip"
+      ],
+      "icon": "assets/icon.ico",
+      "signExecutable": false
+    },
+    "linux": {
+      "target": [
+        "dir"
+      ],
+      "category": "Game"
+    },
+    "icon": "assets/icon.png",
+    "extraResources": [
+      {
+        "from": "third-party-source",
+        "to": "third-party-source",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  },
+  "overrides": {
+    "gh-pages": "6.3.0"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "native_editor": "Inochi Creator 0.8.6 Linux",
+  "date_utc": "2026-10-03",
+  "editable": "WhaleGirl.inx",
+  "export": "WhaleGirl.inp",
+  "export_action": "File > Export > Inochi2D Puppet",
+  "atlas": [
+    2048,
+    2048
+  ],
+  "parts": 36,
+  "source_textures": 35,
+  "export_textures": 1,
+  "parameters": 25,
+  "eye_native_checked": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "eye_result": "No detached blue arc above either upper eyelash; round stationary iris occluded by deforming eyelid/skin",
+  "parameter_structure_preserved": true,
+  "largest_native_float_rounding_delta": 1.0584763515453233e-05,
+  "runtime_final_validation": "Parent confirmed Linux final full-model application QA passed at 2026-10-03 16:17 UTC, including eating and bowl-hide captures; platform packaging remains separate.",
+  "limitations": [
+    "Small frontal motion only",
+    "Exclusive rice hand switch after opaque spoon return remains discrete",
+    "Creator viewport PNG color path not used for final display"
+  ]
+}

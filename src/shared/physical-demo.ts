@@ -1,0 +1,3 @@
+import type {PhysicalInputSnapshot,PhysicalKeyId} from './physical-input';
+/** Explicit UI preview only. This never enters native keyboard counters or permission diagnostics. */
+export function physicalDemo(elapsed:number):PhysicalInputSnapshot|undefined{if(elapsed<0||elapsed>=1600)return;const keys:PhysicalKeyId[]=['KeyF','KeyJ','KeyA','KeyL','Digit1','Digit0','Space','Enter'];const key=keys[Math.floor(elapsed/200)],left=['KeyF','KeyA','Digit1','Space'].includes(key);return{pressed:[key],mouse:{x:0,y:0,buttons:{left:false,right:false,middle:false},wheel:{x:0,y:0}},targets:{left:left?key:null,right:left?null:key}};}

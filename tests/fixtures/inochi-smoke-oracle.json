@@ -1,0 +1,136 @@
+{
+  "origin": "Values read from official Creator-exported smoke.inp; expected world positions calculated from its authored linear deform and Z-rotation. Native UI visibly showed +1 distorted shape and 0 neutral; these are numeric test expectations, not captured GPU buffers.",
+  "node_uuid": 2872495243,
+  "parameter_uuid": 460504786,
+  "parameter_name": "ParamBreath",
+  "triangles": [
+    0,
+    1,
+    2,
+    2,
+    1,
+    3
+  ],
+  "cases": [
+    {
+      "ParamBreath": 0,
+      "rotation_radians": 0.0,
+      "local_vertex_offsets": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -0.0,
+          -0.0
+        ]
+      ],
+      "expected_world_vertices": [
+        [
+          -128.0,
+          -128.0
+        ],
+        [
+          -128.0,
+          128.0
+        ],
+        [
+          128.0,
+          -128.0
+        ],
+        [
+          128.0,
+          128.0
+        ]
+      ]
+    },
+    {
+      "ParamBreath": 0.5,
+      "rotation_radians": 0.01482904,
+      "local_vertex_offsets": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -12.4866065,
+          -10.387184
+        ]
+      ],
+      "expected_world_vertices": [
+        [
+          -126.087879075912,
+          -129.8839741851865
+        ],
+        [
+          -129.8839741851865,
+          126.087879075912
+        ],
+        [
+          129.8839741851865,
+          -126.087879075912
+        ],
+        [
+          113.7566717776091,
+          119.31277463631885
+        ]
+      ]
+    },
+    {
+      "ParamBreath": 1,
+      "rotation_radians": 0.02965808,
+      "local_vertex_offsets": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -24.973213,
+          -20.774368
+        ]
+      ],
+      "expected_world_vertices": [
+        [
+          -124.14803188142562,
+          -131.73938735233486
+        ],
+        [
+          -131.73938735233486,
+          124.14803188142562
+        ],
+        [
+          131.73938735233486,
+          -124.14803188142562
+        ],
+        [
+          99.80183886434158,
+          110.23360629426396
+        ]
+      ]
+    }
+  ]
+}

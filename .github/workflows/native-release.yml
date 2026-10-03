@@ -1,0 +1,113 @@
+name: Inochi native Mac ARM and Windows acceptance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: inochi-release-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  mac-arm64:
+    name: Apple Silicon build, ad-hoc seal and native model smoke
+    runs-on: macos-15
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Verify native Apple Silicon runner
+        run: test "$(uname -m)" = arm64
+      - name: Install locked dependencies and test
+        run: npm ci && npm run check && npm run qa:inochi
+      - name: Require complete final model and build signed bundle
+        run: node scripts/package.mjs mac inochi arm64
+      - name: Extract archive and test actual sealed application
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p release/archive-qa
+          ARCHIVE=$(find release/inochi -maxdepth 1 -name '*-mac-arm64.zip' -print -quit)
+          test -n "$ARCHIVE"
+          ditto -x -k "$ARCHIVE" release/archive-qa
+          APP='release/archive-qa/Whale Companion Inochi.app'
+          codesign --verify --deep --strict --verbose=4 "$APP" 2>&1 | tee release/codesign-arm64.log
+          codesign -d --verbose=4 "$APP" 2>&1 | tee -a release/codesign-arm64.log
+          python3 scripts/smoke-native.py "$APP" release/smoke-mac-arm64
+      - name: Upload tested package and actual action frames
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: whale-inochi-mac-arm64-${{ github.sha }}
+          retention-days: 7
+          compression-level: 0
+          path: |
+            release/inochi/*-mac-arm64.zip
+            release/codesign-arm64.log
+            release/smoke-mac-arm64/
+      - name: Preserve failed native diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failed-inochi-mac-arm64-${{ github.sha }}
+          retention-days: 3
+          path: |
+            release/*.log
+            release/smoke-mac-arm64/
+  windows-x64:
+    name: Windows x64 build and native model smoke
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Test final source and restricted model runtime
+        run: |
+          npm run check
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm run qa:inochi
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Build complete Windows package with embedded icon
+        run: node scripts/package.mjs win inochi x64
+      - name: Extract archive and launch actual Windows EXE
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $archive = Get-ChildItem 'release/inochi/*-win-x64.zip' | Select-Object -First 1
+          if (!$archive) { throw 'Final Windows archive missing' }
+          Expand-Archive -LiteralPath $archive.FullName -DestinationPath 'release/archive-qa' -Force
+          $exe = Get-ChildItem 'release/archive-qa' -Filter 'Whale Companion Inochi.exe' -Recurse | Select-Object -First 1
+          if (!$exe) { throw 'Final native executable missing' }
+          python scripts/smoke-native.py $exe.FullName 'release/smoke-win-x64'
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Upload tested package and actual action frames
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: whale-inochi-win-x64-${{ github.sha }}
+          retention-days: 7
+          compression-level: 0
+          path: |
+            release/inochi/*-win-x64.zip
+            release/smoke-win-x64/
+      - name: Preserve failed native diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failed-inochi-win-x64-${{ github.sha }}
+          retention-days: 3
+          path: |
+            release/*.log
+            release/smoke-win-x64/

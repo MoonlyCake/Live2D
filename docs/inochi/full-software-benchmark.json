@@ -1,0 +1,17 @@
+{
+  "model": "assets/inochi/WhaleGirl.inp",
+  "backend": "Node JS software triangles with Skia ImageData output; not native Electron timing",
+  "size": [
+    320,
+    420
+  ],
+  "warmupMs": 86.16742399999998,
+  "warmMeanMs": 26.771116199999994,
+  "warmMaxMs": 43.85889099999997,
+  "stats": {
+    "triangles": 4154,
+    "drawCalls": 36,
+    "vertices": 6084,
+    "backend": "Canvas2D software triangle rasterizer"
+  }
+}

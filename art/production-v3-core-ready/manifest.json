@@ -1,0 +1,412 @@
+{
+  "version": "production-v3-core",
+  "frozen": true,
+  "canvas": [
+    1254,
+    1254
+  ],
+  "color": "sRGB RGBA, normal alpha compositing",
+  "status": "production artwork subset ready for native binding and renderer QA; not a finished model",
+  "layers": [
+    {
+      "name": "BackHairComplete",
+      "file": "layers/00_BackHairComplete.png",
+      "z_back_to_front": 0,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "0ed49eda5237c98b09e5654e6b3ca59f861aa49b33c0f05b4057f8c33d549f2b"
+    },
+    {
+      "name": "TailVisible",
+      "file": "layers/01_TailVisible.png",
+      "z_back_to_front": 1,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "b8839fb8ec85b89ddf44084e7e9c4270608f04b1119e027092b0d24d36e6adbf"
+    },
+    {
+      "name": "BodyUnderpaint",
+      "file": "layers/02_BodyUnderpaint.png",
+      "z_back_to_front": 2,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "976793aaebca6917337b9a08d1d2a410dffd243f6c45f9330df6440a084dedd1"
+    },
+    {
+      "name": "UpperArmL",
+      "file": "layers/03_UpperArmL.png",
+      "z_back_to_front": 3,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "adb79de7f195afcd35dbbbfacff7f5c1f3666e377df19d5235a89df7ad67bd5b"
+    },
+    {
+      "name": "UpperArmR",
+      "file": "layers/04_UpperArmR.png",
+      "z_back_to_front": 4,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "9e08c9fe3509acbb296c56cbbd60f2e083799eee50c91187e7ff8f69da8a52cc"
+    },
+    {
+      "name": "BodyFrontOriginal",
+      "file": "layers/05_BodyFrontOriginal.png",
+      "z_back_to_front": 5,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "d7be438e03f753a99370b6c4c6548dc4d54541f02b001841656e71b3c21ec4ed"
+    },
+    {
+      "name": "ForearmHandL",
+      "file": "layers/06_ForearmHandL.png",
+      "z_back_to_front": 6,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "ef4aa91da9615837ca873c06a94a6d72429ee1ab2fd41fb95dffb228b21905ae"
+    },
+    {
+      "name": "ForearmHandR",
+      "file": "layers/07_ForearmHandR.png",
+      "z_back_to_front": 7,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "2c7b09164d75fdaf72f3f802e42a4d4ac2a9f9aea8a2d99151b06692c88cb8c8"
+    },
+    {
+      "name": "FaceBase",
+      "file": "layers/08_FaceBase.png",
+      "z_back_to_front": 8,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "42258eb5a35e6dce221200ca8da0569e7cacc977af9b9a54b4a69cda330a983a"
+    },
+    {
+      "name": "EyeWhiteL",
+      "file": "layers/09_EyeWhiteL.png",
+      "z_back_to_front": 9,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "fe61623ea1243ab7d940dc36181a870e28d35c50c1f8fad378c1655d6b4db15b"
+    },
+    {
+      "name": "EyeWhiteR",
+      "file": "layers/10_EyeWhiteR.png",
+      "z_back_to_front": 10,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "7c3e6ec19a033dbe0ab934b15748cbeed375718b8e5aab8298f8fef86624247f"
+    },
+    {
+      "name": "IrisL",
+      "file": "layers/11_IrisL.png",
+      "z_back_to_front": 11,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "04c9b42b945e620745f8aca4fc0a44a33b231f18109afe46b492634bbab7cd29"
+    },
+    {
+      "name": "IrisR",
+      "file": "layers/12_IrisR.png",
+      "z_back_to_front": 12,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "88e35f6b998ae1e3f693e3c74736532b82a1663358594dbad47300d732d50f2e"
+    },
+    {
+      "name": "EyeSocketL",
+      "file": "layers/13_EyeSocketL.png",
+      "z_back_to_front": 13,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "1607286a2ab666902c3d0e8b9e2dbc80693f5d5b790cb2686e8fea2c06834451"
+    },
+    {
+      "name": "EyeSocketR",
+      "file": "layers/14_EyeSocketR.png",
+      "z_back_to_front": 14,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "2484fb65f67b67f09442e6deb0e71ede603fb692f4026a8d37dbe12f4a731c1c"
+    },
+    {
+      "name": "EyeLashL",
+      "file": "layers/15_EyeLashL.png",
+      "z_back_to_front": 15,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "45cb8093a7ebe53ad7f15d109f2d9759c1c3aab9783f0e5cf0097819f43ab240"
+    },
+    {
+      "name": "EyeLashR",
+      "file": "layers/16_EyeLashR.png",
+      "z_back_to_front": 16,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "d81d724fed153c1ed94d07255b7cf0165ca26fa563dafc3dcf2679d60e18220a"
+    },
+    {
+      "name": "EyeClosedL",
+      "file": "layers/17_EyeClosedL.png",
+      "z_back_to_front": 17,
+      "visible_default": false,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "4cf952b1f01e9c3a816cd1a215f652803299b5ab697a10d310ebb449ce6b30fe"
+    },
+    {
+      "name": "EyeClosedR",
+      "file": "layers/18_EyeClosedR.png",
+      "z_back_to_front": 18,
+      "visible_default": false,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "75f51317bb99d74ac9fa5722c67ed95711daf194a4af560a39c6eb6580cb5e3d"
+    },
+    {
+      "name": "MouthClosed",
+      "file": "layers/19_MouthClosed.png",
+      "z_back_to_front": 19,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "17759cab6b87b9e82591c1196681ac9d095d546a368a63194554385857096c98"
+    },
+    {
+      "name": "MouthOpen",
+      "file": "layers/20_MouthOpen.png",
+      "z_back_to_front": 20,
+      "visible_default": false,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "f3905c331dd78599928e662eb90819f8059a101499606d96a6248a8d2fbd410d"
+    },
+    {
+      "name": "HairFrontAndHeaddress",
+      "file": "layers/21_HairFrontAndHeaddress.png",
+      "z_back_to_front": 21,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "e16d31a157cb060f99c0895cf51056e9b3d7abc0d27bc097784527df929745af"
+    },
+    {
+      "name": "Ahoge",
+      "file": "layers/22_Ahoge.png",
+      "z_back_to_front": 22,
+      "visible_default": true,
+      "offset": [
+        0,
+        0
+      ],
+      "sha256": "3287f8f7af0a3339cc4851698ec9dc1b06ccf4d72f39067f492d438a9ce5eaf0"
+    }
+  ],
+  "default_back_to_front": [
+    "BackHairComplete",
+    "TailVisible",
+    "BodyUnderpaint",
+    "UpperArmL",
+    "UpperArmR",
+    "BodyFrontOriginal",
+    "ForearmHandL",
+    "ForearmHandR",
+    "FaceBase",
+    "EyeWhiteL",
+    "EyeWhiteR",
+    "IrisL",
+    "IrisR",
+    "EyeSocketL",
+    "EyeSocketR",
+    "EyeLashL",
+    "EyeLashR",
+    "MouthClosed",
+    "HairFrontAndHeaddress",
+    "Ahoge"
+  ],
+  "head_group": [
+    "FaceBase",
+    "EyeWhiteL",
+    "EyeWhiteR",
+    "IrisL",
+    "IrisR",
+    "EyeSocketL",
+    "EyeSocketR",
+    "EyeLashL",
+    "EyeLashR",
+    "EyeClosedL",
+    "EyeClosedR",
+    "MouthClosed",
+    "MouthOpen",
+    "HairFrontAndHeaddress",
+    "Ahoge"
+  ],
+  "eye_groups": {
+    "L": {
+      "open": [
+        "EyeWhiteL",
+        "IrisL",
+        "EyeSocketL",
+        "EyeLashL"
+      ],
+      "closed": [
+        "EyeClosedL"
+      ],
+      "pivot": [
+        517,
+        545
+      ],
+      "gaze_pixels": 3
+    },
+    "R": {
+      "open": [
+        "EyeWhiteR",
+        "IrisR",
+        "EyeSocketR",
+        "EyeLashR"
+      ],
+      "closed": [
+        "EyeClosedR"
+      ],
+      "pivot": [
+        720,
+        515
+      ],
+      "gaze_pixels": 3
+    }
+  },
+  "mouth": {
+    "closed": "MouthClosed",
+    "open": "MouthOpen",
+    "pivot": [
+      626,
+      599
+    ],
+    "asset_open_bbox": [
+      603,
+      583,
+      650,
+      613
+    ]
+  },
+  "pivots": {
+    "head": [
+      626,
+      641
+    ],
+    "body": [
+      628,
+      945
+    ],
+    "UpperArmL": [
+      503,
+      690
+    ],
+    "UpperArmR": [
+      750,
+      690
+    ],
+    "ForearmHandL": [
+      451,
+      802
+    ],
+    "ForearmHandR": [
+      803,
+      802
+    ]
+  },
+  "approved_art_endpoint_tests": {
+    "display_pixels": [
+      320,
+      640
+    ],
+    "gaze_xy_source_pixels": [
+      -3,
+      3
+    ],
+    "head_test_shift_source_pixels": [
+      6,
+      -4
+    ],
+    "forearm_test_degrees": 4,
+    "neutral_closed_talk": "reviewed assembled full character; old-eye specks removed; no visible extra hands/eye ghosts or large holes at 320px"
+  },
+  "binding_notes": [
+    "EyeSocket is opaque face-colored art around aperture, above iris: no special runtime mask required for tested gaze range.",
+    "Hide all four open-eye layers when fully closed; show EyeClosed. Do not draw EyeOpen source composite on top of split eye layers.",
+    "EyeWhite and Iris stay below EyeSocket and EyeLash. HairFrontAndHeaddress is above all facial features.",
+    "Use actual native mesh changes for partial blink/mouth transitions; art endpoints are reviewed, continuous motion still needs renderer validation.",
+    "BodyUnderpaint is below arms; BodyFrontOriginal is above UpperArms; ForearmHands are above BodyFrontOriginal. This avoids doubled shoulders and keeps hands over skirt.",
+    "Head group must move together for face/gaze coordinates. The rear hair underpaint covers small neck/head exposure, but large head turns are not validated.",
+    "TailVisible remains independent-motion blocked; use shared global motion only until tail candidate separately approved.",
+    "Ahoge independent apex motion only y<70, rooted above headdress.",
+    "Preserve layer bytes and apply mesh transforms rather than resampling new production PNGs."
+  ],
+  "not_yet_included": [
+    "rice arm/prop pose (in separate ongoing artwork pass)",
+    "five distinct emotional eyebrow/mouth variants",
+    "cheek puff deformation artwork",
+    "large-angle head/body side anatomy"
+  ],
+  "provenance": "Based on all five supplied whale-girl references and the approved neutral character. Original visible pixels retained as identity anchors; user-authorized generated hidden skin, rear hair, torso, sleeves, closed eyelashes, open mouth, eye whites and complete iris were aligned into same canvas."
+}

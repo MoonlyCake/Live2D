@@ -1,0 +1,71 @@
+{
+  "status": "Approved against actual model rasterization after local-u eye mesh with strictly fixed rectangle perimeter: low/mid blink and corrected sleeve reach visually passed.",
+  "canvas": [
+    1672,
+    1093
+  ],
+  "replace_layers": [
+    {
+      "name": "EyeSocketL",
+      "file": "EyeSocketL.png",
+      "sha256": "1106ce247c3bee346d57996577f4c055dc8e3d50e98254bb818c669c23e5d1cd",
+      "change": "Pure skin occluder, no blue hair or dark face outlines; one unchanged main aperture."
+    },
+    {
+      "name": "EyeSocketR",
+      "file": "EyeSocketR.png",
+      "sha256": "586a57412bdc7755060cb1408bbeb82d422c1873d4c205350dfe89e8ce391e63",
+      "change": "Pure skin occluder, no blue hair or dark face outlines; one unchanged main aperture."
+    },
+    {
+      "name": "TypingSleeveRPress",
+      "file": "TypingSleeveRPress.png",
+      "sha256": "34a4ac264c64f9dbc4e0602402df8b611cfe4fcc2c016da7f1828b4c8e155097",
+      "change": "Trim60px root overshoot to8px so longitudinal scaling cannot extend back across chest."
+    },
+    {
+      "name": "EyeLashL",
+      "file": "EyeLashL.png",
+      "sha256": "8b9c5cf161ebd1aa122953b36ff4c71e1debbbb88b25b9f25a2ec815ef0f537b",
+      "change": "Only original upper eyelash contour; excludes accidental face-side and lower-edge dark remnants."
+    },
+    {
+      "name": "EyeLashR",
+      "file": "EyeLashR.png",
+      "sha256": "0dc942d467ce86f3feac0016a00a8c33454339a79b42604b26dda81a4e33197d",
+      "change": "Only original upper eyelash contour; excludes accidental face-side and lower-edge dark remnants."
+    },
+    {
+      "name": "HairFrontAndHeaddress",
+      "file": "HairFrontAndHeaddress.png",
+      "sha256": "f62fa7d831e93eb3259d7f5cb25445524347e06ff471d7a9ee4c41b56a0cf621",
+      "change": "Remove disconnected eye remnants; keep connected original hair/headdress shape.",
+      "removed_stray_pixels": 425
+    }
+  ],
+  "source": "PureFaceSkin.png from built-in imagegen, color blended with original valid pure skin; original aperture and canvas maintained.",
+  "binding_note": "No coordinate or anchors change. Rebuild mesh if alpha bounding changes. Put sleeve bridges beforeFace/Hair to avoid covering head at extremes.",
+  "frozen": true,
+  "validation": {
+    "utc": "2026-10-03T22:35:56Z",
+    "eye_open_values": [
+      0,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "reviewed_images": [
+      "model-source/perspective-work/poses-0.png",
+      "model-source/perspective-work/poses-2.png"
+    ],
+    "visual_result": "No detached lower iris circles, blue fringe triangles or duplicated eye fragments. Press hand points toward keys; sleeve no longer stretches backwards acrosschest.",
+    "native_author_numerical_report": "83keys plus26poses with zero mesh orientation inversions",
+    "pending": [
+      "Creator roundtrip export",
+      "actual app event-driven continuous behavior"
+    ],
+    "wide_candidate_used": false
+  }
+}

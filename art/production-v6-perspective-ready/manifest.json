@@ -1,0 +1,441 @@
+{
+  "version": "perspective-v6-draft",
+  "status": "26-layer production artwork frozen after neutral/closed/press-home visual checks. Native model/continuous gestures and real key labels require actual renderer QA.",
+  "canvas": [
+    1672,
+    1093
+  ],
+  "source_approved": "raw/Approved.png",
+  "source_shift": [
+    0,
+    32
+  ],
+  "layers": [
+    {
+      "name": "BodyAndBackHair",
+      "file": "layers/BodyAndBackHair.png",
+      "z": 0,
+      "visible_default": true,
+      "sha256": "307f5e99ba8c5db0c0d6b9297fe26dbe19199bd8470a17ab78f71d03db63e684"
+    },
+    {
+      "name": "DeskSurface",
+      "file": "layers/DeskSurface.png",
+      "z": 10,
+      "visible_default": true,
+      "sha256": "1ac63f610612f007ee1e7582a51178fca8fe66a750408e73206b62bd89da6e58"
+    },
+    {
+      "name": "MousePad",
+      "file": "layers/MousePad.png",
+      "z": 11,
+      "visible_default": true,
+      "sha256": "9c0d9737182d58fa0858975e81a0b5b49335ca5ac1cb75daafb973652e54f197"
+    },
+    {
+      "name": "KeyboardShell",
+      "file": "layers/KeyboardShell.png",
+      "z": 12,
+      "visible_default": true,
+      "sha256": "0ab5476f352f04a36940afe1376facbdba86e932ee0a4011f5d23940d2ae49d7"
+    },
+    {
+      "name": "FaceBase",
+      "file": "layers/FaceBase.png",
+      "z": 20,
+      "visible_default": true,
+      "sha256": "a77289ea700a29978cbfa9d24f95e10aec10ca79b9891835c23f2dbc38814eb8"
+    },
+    {
+      "name": "EyeWhiteL",
+      "file": "layers/EyeWhiteL.png",
+      "z": 30,
+      "visible_default": true,
+      "sha256": "e81343ed54c3df1968d55b8e1c25417decdcaee7c7dd07329405367927654da8"
+    },
+    {
+      "name": "IrisL",
+      "file": "layers/IrisL.png",
+      "z": 31,
+      "visible_default": true,
+      "sha256": "aad819e5bb3b2a1fe783e0e4ee0fef46aae8048934649f12fa75d20710165dc3"
+    },
+    {
+      "name": "EyeSocketL",
+      "file": "layers/EyeSocketL.png",
+      "z": 32,
+      "visible_default": true,
+      "sha256": "04d64403726dd89803b9c857ae04ed1ab06e0fea8e812464fc86f8acaa50bbc6"
+    },
+    {
+      "name": "EyeLashL",
+      "file": "layers/EyeLashL.png",
+      "z": 33,
+      "visible_default": true,
+      "sha256": "19b41e7202a943c807ea0ce00a1116c11e4752fcdcf9d43ca05ff6c024f75538"
+    },
+    {
+      "name": "EyeClosedL",
+      "file": "layers/EyeClosedL.png",
+      "z": 34,
+      "visible_default": false,
+      "sha256": "a6965d38dcdb4d12cbfc2a28196b2d3399908e3779421f333132e422c8f67ed3"
+    },
+    {
+      "name": "EyeWhiteR",
+      "file": "layers/EyeWhiteR.png",
+      "z": 30,
+      "visible_default": true,
+      "sha256": "fd1dc60a39a52b1781ade2dcaa0305ffa091abe4c59fc9a0cca13cb2dad95851"
+    },
+    {
+      "name": "IrisR",
+      "file": "layers/IrisR.png",
+      "z": 31,
+      "visible_default": true,
+      "sha256": "dc295a093fe4165eb0e15b2fc9fac61380bd61bbebfa20fb149cd2d4d01ac634"
+    },
+    {
+      "name": "EyeSocketR",
+      "file": "layers/EyeSocketR.png",
+      "z": 32,
+      "visible_default": true,
+      "sha256": "81259c408ffdf5c6ab4b119ac4e4587c8be100847751b0c23c2e5a1770d580e1"
+    },
+    {
+      "name": "EyeLashR",
+      "file": "layers/EyeLashR.png",
+      "z": 33,
+      "visible_default": true,
+      "sha256": "af4719d01a2f3c67b6bd305482da484971d0defb572b282e3ebcd98e6b3f8ea4"
+    },
+    {
+      "name": "EyeClosedR",
+      "file": "layers/EyeClosedR.png",
+      "z": 34,
+      "visible_default": false,
+      "sha256": "1965c65073052dca6244e5e2a4b72c47621704111916148e2e773a6c0c908a0d"
+    },
+    {
+      "name": "MouthOpen",
+      "file": "layers/MouthOpen.png",
+      "z": 35,
+      "visible_default": true,
+      "sha256": "f77df47bc61e7bbaa1bc57c12b4d437953260730547d6dd2f6d2bfcbd586d7c9"
+    },
+    {
+      "name": "MouthClosed",
+      "file": "layers/MouthClosed.png",
+      "z": 35,
+      "visible_default": false,
+      "sha256": "3b7d42510ca1f6c9b78c89b8a7c60bf7d100b61d3e3a96c0f35184a999efe091"
+    },
+    {
+      "name": "HairFrontAndHeaddress",
+      "file": "layers/HairFrontAndHeaddress.png",
+      "z": 40,
+      "visible_default": true,
+      "sha256": "02027998be1b8bda09c783c0a74d788128a73abd66e194196e0fd82dbfccca57"
+    },
+    {
+      "name": "Ahoge",
+      "file": "layers/Ahoge.png",
+      "z": 39,
+      "visible_default": true,
+      "sha256": "655e867fe70de27d5db80cc312965652dcddd017d6cf86086e20d1c96dc88295"
+    },
+    {
+      "name": "MouseSleeveL",
+      "file": "layers/MouseSleeveL.png",
+      "z": 45,
+      "visible_default": true,
+      "sha256": "afe0908c1a19cd5a33709fd67606dd652170b17baaa8ac27fd502ec9f2d54ea4"
+    },
+    {
+      "name": "MouseHandL",
+      "file": "layers/MouseHandL.png",
+      "z": 50,
+      "visible_default": true,
+      "sha256": "5c2955f4322b9c0b0d9f37289ea2eb5ce012f58a47d4b6944b42683eaf5e0e62"
+    },
+    {
+      "name": "TypingSleeveR",
+      "file": "layers/TypingSleeveR.png",
+      "z": 45,
+      "visible_default": true,
+      "sha256": "ab9e8144ca0295a8f9c533d4ef12ba84aaa42abafd5f6f677ac61f7cb41cdaaf"
+    },
+    {
+      "name": "TypingHandR",
+      "file": "layers/TypingHandR.png",
+      "z": 50,
+      "visible_default": true,
+      "sha256": "330f5e2384564e0356b41c89a22326e9a23fe76e6f4b68129f00dff3efd2f921"
+    },
+    {
+      "name": "MouseBase",
+      "file": "layers/MouseBase.png",
+      "z": 48,
+      "visible_default": true,
+      "sha256": "d26f3af2d6ae21c92b4e329b8c2f4e23a94ae59f1053e0ea2a1669d4a20d819e"
+    },
+    {
+      "name": "TypingHandRPress",
+      "file": "layers/TypingHandRPress.png",
+      "z": 50,
+      "visible_default": false,
+      "sha256": "52b72697d064f22a7eed40c1531bf901076df679982180dd401bb4711d2605c7"
+    },
+    {
+      "name": "TypingSleeveRPress",
+      "file": "layers/TypingSleeveRPress.png",
+      "z": 45,
+      "visible_default": false,
+      "sha256": "85211a83f7f26ecc9d1ec9f3d88d073d05eec95a773f5ef75f4e6916011659a4"
+    }
+  ],
+  "head_group": [
+    "FaceBase",
+    "HairFrontAndHeaddress",
+    "Ahoge",
+    "EyeWhiteL",
+    "IrisL",
+    "EyeSocketL",
+    "EyeLashL",
+    "EyeClosedL",
+    "EyeWhiteR",
+    "IrisR",
+    "EyeSocketR",
+    "EyeLashR",
+    "EyeClosedR",
+    "MouthOpen",
+    "MouthClosed"
+  ],
+  "eyes": {
+    "L": {
+      "pivot": [
+        835,
+        458
+      ],
+      "local_axis_angle_degrees": -17,
+      "aperture_bbox": [
+        774,
+        414,
+        880,
+        504
+      ],
+      "open": [
+        "EyeWhiteL",
+        "IrisL",
+        "EyeSocketL",
+        "EyeLashL"
+      ],
+      "closed": [
+        "EyeClosedL"
+      ],
+      "gaze_limit_source_px": 3
+    },
+    "R": {
+      "pivot": [
+        1008,
+        407
+      ],
+      "local_axis_angle_degrees": -10,
+      "aperture_bbox": [
+        949,
+        360,
+        1071,
+        455
+      ],
+      "open": [
+        "EyeWhiteR",
+        "IrisR",
+        "EyeSocketR",
+        "EyeLashR"
+      ],
+      "closed": [
+        "EyeClosedR"
+      ],
+      "gaze_limit_source_px": 3
+    }
+  },
+  "mouth": {
+    "pivot": [
+      936,
+      493
+    ],
+    "open": "MouthOpen",
+    "closed": "MouthClosed"
+  },
+  "keyboard_quad": [
+    [
+      895,
+      680
+    ],
+    [
+      1589,
+      840
+    ],
+    [
+      1548,
+      1044
+    ],
+    [
+      654,
+      863
+    ]
+  ],
+  "mouse_quad": [
+    [
+      289,
+      572
+    ],
+    [
+      765,
+      674
+    ],
+    [
+      515,
+      889
+    ],
+    [
+      49,
+      723
+    ]
+  ],
+  "typing_hand": {
+    "screen_side": "right",
+    "finger_anchor": [
+      1168,
+      509
+    ],
+    "wrist_anchor": [
+      1186,
+      614
+    ],
+    "bridge_moving_anchor": [
+      1191,
+      645
+    ],
+    "upper_fixed_anchor": [
+      1125,
+      662
+    ],
+    "hand_layer": "TypingHandR",
+    "bridge_layer": "TypingSleeveR",
+    "note": "Approved raised-hand rest pose. Large across-keyboard reaches need alternate press pose or carefully bounded sleeve length, not final motion approval."
+  },
+  "mouse_hand": {
+    "screen_side": "left",
+    "reference_anchor": [
+      448,
+      680
+    ],
+    "wrist_anchor": [
+      584,
+      589
+    ],
+    "left_finger_anchor": [
+      447,
+      629
+    ],
+    "right_finger_anchor": [
+      472,
+      633
+    ],
+    "bridge_moving_anchor": [
+      619,
+      580
+    ],
+    "upper_fixed_anchor": [
+      750,
+      597
+    ],
+    "hand_layer": "MouseHandL",
+    "bridge_layer": "MouseSleeveL",
+    "mouse_layer": "MouseBase"
+  },
+  "limits": [
+    "Head/body seams currently intended to share global displacement; independent large head turns not approved",
+    "Static device shells are separated; runtime provides labels/keycaps and dynamic mouse",
+    "Frame extends top32 andbottom120 only, original approved character pixels retain coordinates+32",
+    "Original pose open mouth default; closed mouth alternative",
+    "EyeSocket has exactly one main aperture"
+  ],
+  "typing_press_hand": {
+    "screen_side": "right",
+    "finger_anchor": [
+      1110.0,
+      860.0
+    ],
+    "wrist_anchor": [
+      1187.22,
+      768.0400000000001
+    ],
+    "bridge_moving_anchor": [
+      1245.08,
+      739.44
+    ],
+    "upper_fixed_anchor": [
+      1125.0,
+      662.0
+    ],
+    "hand_layer": "TypingHandRPress",
+    "bridge_layer": "TypingSleeveRPress",
+    "rest_alternative": [
+      "TypingHandR",
+      "TypingSleeveR"
+    ],
+    "visibility": "Hard mutually exclusive with approved raised hand/raised sleeve; do not opacity-crossfade two right hands. Raised pose remains while mouse alone moves.",
+    "note": "Genuinely newly drawn back-of-hand press pose, index tip is down-left of wrist. Fixed rest registration atcandidatehome; rig may rigidly translate to exact key home."
+  },
+  "source_provenance": [
+    {
+      "file": "raw/AhogeFill.png",
+      "sha256": "96c7e0aa597c6b5cb40136955d579fec0387dd1c58bf56414f296497af97b6b9",
+      "generator": "built-in imagegen (Approved.png is user-approved generated source)"
+    },
+    {
+      "file": "raw/Approved.png",
+      "sha256": "fdb38e61fca6d4c9b095332edd8afac07c7233bf879671744d21abdd02d3887e",
+      "generator": "built-in imagegen (Approved.png is user-approved generated source)"
+    },
+    {
+      "file": "raw/FaceFill.png",
+      "sha256": "92d3181d8d85f4c77d8297284283a796c30defc5c5dca91d62a35e8a381af6ff",
+      "generator": "built-in imagegen (Approved.png is user-approved generated source)"
+    },
+    {
+      "file": "raw/MouseFill.png",
+      "sha256": "344656592c46454f5d1499c9eee7ea44719053d7401ec82f40439ba8b24895d2",
+      "generator": "built-in imagegen (Approved.png is user-approved generated source)"
+    },
+    {
+      "file": "raw/Outpaint.png",
+      "sha256": "bb9901986956ded62b2f2e4383d5cdd8141fa75c2c01676a758b0396a45ac77a",
+      "generator": "built-in imagegen (Approved.png is user-approved generated source)"
+    },
+    {
+      "file": "raw/TypingPressFill.png",
+      "sha256": "2aaa7ce277ee01c4712ba84352b8ab5c1383fe34b4414dd4eb7358f41f6bd3ec",
+      "generator": "built-in imagegen (Approved.png is user-approved generated source)"
+    },
+    {
+      "file": "raw/Underpaint.png",
+      "sha256": "ad5d6aa02f2aab5b1a825ed89067d1838791925d28b08bac711ab4b60e8f3319",
+      "generator": "built-in imagegen (Approved.png is user-approved generated source)"
+    },
+    {
+      "file": "raw/UnderpaintPadded.png",
+      "sha256": "b9999190b7776ab63421c1913eb57a8eebe608909c7602dedd68a982112eb44e",
+      "generator": "built-in imagegen (Approved.png is user-approved generated source)"
+    }
+  ],
+  "frozen": true,
+  "ownership": {
+    "art": "Frozen independent same-canvas RGBA layers, all coordinates in1672x1093 source space",
+    "runtime": "Dynamic keycaps/labels/pressed feedback use keyboard_quad; mouse motion and hand follow same pad projection",
+    "native_model": "Real per-layer mesh deform/opacity/rotation controls; mouth, eyes, gaze, approvedraisedrest and alternatepress pose mutually exclusive",
+    "not_claimed": "No large independent head turn or already validated all-key animation in this artwork package"
+  }
+}

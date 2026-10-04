@@ -177,3 +177,65 @@ test('a late cancelled timer cannot flush or cancel the new generation trailing 
  const count=f.states.length;stale();assert.equal(f.states.length,count);
  f.tick(15);assert.equal(f.states.length,count+1);assert.equal(f.states.at(-1)!.state.mouse.x,-.19999999999999996);
 });
+
+// These lifecycle cases use an EventEmitter double, not macOS TCC or a CGEventTap.
+test('returning from System Settings reconnects a newly granted permission once',async()=>{
+ const hook=new Hook();let trusted=false,starts=0;
+ const start=hook.start.bind(hook);hook.start=()=>{starts++;start();};
+ const input=new GlobalInput(()=>{},bounds,{trusted:()=>trusted,point:()=>({x:0,y:0}),loadHook:async()=>hook});
+ try{
+  await input.start();await input.refreshPermission();assert.equal(starts,0);
+  trusted=true;await Promise.all([input.refreshPermission(),input.refreshPermission()]);
+  assert.equal(starts,1);assert.equal(input.snapshot().keyboard,true);
+  assert.equal(input.snapshot().keyboardObserved,false);
+  hook.emit('keydown',{keycode:nativeCode('KeyA')});
+  await input.refreshPermission();assert.equal(starts,1);
+  assert.deepEqual(input.physicalSnapshot().pressed,['KeyA']);
+  assert.equal(input.snapshot().counts.typing,1);
+ }finally{input.stop();}
+});
+
+test('revoked permission reconnects on foreground only after reauthorization',async t=>{
+ const f=timedInput(t);await f.input.start();
+ const starts=t.mock.method(f.hook,'start');
+ f.hook.emit('keydown',{keycode:nativeCode('KeyA')});
+ f.setTrust(false);f.tick(1000);
+ assert.equal(f.input.snapshot().keyboard,false);
+ await f.input.refreshPermission();assert.equal(starts.mock.callCount(),0);
+ f.setTrust(true);await f.input.refreshPermission();
+ assert.equal(starts.mock.callCount(),1);assert.equal(f.input.snapshot().keyboard,true);
+ assert.equal(f.input.snapshot().keyboardObserved,false);
+ assert.deepEqual(f.input.physicalSnapshot().pressed,[]);
+ f.hook.emit('keydown',{keycode:nativeCode('KeyJ')});
+ assert.equal(f.input.snapshot().keyboardObserved,true);
+});
+
+test('foreground recheck after OFF, lock, or suspend cannot resume a stopped listener',async()=>{
+ const hook=new Hook();let trusted=false,loads=0;
+ const input=new GlobalInput(()=>{},bounds,{trusted:()=>trusted,point:()=>({x:0,y:0}),loadHook:async()=>{loads++;return hook;}});
+ await input.start();input.stop();trusted=true;await input.refreshPermission();
+ assert.equal(loads,0);assert.equal(input.snapshot().active,false);
+ assert.equal(hook.started,false);
+});
+
+test('failed native stop never reports the addon no-op start as a successful reconnection',async()=>{
+ const hook=new Hook();let starts=0;
+ hook.start=()=>{starts++;hook.started=true;};
+ hook.stop=()=>{throw new Error('native run loop could not stop');};
+ const input=new GlobalInput(()=>{},bounds,{trusted:()=>true,point:()=>({x:0,y:0}),loadHook:async()=>hook});
+ try{
+  await input.start();hook.emit('keydown',{keycode:nativeCode('KeyA')});
+  const status=await input.start();
+  assert.equal(starts,1);assert.equal(status.keyboard,false);assert.equal(status.pointer,true);
+  assert.equal(status.keyboardObserved,false);assert.match(status.message,/安全退出/);
+  assert.deepEqual(input.physicalSnapshot().pressed,[]);assert.equal(hook.listenerCount('keydown'),0);
+  await input.start();await input.refreshPermission();assert.equal(starts,1);
+ }finally{input.stop();}
+});
+
+test('a foreground permission API error neither starts capture nor rejects the focus callback',async()=>{
+ let error=false;const hook=new Hook();
+ const input=new GlobalInput(()=>{},bounds,{trusted:()=>{if(error)throw new Error('unavailable');return false;},point:()=>({x:0,y:0}),loadHook:async()=>hook});
+ try{await input.start();error=true;await assert.doesNotReject(input.refreshPermission());assert.equal(hook.started,false);}
+ finally{input.stop();}
+});

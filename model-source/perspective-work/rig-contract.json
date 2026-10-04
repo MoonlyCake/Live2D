@@ -1,0 +1,243 @@
+{
+  "schema": "whale-perspective-work-v1",
+  "status": "registered candidate; native validation pending",
+  "canvas": [
+    1672,
+    1093
+  ],
+  "origin": [
+    836.0,
+    546.5
+  ],
+  "defaultWindowWidth": 700,
+  "scene": "work",
+  "handsVisibleByDefault": true,
+  "modeParameters": [],
+  "keyboard": {
+    "cornerOrder": [
+      "TL",
+      "TR",
+      "BR",
+      "BL"
+    ],
+    "quad": [
+      [
+        895,
+        680
+      ],
+      [
+        1589,
+        840
+      ],
+      [
+        1548,
+        1044
+      ],
+      [
+        654,
+        863
+      ]
+    ],
+    "logicalSize": [
+      550,
+      170
+    ],
+    "logicalKeys": "assets/keyboard.layout.json",
+    "typingTarget": "latest currently pressed physical key; every held keycap remains independently visible",
+    "sourceBounds": {
+      "x": 360,
+      "y": 820,
+      "width": 550,
+      "height": 170
+    }
+  },
+  "mouse": {
+    "cornerOrder": [
+      "TL",
+      "TR",
+      "BR",
+      "BL"
+    ],
+    "quad": [
+      [
+        289,
+        572
+      ],
+      [
+        765,
+        674
+      ],
+      [
+        515,
+        889
+      ],
+      [
+        49,
+        723
+      ]
+    ],
+    "logicalSize": [
+      600,
+      360
+    ],
+    "travel": {
+      "min": [
+        256.5808622374214,
+        72.70027770722106
+      ],
+      "max": [
+        416.5808622374214,
+        172.70027770722106
+      ]
+    },
+    "home": [
+      336.5808622374214,
+      122.70027770722106
+    ],
+    "bodyNode": "MouseBody",
+    "bodyInModel": true
+  },
+  "typingHand": {
+    "screenSide": "right",
+    "contactNode": "TypingHandR",
+    "contactLocal": [
+      0.0,
+      0.0
+    ],
+    "handNode": "TypingHandR",
+    "bridgeNode": "TypingSleeveBridgeR",
+    "restHandNode": "RaisedHandR",
+    "restBridgeNode": "RaisedSleeveR",
+    "activeParameter": "ParamTypingActive",
+    "reference": [
+      1110.0,
+      860.0
+    ],
+    "fingerAnchor": [
+      1110.0,
+      860.0
+    ],
+    "wristAnchor": [
+      1187.22,
+      768.0400000000001
+    ],
+    "pressTravel": [
+      0.0,
+      0.0
+    ],
+    "parameters": {
+      "x": "ParamTypingHandRX",
+      "y": "ParamTypingHandRY",
+      "press": "ParamTypingPressR",
+      "angle": "ParamTypingHandRAngle"
+    },
+    "orientation": "point-cuff-toward-fixed",
+    "sleeve": {
+      "fixed": [
+        1125.0,
+        662.0
+      ],
+      "moving": [
+        1245.08,
+        739.44
+      ],
+      "baseAngle": 0.57278402393669,
+      "baseLength": 142.885128687348,
+      "angleParameter": "ParamTypingSleeveRAngle",
+      "lengthParameter": "ParamTypingSleeveRLength"
+    }
+  },
+  "mouseHand": {
+    "screenSide": "left",
+    "handNode": "MouseHandL",
+    "bridgeNode": "MouseSleeveBridgeL",
+    "reference": [
+      448,
+      680
+    ],
+    "wristAnchor": [
+      584,
+      589
+    ],
+    "leftFingerAnchor": [
+      447,
+      629
+    ],
+    "rightFingerAnchor": [
+      472,
+      633
+    ],
+    "parameters": {
+      "x": "ParamMouseX",
+      "y": "ParamMouseY",
+      "left": "ParamMouseLeft",
+      "right": "ParamMouseRight",
+      "wheel": "ParamMouseWheel"
+    },
+    "sleeve": {
+      "fixed": [
+        750,
+        597
+      ],
+      "moving": [
+        619,
+        580
+      ],
+      "baseAngle": -3.0125428578555367,
+      "baseLength": 132.09844813622905,
+      "angleParameter": "ParamMouseSleeveLAngle",
+      "lengthParameter": "ParamMouseSleeveLLength"
+    },
+    "contactNode": "MouseBody",
+    "contactLocal": [
+      -388.0,
+      133.5
+    ]
+  },
+  "xyMeaning": "Absolute registered source-canvas pixels after exact plane homography, before subtracting model origin.",
+  "sleeveMath": "mapped moving cuff = authoredMoving + (target - reference) + authored press offset; angle = wrapped atan2(cuff-fixed) minus baseAngle; length = distance(cuff,fixed)/baseLength. Compute from current target every animation frame.",
+  "optionalFaceRoles": [
+    "ParamEyeLOpen",
+    "ParamEyeROpen",
+    "ParamEyeBallX",
+    "ParamEyeBallY",
+    "ParamMouthOpenY",
+    "ParamMouthForm",
+    "ParamHappy",
+    "ParamShy",
+    "ParamAggrieved",
+    "ParamSleepy",
+    "ParamUnimpressed"
+  ],
+  "faceCapabilityRule": "Only advertise roles with actual authored bindings and visual validation; never synthesize empty parameters.",
+  "defaultFace": {
+    "ParamEyeLOpen": 1.0,
+    "ParamEyeROpen": 1.0,
+    "ParamMouthOpenY": 1.0
+  },
+  "frontNodes": [
+    "FaceBase",
+    "EyeWhiteL",
+    "IrisL",
+    "EyeSocketL",
+    "EyeLashL",
+    "EyeClosedL",
+    "EyeWhiteR",
+    "IrisR",
+    "EyeSocketR",
+    "EyeLashR",
+    "EyeClosedR",
+    "MouthOpen",
+    "MouthClosed",
+    "HairFrontAndHeaddress",
+    "Ahoge",
+    "MouseSleeveBridgeL",
+    "MouseHandL",
+    "RaisedSleeveR",
+    "RaisedHandR",
+    "MouseBody",
+    "TypingHandR",
+    "TypingSleeveBridgeR",
+    "FaceSurfaceRestore"
+  ]
+}

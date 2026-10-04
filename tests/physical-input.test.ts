@@ -26,14 +26,14 @@ test('every canonical key maps one-to-one and releases without retaining native 
 test('combos show all current keys; each hand targets latest held key and repeat does not reorder',()=>{
  const {input}=fixture();
  for(const id of ['MetaLeft','KeyA','KeyS','KeyJ','KeyK'])assert.equal(input.keyDown(code(id)),true);
- assert.deepEqual(input.snapshot().targets,{left:'KeyS',right:'KeyK'});
+ assert.deepEqual(input.snapshot().targets,{left:'KeyS',right:'KeyK',keyboard:'KeyK'});
  assert.equal(input.keyDown(code('KeyA')),false);
  assert.equal(input.keyDown(code('KeyJ')),false);
- assert.deepEqual(input.snapshot().targets,{left:'KeyS',right:'KeyK'});
+ assert.deepEqual(input.snapshot().targets,{left:'KeyS',right:'KeyK',keyboard:'KeyK'});
  const expected=layout.keys.filter(key=>['MetaLeft','KeyA','KeyS','KeyJ','KeyK'].includes(key.id)).map(key=>key.id);
  assert.deepEqual(input.snapshot().pressed,expected);
  input.keyUp(code('KeyS'));input.keyUp(code('KeyK'));
- assert.deepEqual(input.snapshot().targets,{left:'KeyA',right:'KeyJ'});
+ assert.deepEqual(input.snapshot().targets,{left:'KeyA',right:'KeyJ',keyboard:'KeyJ'});
  assert.equal(input.keyUp(code('KeyK')),false);
  input.keyUp(code('KeyA'));assert.equal(input.snapshot().targets.left,'MetaLeft');
  input.keyDown(code('KeyA'));assert.equal(input.snapshot().targets.left,'KeyA');
@@ -55,15 +55,15 @@ test('long held keys and held mouse buttons never expire; lifecycle reset clears
  const {input,advance}=fixture();input.keyDown(code('KeyA'));input.keyDown(code('KeyJ'));
  input.move(.5,-.5);input.buttonDown('right');input.wheel(0,1);advance(24*60*60*1000);
  assert.deepEqual(input.snapshot().pressed,layout.keys.filter(key=>['KeyA','KeyJ'].includes(key.id)).map(key=>key.id));
- assert.deepEqual(input.snapshot().targets,{left:'KeyA',right:'mouse'});
+ assert.deepEqual(input.snapshot().targets,{left:'KeyA',right:'mouse',keyboard:'KeyJ'});
  assert.deepEqual(input.snapshot().mouse.wheel,{x:0,y:0});
- input.reset();assert.deepEqual(input.snapshot(),{pressed:[],mouse:{x:0,y:0,buttons:{left:false,right:false,middle:false},wheel:{x:0,y:0}},targets:{left:null,right:null}});
+ input.reset();assert.deepEqual(input.snapshot(),{pressed:[],mouse:{x:0,y:0,buttons:{left:false,right:false,middle:false},wheel:{x:0,y:0}},targets:{left:null,right:null,keyboard:null}});
  assert.equal(input.keyUp(code('KeyA')),false);assert.equal(input.buttonUp('right'),false);
 });
 
 test('normalized movement maps current point, briefly takes right hand, and preserves left hand',()=>{
  const {input,advance}=fixture();input.keyDown(code('KeyA'));input.keyDown(code('KeyJ'));
- assert.equal(input.move(0,0),true);assert.deepEqual(input.snapshot().targets,{left:'KeyA',right:'mouse'});
+ assert.equal(input.move(0,0),true);assert.deepEqual(input.snapshot().targets,{left:'KeyA',right:'mouse',keyboard:'KeyJ'});
  advance(MOUSE_RECENT_MS-1);assert.equal(input.snapshot().targets.right,'mouse');
  // A static pointer poll must not keep stealing the right hand from the keyboard.
  assert.equal(input.move(0,0),false);advance(1);assert.equal(input.snapshot().targets.right,'KeyJ');
@@ -108,7 +108,7 @@ test('snapshots are defensive and expose no timing, key order, native code, text
 test('layout supplies mapping and hands without retaining mutable geometry or accepting arbitrary strings',()=>{
  const keys=[{id:'KeyA',nativeCode:31,hand:'right' as const,x:100,y:200}];
  const input=new PhysicalInput(keys,()=>0);keys[0].nativeCode=32;keys[0].x=900;
- assert.equal(input.keyDown(31),true);assert.deepEqual(input.snapshot().targets,{left:null,right:'KeyA'});
+ assert.equal(input.keyDown(31),true);assert.deepEqual(input.snapshot().targets,{left:null,right:'KeyA',keyboard:'KeyA'});
  assert.equal(input.keyDown(32),false);
  for(const bindings of [
   [{id:'typed secret',nativeCode:1,hand:'left'}],
@@ -119,3 +119,33 @@ test('layout supplies mapping and hands without retaining mutable geometry or ac
  ])assert.throws(()=>new PhysicalInput(bindings as PhysicalKeyBinding[]),/Invalid or duplicate/);
 });
 test('new right key supersedes recent pointer movement but not a held mouse button',()=>{const s=new PhysicalInput(layout.keys,()=>1000);const j=layout.keys.find(k=>k.id==='KeyJ')!;s.move(.3,.4);assert.equal(s.snapshot().targets.right,'mouse');s.keyDown(j.nativeCode);assert.equal(s.snapshot().targets.right,'KeyJ');s.buttonDown('left');assert.equal(s.snapshot().targets.right,'mouse');s.keyUp(j.nativeCode);s.keyDown(j.nativeCode);assert.equal(s.snapshot().targets.right,'mouse');s.buttonUp('left');assert.equal(s.snapshot().targets.right,'KeyJ');});
+
+
+test('single keyboard target follows the latest held key across both hand regions without repeat reordering',()=>{
+ const {input}=fixture();assert.equal(input.snapshot().targets.keyboard,null);
+ for(const id of ['KeyA','KeyJ','KeyS']){input.keyDown(code(id));assert.equal(input.snapshot().targets.keyboard,id);}
+ assert.equal(input.snapshot().targets.left,'KeyS');assert.equal(input.snapshot().targets.right,'KeyJ');
+ input.keyDown(code('KeyJ'));input.keyDown(code('KeyA'));
+ assert.equal(input.snapshot().targets.keyboard,'KeyS');
+ input.keyUp(code('KeyS'));assert.equal(input.snapshot().targets.keyboard,'KeyJ');
+ input.keyUp(code('KeyJ'));assert.equal(input.snapshot().targets.keyboard,'KeyA');
+ input.keyUp(code('KeyA'));assert.equal(input.snapshot().targets.keyboard,null);
+ input.keyDown(code('KeyJ'));input.keyDown(code('KeyA'));
+ input.keyUp(code('KeyJ'));assert.equal(input.snapshot().targets.keyboard,'KeyA');
+ input.keyDown(code('KeyJ'));assert.equal(input.snapshot().targets.keyboard,'KeyJ');
+ input.reset();assert.equal(input.snapshot().targets.keyboard,null);
+});
+
+test('mouse movement, held buttons and wheel never replace the independent keyboard target',()=>{
+ const {input}=fixture();input.keyDown(code('KeyA'));input.keyDown(code('KeyJ'));
+ input.move(.5,-.5);input.buttonDown('left');input.wheel(0,1);
+ assert.equal(input.snapshot().targets.right,'mouse');
+ assert.equal(input.snapshot().targets.keyboard,'KeyJ');
+ input.keyDown(code('KeyS'));assert.equal(input.snapshot().targets.keyboard,'KeyS');
+ assert.equal(input.snapshot().targets.right,'mouse');
+ input.keyUp(code('KeyS'));assert.equal(input.snapshot().targets.keyboard,'KeyJ');
+ input.keyUp(code('KeyJ'));assert.equal(input.snapshot().targets.keyboard,'KeyA');
+ input.keyUp(code('KeyA'));assert.equal(input.snapshot().targets.keyboard,null);
+ assert.equal(input.snapshot().targets.right,'mouse');
+ input.reset();assert.deepEqual(input.snapshot().targets,{left:null,right:null,keyboard:null});
+});

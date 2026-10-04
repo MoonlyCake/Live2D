@@ -190,3 +190,12 @@ Pixi 6 的 shader/uniform 代码使用官方 `@pixi/unsafe-eval@6.5.10` 的 `ins
 表情请求有独立代次与模型身份校验。加载期间不宣称 exp3 已生效；实际加载失败则恢复 expression 所有权的程序默认驱动，并在能力警告中报告。库返回 false 时会区分“已经是当前表情”与真正失败。切换或清空表情会同时取消上游 reserveExpressionIndex、清除表情队列并重置 currentExpression，避免晚到 Happy 覆盖睡眠。进入睡眠/减少动态后，每帧模型更新前停止动作队列，以覆盖上游异步 Idle 在首次停止之后才加载完成的情况。
 
 77 项自动化用例已通过（含延迟表情、失败/拒绝、晚到待机与重复切换）；这些只验证程序状态和驱动，不代表真实模型美术或系统权限已验收。
+
+
+## Perspective desk scene (0.2.3)
+
+The bundled desk is a second actual Creator-exported INP, loaded once beside the full-body model. `assets/inochi/work-rig.json` defines its canvas/origin, keyboard plane, left mouse travel, authored contact anchors, sleeves and draw order. All83 key centers and their4-unit logical depression are projected by the same homography used to draw the visible keyboard. Screen-right typing follows the latest still-held physical key; screen-left mouse motion remains independent. Raised and pressing hands use one exclusive binary authored binding.
+
+`ParamTypingHandRAngle` rotates the pressing hand around its true fingertip; sleeve angle/length connects the fixed shoulder to its rotated cuff. The mouse contact belongs to the actual MouseBody mesh. The release gate interpolates fixed local barycentric anchors through the final mesh world vertices; a displaced neutral model cannot cancel its error against itself.
+
+Work eyes, gaze and mouth are actual bindings. Five basic working expressions use those parameters; full-body expressions and meal animations remain in the original model. No placeholder mood parameters are introduced. The scene remains for4 seconds after activity and fades back in360ms; sleep, reduced motion and meals immediately select the full-body scene. Scene switches neither reload models nor reset current physical input.

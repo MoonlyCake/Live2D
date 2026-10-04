@@ -1,0 +1,41 @@
+{
+  "status": "Actual model700x458 frames visually passed after static face restoration; finalapp screenshot revalidation still required.",
+  "canvas": [
+    1672,
+    1093
+  ],
+  "add_layers": [
+    {
+      "name": "FaceSurfaceRestore",
+      "file": "FaceSurfaceRestore.png",
+      "z": 32.5,
+      "visible_default": true,
+      "sha256": "8ac2cc427fd85c7336876e75098c0485c3a3996b8f539b21ef4bd73cd33c9546"
+    }
+  ],
+  "head_group_add": [
+    "FaceSurfaceRestore"
+  ],
+  "binding": "Static withFaceBase/head. Never bind EyeOpen deform or opacity. Place abovebothEyeSocket belowEyeLash/Mouth andfrontHair. Originalapertureholes stay fixed; only socket inward coverage throughthoseholes is visible.",
+  "source": "Exact byte-color pixels from production-v6-perspective-ready FaceBase.png, withsame twoeyeapertures masked. No face redraw ornew color.",
+  "preserve": "AllIris/White/Lash pixels andexisting socketgeometry remainunchanged; original cheeks/blush remain static at every blink.",
+  "frozen": true,
+  "validation": {
+    "utc": "2026-10-03T22:58:45Z",
+    "frames": [
+      "model-source/perspective-work/pose-3.png",
+      "model-source/perspective-work/poses-0.png"
+    ],
+    "eye_open_values": [
+      0,
+      0.1,
+      0.25,
+      0.5,
+      0.65,
+      0.75
+    ],
+    "mouth": "MouthOpen0/Form-.3 closed smile",
+    "visual": "Cheekrectangle edges andhorizontal shading break are gone; blush stayscontinuous. Irisclosure remains correct.",
+    "pending": "Actual application700x458 screenshots physical-chord andphysical-release must be recaptured and reviewed."
+  }
+}

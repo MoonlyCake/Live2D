@@ -21,7 +21,8 @@ export interface PhysicalInputSnapshot {
   buttons: Record<PhysicalMouseButton, boolean>;
   wheel: { x: PhysicalWheelPulse; y: PhysicalWheelPulse };
  };
- targets: { left: PhysicalKeyId | null; right: PhysicalKeyId | 'mouse' | null };
+ /** keyboard is the latest currently held key across both sides; mouse state never replaces it. */
+ targets: { left: PhysicalKeyId | null; right: PhysicalKeyId | 'mouse' | null; keyboard?: PhysicalKeyId | null };
 }
 export const MAX_PRESSED_KEYS = 32;
 export const MOUSE_RECENT_MS = 700;
@@ -101,13 +102,13 @@ export class PhysicalInput {
   const now = this.now();
   if (now >= this.wheelUntil) { this.wheelX = 0; this.wheelY = 0; this.wheelUntil = 0; }
   if (now >= this.mouseUntil) this.mouseUntil = 0;
-  let left: PhysicalKeyId | null = null, right: PhysicalKeyId | 'mouse' | null = null;
-  for (const [id, hand] of this.held) { if (hand === 'left') left = id; else right = id; }
+  let left: PhysicalKeyId | null = null, right: PhysicalKeyId | 'mouse' | null = null, keyboard: PhysicalKeyId | null = null;
+  for (const [id, hand] of this.held) { keyboard = id; if (hand === 'left') left = id; else right = id; }
   if (this.buttons.left || this.buttons.right || this.buttons.middle || this.mouseUntil > now) right = 'mouse';
   return {
    pressed:this.keys.filter(key => this.held.has(key.id)).map(key => key.id),
    mouse:{x:this.x, y:this.y, buttons:{...this.buttons}, wheel:{x:this.wheelX, y:this.wheelY}},
-   targets:{left, right},
+   targets:{left, right, keyboard},
   };
  }
 }

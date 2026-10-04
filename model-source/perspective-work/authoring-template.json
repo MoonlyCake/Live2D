@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "name": "Whale Girl \u2014 Full Feature Draft",
+    "version": "v0.8.6",
+    "rigger": "Inochi2D open-format authoring; native continuous QA pending",
+    "artist": null,
+    "rights": null,
+    "copyright": null,
+    "licenseURL": null,
+    "contact": null,
+    "reference": null,
+    "thumbnailId": 4294967295,
+    "preservePixels": false
+  },
+  "physics": {
+    "pixelsPerMeter": 1000.0,
+    "gravity": 9.8
+  },
+  "nodes": {
+    "uuid": 4000,
+    "name": "Root",
+    "type": "Node",
+    "enabled": true,
+    "zsort": 0.0,
+    "transform": {
+      "trans": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0
+      ]
+    },
+    "lockToRoot": false,
+    "children": [
+      {
+        "uuid": 5000,
+        "name": "BackHairComplete",
+        "type": "Part",
+        "enabled": true,
+        "zsort": -0.0,
+        "transform": {
+          "trans": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rot": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0
+          ]
+        },
+        "lockToRoot": false,
+        "mesh": {
+          "verts": [],
+          "uvs": [],
+          "indices": [],
+          "origin": [
+            0.0,
+            0.0
+          ]
+        },
+        "textures": [],
+        "blend_mode": "Normal",
+        "tint": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "screenTint": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "emissionStrength": 1.0,
+        "mask_threshold": 0.5,
+        "opacity": 1.0,
+        "psdLayerPath": ""
+      }
+    ]
+  },
+  "param": [],
+  "automation": null,
+  "animations": null,
+  "groups": []
+}

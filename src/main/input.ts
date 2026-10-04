@@ -21,6 +21,9 @@ export class GlobalInput {
  private timerAt = Infinity;
  private generation = 0;
  private running = false;
+ private permissionMissing = false;
+ // A failed native stop can leave the addon running; its next start would be a no-op.
+ private restartRequired = false;
  private lastTyping = 0;
  private lastClick = 0;
  private lastPoint:Point|null = null;
@@ -44,7 +47,7 @@ export class GlobalInput {
  }
  private send(event:CoarseInput){
   const firstKey = event.kind === 'typing' && !this.status.keyboardObserved;
-  if(firstKey){this.status.keyboardObserved = true;this.status.message = '已实际收到系统键盘事件；鼠标与键盘分别检测。不记录输入内容。';}
+  if(firstKey){this.status.keyboardObserved = true;this.status.message = '本次已收到系统键盘动作。不记录输入内容。';}
   this.status.counts[event.kind]++;
   this.emit(event);
   if(firstKey || Date.now() - this.lastReport >= 500){this.lastReport = Date.now();this.report(this.snapshot());}
@@ -102,9 +105,9 @@ export class GlobalInput {
    let trusted = false;
    try{trusted = this.deps.trusted();}catch{}
    if(!trusted){
-    this.releaseHook();
+    this.releaseHook();this.permissionMissing = true;
     this.status.keyboard = false;this.status.keyboardObserved = false;this.status.active = this.status.pointer;
-    this.status.message = '键盘权限已失效，已清空按键；请重新授权并检测';
+    this.status.message = this.restartRequired ? '键盘连接未能正常结束；请从托盘安全退出，再打开应用' : '键盘权限已关闭，已清空按键；在系统设置重新允许后，回到此面板即可重连';
     this.nextFallbackAt = now + FALLBACK_POLL_MS;
     this.report(this.snapshot());
    }
@@ -125,8 +128,16 @@ export class GlobalInput {
   this.pendingPoint = null;this.nextMoveAt = 0;
   this.mouseDeadline = 0;this.wheelDeadline = 0;this.nextTrustAt = Infinity;
   const hook = this.hook;this.hook = undefined;
-  if(hook){try{hook.stop();}catch{}try{hook.removeAllListeners();}catch{}}
+  if(hook){try{hook.stop();}catch{this.restartRequired = true;}try{hook.removeAllListeners();}catch{}}
   this.physical.reset();this.publishPhysical();
+ }
+
+ /** Foreground recheck after System Settings; no polling, prompt, or healthy-hook restart. */
+ async refreshPermission():Promise<InputStatus>{
+  if(this.running && this.permissionMissing && !this.restartRequired){
+   try{if(this.deps.trusted())return this.start();}catch{}
+  }
+  return this.snapshot();
  }
 
  async start():Promise<InputStatus>{
@@ -137,7 +148,8 @@ export class GlobalInput {
   this.schedule();
   let reason = '';
   try{
-   if(!this.deps.trusted())reason = '键盘/点击尚未授权：请点“申请 macOS 键盘权限”，在系统辅助功能中勾选当前 Whale Companion Inochi，再点重新检测；若系统提示输入监控也需手动允许。旧2D版权限不通用；更新应用后可能需要重新授权';
+   if(this.restartRequired)reason = '键盘连接未能正常结束；请从托盘安全退出，再打开应用';
+   else if(!this.deps.trusted()){this.permissionMissing = true;reason = '键盘与点击需要授权：请点“申请 macOS 键盘权限”，在辅助功能中允许当前 Whale Companion Inochi，之后回到此面板';}
    else{
     const hook = await this.deps.loadHook();
     if(generation !== this.generation)return this.snapshot();
@@ -180,9 +192,10 @@ export class GlobalInput {
       this.publishPhysical();
      }
     });
+    // Optional adapter errors; uiohook-napi 1.5.5 does not emit runtime tap failures.
     on('error',()=>{
      this.releaseHook();this.status.keyboard = false;this.status.keyboardObserved = false;this.status.active = this.status.pointer;
-     this.status.message = '键盘监听运行失败；鼠标跟随单独运行，请重新检测';
+     this.status.message = this.restartRequired ? '键盘连接未能正常结束；请从托盘安全退出，再打开应用' : '键盘连接已断开；鼠标跟随单独运行，请点重新连接键鼠';
      this.nextFallbackAt = Date.now() + FALLBACK_POLL_MS;
      this.report(this.snapshot());
     });
@@ -197,14 +210,14 @@ export class GlobalInput {
   }
   if(generation !== this.generation)return this.snapshot();
   this.status.active = this.status.pointer || this.status.keyboard;
-  this.status.message = `鼠标跟随${this.status.pointer ? '已启动' : '不可用'}；${this.status.keyboard ? '键盘组件已启动，尚未收到实际按键；请切到其他应用连续输入，观察下方键盘计数' : reason}。不记录输入内容。`;
+  this.status.message = `鼠标跟随${this.status.pointer ? '已启动' : '不可用'}；${this.status.keyboard ? '键盘监听已启动，尚未收到实际按键' : reason}。不记录输入内容。`;
   this.schedule();this.report(this.snapshot());return this.snapshot();
  }
  stop(){
-  this.generation++;this.running = false;
+  this.generation++;this.running = false;this.permissionMissing = false;
   clearTimeout(this.timer);this.timer = undefined;this.timerAt = Infinity;
   this.nextFallbackAt = Infinity;this.releaseHook();
   this.lastPoint = null;this.lastTyping = 0;this.lastClick = 0;this.lastReport = 0;
-  this.status = {active:false,pointer:false,keyboard:false,keyboardObserved:false,message:'全局互动已关闭，临时计数已清除',counts:{typing:0,pointer:0,click:0}};
+  this.status = {active:false,pointer:false,keyboard:false,keyboardObserved:false,message:this.restartRequired ? '互动已暂停；键盘连接未正常结束，请安全退出再打开应用' : '全局互动已关闭，临时计数已清除',counts:{typing:0,pointer:0,click:0}};
  }
 }

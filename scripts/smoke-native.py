@@ -31,6 +31,11 @@ with (out/'launch.log').open('w',encoding='utf-8') as log:
   if report.get('status')!='passed' or report.get('platform')!=sys.platform or report.get('arch')!=expected_arch:raise RuntimeError('Native platform/architecture/render proof failed')
   if len(report.get('windows',[]))!=2:raise RuntimeError('Both pet and panel must pass')
   expected=['pet-window.png','settings-window.png','action-typing.png','action-sleep-closed-eyes.png','mood-happy.png','mood-shy.png','mood-aggrieved.png','mood-sleepy.png','mood-unimpressed.png','meal-scoop.png','meal-lift.png','meal-mouth.png','meal-return.png','meal-caught-return.png','meal-caught-hidden.png','physical-chord.png','physical-release.png','physical-mouse-min.png','physical-mouse-max-click.png','physical-wheel.png','physical-clear.png']
+  expected += ['work-mood-'+mood+'.png' for mood in ['happy','shy','aggrieved','sleepy','unimpressed']]
+  work_actions=[item for item in report.get('actionEvidence',[]) if item.get('diagnostics',{}).get('activeScene')=='desk']
+  if len(work_actions)<10:raise RuntimeError('Perspective working scene was not exercised')
+  for item in work_actions:
+   if not item['diagnostics'].get('activeModelUrl','').endswith('/WhaleGirl-work.inp'):raise RuntimeError('Working scene used draft or incorrect model')
   for name in expected:
    b=(out/name).read_bytes()
    if len(b)<1000 or b[:8]!=b'\x89PNG\r\n\x1a\n':raise RuntimeError(f'Missing/invalid native screenshot: {name}')

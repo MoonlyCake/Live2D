@@ -1,6 +1,8 @@
+import {WorkPose,validateWorkContract} from '../shared/work-scene';
+import type {PhysicalInputSnapshot} from '../shared/physical-input';
 /** Opt-in cloud CI diagnostics. Inert in ordinary app launches. */
 import { app, type BrowserWindow } from 'electron';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 const destination=process.env.WHALE_CI_SMOKE_DIR;
 const failures:string[]=[];
@@ -35,20 +37,25 @@ export async function runCISmoke(windows:BrowserWindow[]){
   const actionFrames:string[]=[];const actionEvidence:unknown[]=[];
   if(process.env.WHALE_CI_MODEL_STAGE){
    const panel=windows[1];
+   const bootstrap=await panel.webContents.executeJavaScript('window.whale.bootstrap()');
+   const work=bootstrap.model.workScene?new WorkPose(validateWorkContract(JSON.parse(readFileSync(join(__dirname,'../../assets/inochi/work-rig.json'),'utf8')))):null;
    type Expect=Record<string,number|{min?:number;max?:number}>;
    const capture=async(name:string,delay=500,expected:Expect={})=>{
     await new Promise(resolve=>setTimeout(resolve,delay));
-    const current=await panel.webContents.executeJavaScript("({qa:window.__inochiQA,errors:window.__errors||[]})");
+    const target=work&&(name.startsWith('physical-')||name.startsWith('work-mood-')||name==='action-typing.png')?windows[0]:panel;
+    const current=await target.webContents.executeJavaScript("({qa:window.__inochiQA,errors:window.__errors||[]})");
     if(current.errors.length||current.qa?.capabilities?.type!=='inochi-0.8-subset')throw new Error(name+': renderer failed during action');
     if(process.env.WHALE_CI_MODEL_STAGE==='full'&&(!current.qa.capabilities.physicalInput||!current.qa.capabilities.eating||current.qa.capabilities.moods.length!==5||current.qa.capabilities.parameters.length<44))throw new Error(name+': full capabilities lost');
+    if(work&&name.startsWith('physical-')&&name!=='physical-clear.png'&&(current.qa.activeScene!=='desk'||!current.qa.workCapabilities?.physicalInput))throw Error(name+': perspective working scene was not rendered');
     for(const [key,value]of Object.entries(expected)){const actual=current.qa.drivenParameters?.[key];if(!Number.isFinite(actual))throw new Error(name+': missing driven '+key);if(typeof value==='number'?Math.abs(actual-value)>1e-6:(value.min!==undefined&&actual<value.min)||(value.max!==undefined&&actual>value.max))throw new Error(name+': '+key+' actual='+actual+' expected='+JSON.stringify(value));}
-    const png=(await panel.webContents.capturePage()).toPNG();if(png.length<1000)throw new Error(name+': empty capture');writeFileSync(join(destination,name),png);actionFrames.push(name);actionEvidence.push({name,expected,diagnostics:current.qa,screenshotBytes:png.length});return current.qa;
+    const png=(await target.webContents.capturePage()).toPNG();if(png.length<1000)throw new Error(name+': empty capture');writeFileSync(join(destination,name),png);actionFrames.push(name);actionEvidence.push({name,expected,diagnostics:current.qa,screenshotBytes:png.length});return current.qa;
    };
    const waitFor=async(expression:string)=>{const deadline=Date.now()+5000;while(Date.now()<deadline){if(await panel.webContents.executeJavaScript(`(()=>{const p=window.__inochiQA?.drivenParameters||{};return ${expression}})()`))return;await new Promise(resolve=>setTimeout(resolve,35));}throw new Error('Authored action phase not observed: '+expression);};
    await panel.webContents.executeJavaScript("window.whale.updateSettings({reducedMotion:false,sleepEnabled:false})");
-   await panel.webContents.executeJavaScript("document.getElementById('test-typing').click()");await capture('action-typing.png',150,{ParamTypingMode:1,ParamTypingPressL:1});
+   await panel.webContents.executeJavaScript("document.getElementById('test-typing').click()");await capture('action-typing.png',150,work?{ParamTypingActive:1,ParamTypingPressR:1}:{ParamTypingMode:1,ParamTypingPressL:1});
    await panel.webContents.executeJavaScript("(()=>{const d=new Date(),f=h=>String((h+24)%24).padStart(2,'0')+':00';return window.whale.updateSettings({sleepEnabled:true,sleepStart:f(d.getHours()-1),sleepEnd:f(d.getHours()+1)})})()");await capture('action-sleep-closed-eyes.png',750,{ParamEyeLOpen:0,ParamEyeROpen:0});
    await panel.webContents.executeJavaScript("window.whale.updateSettings({sleepEnabled:false})");
+   if(work)await Promise.all(windows.map(window=>window.webContents.executeJavaScript("window.__setPhysicalQA({pressed:[],targets:{left:null,right:null,keyboard:null},mouse:{x:0,y:0,buttons:{left:false,right:false,middle:false},wheel:{x:0,y:0}}})")));
    if(process.env.WHALE_CI_MODEL_STAGE==='full'){
     const moods=['happy','shy','aggrieved','sleepy','unimpressed'];
     for(const mood of moods){await panel.webContents.executeJavaScript(`document.querySelector('[data-mood="${mood}"]').click()`);const expected=Object.fromEntries(moods.map(m=>['Param'+m[0].toUpperCase()+m.slice(1),m===mood?1:0]));await capture(`mood-${mood}.png`,500,expected);}
@@ -60,13 +67,21 @@ export async function runCISmoke(windows:BrowserWindow[]){
     await panel.webContents.executeJavaScript("window.whale.testInput('typing')");await capture('meal-caught-return.png',100,{ParamRicePoseSwitch:1,ParamRiceBowlOpacity:1,ParamMouthOpenY:0,ParamEyeLOpen:1,ParamEyeROpen:1});
     const caught=await capture('meal-caught-hidden.png',240,{ParamRicePoseSwitch:0,ParamRiceBowlOpacity:0});
     // Synthetic physical states exercise actual final rig/texture pixels. These are not OS hook/TCC tests.
-    const physical=async(pressed:string[],left:string|null,right:string|null,x=0,y=0,buttons={left:false,right:false,middle:false},wheel={x:0,y:0})=>{await panel.webContents.executeJavaScript('window.__setPhysicalQA('+JSON.stringify({pressed,targets:{left,right},mouse:{x,y,buttons,wheel}})+')');};
-    await physical(['KeyF','KeyJ'],'KeyF','KeyJ');await capture('physical-chord.png',100,{ParamTypingMode:1,ParamTypingHandLX:522,ParamTypingHandLY:909,ParamTypingHandRX:606,ParamTypingPressL:1,ParamTypingPressR:1});
-    await physical([],null,null);await capture('physical-release.png',100,{ParamTypingPressL:0,ParamTypingPressR:0});
-    await physical([],null,'mouse',-1,-1);await capture('physical-mouse-min.png',100,{ParamMouseMode:1,ParamMouseX:938,ParamMouseY:897});
-    await physical([],null,'mouse',1,1,{left:true,right:true,middle:false});await capture('physical-mouse-max-click.png',100,{ParamMouseMode:1,ParamMouseX:1002,ParamMouseY:957,ParamMouseLeft:1,ParamMouseRight:1});
-    await physical([],null,'mouse',0,0,{left:false,right:false,middle:false},{x:0,y:1});await capture('physical-wheel.png',100,{ParamMouseWheel:1,ParamMouseLeft:0,ParamMouseRight:0});
-    await physical([],null,null);await capture('physical-clear.png',750,{ParamTypingMode:0,ParamMouseMode:0,ParamTypingPressL:0,ParamTypingPressR:0});
+    let physicalState:PhysicalInputSnapshot;
+    const physical=async(pressed:string[],left:string|null,right:string|null,x=0,y=0,buttons={left:false,right:false,middle:false},wheel={x:0,y:0})=>{physicalState={pressed,targets:{left,right,keyboard:pressed.at(-1)||null},mouse:{x,y,buttons,wheel}} as PhysicalInputSnapshot;await Promise.all(windows.map(window=>window.webContents.executeJavaScript('window.__setPhysicalQA('+JSON.stringify(physicalState)+')')));};
+    await physical(['KeyF','KeyJ'],'KeyF','KeyJ');await capture('physical-chord.png',100,work?work.values(physicalState!):{ParamTypingMode:1,ParamTypingHandLX:522,ParamTypingHandLY:909,ParamTypingHandRX:606,ParamTypingPressL:1,ParamTypingPressR:1});
+    if(work){
+     for(const [mood,open,form]of [['happy',1,.65],['shy',.2,.25],['aggrieved',0,-.65],['sleepy',0,-.1],['unimpressed',0,-.3]] as const){
+      await panel.webContents.executeJavaScript('window.whale.updateSettings({mood:'+JSON.stringify(mood)+'})');
+      const face=await capture('work-mood-'+mood+'.png',250,{ParamTypingActive:1,ParamMouthOpenY:open,ParamMouthForm:form});
+      if(face.activeScene!=='desk'||face.workCapabilities?.moodMode!=='eye-mouth')throw Error('Working mood did not drive authored eye/mouth parts');
+     }
+    }
+    await physical([],null,null);const released=await capture('physical-release.png',750,work?{ParamTypingActive:0,ParamTypingPressR:0}:{ParamTypingPressL:0,ParamTypingPressR:0});if(work&&released.activeScene!=='desk')throw Error('Working scene disappeared during a short typing pause');
+    await physical([],null,'mouse',-1,-1);await capture('physical-mouse-min.png',100,work?work.values(physicalState!):{ParamMouseMode:1,ParamMouseX:938,ParamMouseY:897});
+    await physical([],null,'mouse',1,1,{left:true,right:true,middle:false});await capture('physical-mouse-max-click.png',100,work?work.values(physicalState!):{ParamMouseMode:1,ParamMouseX:1002,ParamMouseY:957,ParamMouseLeft:1,ParamMouseRight:1});
+    await physical([],null,'mouse',0,0,{left:false,right:false,middle:false},{x:0,y:1});await capture('physical-wheel.png',100,work?work.values(physicalState!):{ParamMouseWheel:1,ParamMouseLeft:0,ParamMouseRight:0});
+    await physical([],null,null);const cleared=await capture('physical-clear.png',work?4700:750,{ParamTypingMode:0,ParamMouseMode:0,ParamTypingPressL:0,ParamTypingPressR:0});if(work&&cleared.activeScene!=='full-body')throw Error('Working scene did not return to full body');
 if(caught.preview?.eating!==0)throw new Error('Caught preview still active');
    }
   }

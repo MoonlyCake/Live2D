@@ -1,0 +1,62 @@
+{
+  "base_art_manifest": "production-v6-perspective-ready/manifest.json",
+  "required_replacement_manifest": "production-v6-rigfix-ready/manifest.json",
+  "canvas": [
+    1672,
+    1093
+  ],
+  "base_layer_count": 26,
+  "replacement_count": 6,
+  "source_approved": "generated_images/exec-e8e754bf-76f1-4b99-9692-5cbf632b052d.png",
+  "instruction": "Load base26layers, replace6 names with rigfix-ready, then addFaceSurfaceRestore z32.5. Do not omit this latest required static-cheek correction. Prior deliverymanifest preserved for reproducibility.",
+  "qa": {
+    "utc": "2026-10-03T22:35:56Z",
+    "eye_open_values": [
+      0,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "reviewed_images": [
+      "model-source/perspective-work/poses-0.png",
+      "model-source/perspective-work/poses-2.png"
+    ],
+    "visual_result": "No detached lower iris circles, blue fringe triangles or duplicated eye fragments. Press hand points toward keys; sleeve no longer stretches backwards acrosschest.",
+    "native_author_numerical_report": "83keys plus26poses with zero mesh orientation inversions",
+    "pending": [
+      "Creator roundtrip export",
+      "actual app event-driven continuous behavior"
+    ],
+    "wide_candidate_used": false
+  },
+  "readability": {
+    "image": "release/perspective-preview/readability-fixed-700.png",
+    "viewport": [
+      700,
+      458
+    ],
+    "result": "Viewed1:1; letters/digits/space and modifiers recognizable; no enlargement used for evaluation."
+  },
+  "required_addition_manifest": "production-v6-face-surface-ready/manifest.json",
+  "effective_layer_count": 27,
+  "latest_visual_fix": {
+    "utc": "2026-10-03T22:58:45Z",
+    "frames": [
+      "model-source/perspective-work/pose-3.png",
+      "model-source/perspective-work/poses-0.png"
+    ],
+    "eye_open_values": [
+      0,
+      0.1,
+      0.25,
+      0.5,
+      0.65,
+      0.75
+    ],
+    "mouth": "MouthOpen0/Form-.3 closed smile",
+    "visual": "Cheekrectangle edges andhorizontal shading break are gone; blush stayscontinuous. Irisclosure remains correct.",
+    "pending": "Actual application700x458 screenshots physical-chord andphysical-release must be recaptured and reviewed."
+  }
+}

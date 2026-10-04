@@ -1,0 +1,14 @@
+{
+  "method": "OS desktop click at an overlapping owned test window; not webContents.sendInputEvent",
+  "host": "linux",
+  "clickPoint": {
+    "x": 590,
+    "y": 480
+  },
+  "lockedUnderClicks": 1,
+  "lockedPetClicks": 0,
+  "unlockedUnderClicks": 1,
+  "unlockedPetClicks": 1,
+  "passed": true,
+  "stage": "completed"
+}

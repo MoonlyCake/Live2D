@@ -1,6 +1,6 @@
 {
   "name": "whale-inochi-companion",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "description": "鲸伴 Inochi2D：完整鲸鱼娘网格、五种表情与偷吃互动",
   "author": "Whale Companion",
@@ -49,11 +49,14 @@
       "THIRD_PARTY_NOTICES.md",
       "docs/QA.md",
       "docs/OPTIMIZATION-QA.md",
+      "docs/KEYBOARD-RECOVERY-QA.md",
       "docs/MODEL-CONTRACT.md",
       "!assets/inochi/*DRAFT*",
       "!assets/inochi/*stage1*",
       "licenses/**/*",
-      "!licenses/LICENSES.chromium.html"
+      "!licenses/LICENSES.chromium.html",
+      "docs/LOCK-PASSTHROUGH-QA.md",
+      "docs/PERSPECTIVE-WORK-QA.md"
     ],
     "asar": true,
     "npmRebuild": false,

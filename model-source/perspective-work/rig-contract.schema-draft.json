@@ -1,0 +1,105 @@
+{
+  "schema": "whale-perspective-work-v1",
+  "status": "interface draft only; null geometry must prevent scene activation",
+  "canvas": null,
+  "origin": null,
+  "defaultWindowWidth": 600,
+  "scene": "work",
+  "handsVisibleByDefault": true,
+  "modeParameters": [],
+  "keyboard": {
+    "cornerOrder": [
+      "TL",
+      "TR",
+      "BR",
+      "BL"
+    ],
+    "quad": null,
+    "logicalSize": [
+      550,
+      170
+    ],
+    "logicalKeys": "assets/keyboard.layout.json",
+    "typingTarget": "latest currently pressed physical key; every held keycap remains independently visible",
+    "sourceBounds": {
+      "x": 360,
+      "y": 820,
+      "width": 550,
+      "height": 170
+    }
+  },
+  "mouse": {
+    "cornerOrder": [
+      "TL",
+      "TR",
+      "BR",
+      "BL"
+    ],
+    "quad": null,
+    "logicalSize": null,
+    "travel": null,
+    "home": null
+  },
+  "typingHand": {
+    "screenSide": "right",
+    "handNode": "TypingHandR",
+    "bridgeNode": "TypingSleeveBridgeR",
+    "reference": null,
+    "fingerAnchor": null,
+    "wristAnchor": null,
+    "pressTravel": null,
+    "parameters": {
+      "x": "ParamTypingHandRX",
+      "y": "ParamTypingHandRY",
+      "press": "ParamTypingPressR"
+    },
+    "sleeve": {
+      "fixed": null,
+      "moving": null,
+      "baseAngle": null,
+      "baseLength": null,
+      "angleParameter": "ParamTypingSleeveRAngle",
+      "lengthParameter": "ParamTypingSleeveRLength"
+    }
+  },
+  "mouseHand": {
+    "screenSide": "left",
+    "handNode": "MouseHandL",
+    "bridgeNode": "MouseSleeveBridgeL",
+    "reference": null,
+    "wristAnchor": null,
+    "leftFingerAnchor": null,
+    "rightFingerAnchor": null,
+    "parameters": {
+      "x": "ParamMouseX",
+      "y": "ParamMouseY",
+      "left": "ParamMouseLeft",
+      "right": "ParamMouseRight",
+      "wheel": "ParamMouseWheel"
+    },
+    "sleeve": {
+      "fixed": null,
+      "moving": null,
+      "baseAngle": null,
+      "baseLength": null,
+      "angleParameter": "ParamMouseSleeveLAngle",
+      "lengthParameter": "ParamMouseSleeveLLength"
+    }
+  },
+  "xyMeaning": "Absolute registered source-canvas pixels after exact plane homography, before subtracting model origin.",
+  "sleeveMath": "mapped moving cuff = authoredMoving + (target - reference) + authored press offset; angle = wrapped atan2(cuff-fixed) minus baseAngle; length = distance(cuff,fixed)/baseLength. Compute from current target every animation frame.",
+  "optionalFaceRoles": [
+    "ParamEyeLOpen",
+    "ParamEyeROpen",
+    "ParamEyeBallX",
+    "ParamEyeBallY",
+    "ParamMouthOpenY",
+    "ParamMouthForm",
+    "ParamHappy",
+    "ParamShy",
+    "ParamAggrieved",
+    "ParamSleepy",
+    "ParamUnimpressed"
+  ],
+  "faceCapabilityRule": "Only advertise roles with actual authored bindings and visual validation; never synthesize empty parameters."
+}

@@ -1,0 +1,30 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
+import{createCanvas,loadImage,ImageData}from'@napi-rs/canvas';
+import {InochiRenderer} from '../src/renderer/inochi';import {PhysicalInput} from '../src/shared/physical-input';import layout from '../assets/keyboard.layout.json';
+
+test('actual dual-scene renderer preserves release during forced sleep/meal and reuses its loaded models',async t=>{
+ const saved={OffscreenCanvas:globalThis.OffscreenCanvas,ImageData:globalThis.ImageData,createImageBitmap:globalThis.createImageBitmap,performance:globalThis.performance,devicePixelRatio:(globalThis as any).devicePixelRatio};let now=1000,fetches=0;
+ (globalThis as any).OffscreenCanvas=class{constructor(w:number,h:number){return createCanvas(w,h)}};
+ (globalThis as any).ImageData=ImageData;(globalThis as any).performance={now:()=>now};(globalThis as any).devicePixelRatio=1;
+ (globalThis as any).createImageBitmap=async(blob:Blob)=>{const image=await loadImage(Buffer.from(await blob.arrayBuffer()));(image as any).close=()=>{};return image;};
+ t.after(()=>Object.assign(globalThis,saved));
+ const paths:Record<string,string>={body:'assets/inochi/WhaleGirl.inp',work:'assets/inochi/WhaleGirl-work.inp',contract:'assets/inochi/work-rig.json'};
+ t.mock.method(globalThis,'fetch',async(url:string)=>{fetches++;return new Response(readFileSync(paths[url]));});
+ const canvas=createCanvas(700,458),get=canvas.getContext.bind(canvas);
+ (canvas as any).getContext=(type:string)=>type.startsWith('webgl')?null:get(type as any);
+ const statuses:string[]=[];const renderer=new InochiRenderer({canvas:canvas as any,onStatus:s=>statuses.push(s.state)});t.after(()=>renderer.destroy());
+ await renderer.load({rendererType:'inochi-0.8-subset',modelUrl:'body',workScene:{modelUrl:'work',contractUrl:'contract'}});renderer.resize(700,458);
+ assert.equal(statuses.at(-1),'ready');
+ const input=new PhysicalInput(layout.keys,()=>now),f=layout.keys.find(k=>k.id==='KeyF')!;
+ const update=(extra:Record<string,any>={})=>renderer.update({timeSeconds:now/1000,deltaSeconds:.02,physical:input.snapshot(),mood:'happy',...extra});
+ input.keyDown(f.nativeCode);update();assert.equal(renderer.activeScene,'desk');assert.equal(renderer.lastParameters.ParamTypingActive,1);
+ now=1100;update({sleeping:true});assert.equal(renderer.activeScene,'full-body');assert.equal(renderer.lastParameters.ParamEyeLOpen,0);
+ input.keyUp(f.nativeCode);now=1200;update({sleeping:true});now=1300;update();assert.equal(renderer.activeScene,'full-body');assert.equal(renderer.lastParameters.ParamTypingPressR,0);
+ now=2000;input.keyDown(f.nativeCode);update();now=2100;update({eating:.2});assert.equal(renderer.activeScene,'full-body');assert.equal(renderer.lastParameters.ParamRicePoseSwitch,1);
+ input.reset();now=2200;update({hidingBowl:true});now=2450;update();assert.equal(renderer.activeScene,'full-body');assert.equal(renderer.lastParameters.ParamRicePoseSwitch,0);assert.equal(renderer.lastParameters.ParamTypingPressR,0);
+ now=3000;input.keyDown(f.nativeCode);update();input.keyUp(f.nativeCode);now=3100;update();assert.equal(renderer.activeScene,'desk');assert.equal(renderer.lastParameters.ParamTypingActive,0);
+ now=6999;update();assert.equal(renderer.activeScene,'desk');now=7090;update();assert.equal(renderer.transitioning,true);
+ input.keyDown(f.nativeCode);now=7100;update();assert.equal(renderer.activeScene,'desk');assert.equal(renderer.transitioning,false);assert.equal(renderer.lastParameters.ParamTypingActive,1);
+ input.reset();now=11800;update();assert.equal(renderer.activeScene,'full-body');assert.equal(renderer.lastParameters.ParamTypingPressR,0);
+ assert.equal(fetches,3,'scene changes must not reload models or input state');
+});

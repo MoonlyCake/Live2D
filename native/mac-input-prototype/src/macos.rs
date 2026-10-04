@@ -10,6 +10,8 @@ use std::{
     time::Instant,
 };
 type Ref = *mut c_void;
+// Apple CGEventSourceStateID: combined session=0, physical HID system=1.
+const COMBINED_SESSION_STATE: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 struct Point {
@@ -199,9 +201,9 @@ impl Context {
             }
         }
     }
-    fn publish(&mut self) {
+    fn publish(&mut self, cause: &'static str) {
         let now = self.now();
-        let value = serde_json::json!({"v":1,"type":"state","state":self.state.snapshot(now)});
+        let value = serde_json::json!({"v":1,"type":"state","cause":cause,"state":self.state.snapshot(now)});
         let json = value.to_string();
         if json != self.last_state {
             self.last_state = json.clone();
@@ -223,7 +225,7 @@ impl Context {
         self.mouse_due = 0;
         self.wheel_due = 0;
         self.caps_due = 0;
-        self.publish();
+        self.publish("reset");
     }
     fn security(&mut self) -> bool {
         if !permission_granted() {
@@ -250,7 +252,7 @@ impl Context {
         if self.caps_due > 0 && now >= self.caps_due {
             self.caps_due = 0;
             self.state.key_up(57);
-            self.publish();
+            self.publish("caps_pulse");
         }
         if now >= self.next_reconcile {
             self.next_reconcile = now + 250;
@@ -261,10 +263,10 @@ impl Context {
                     .state
                     .reconcile_held(|key| key == 57 || system_key_pressed(key));
                 let buttons = self.state.reconcile_buttons(|button| unsafe {
-                    CGEventSourceButtonState(1, button as u32)
+                    CGEventSourceButtonState(COMBINED_SESSION_STATE, button as u32)
                 });
                 if keys || buttons {
-                    self.publish();
+                    self.publish("reconcile");
                 }
             } else if !self.state.held_native_codes().is_empty() {
                 self.clear();
@@ -273,7 +275,7 @@ impl Context {
         if self.pending_move && now >= self.move_at {
             self.pending_move = false;
             self.move_at = now + 16;
-            self.publish();
+            self.publish("pointer");
         }
         if (self.mouse_due > 0 && now >= self.mouse_due)
             || (self.wheel_due > 0 && now >= self.wheel_due)
@@ -284,7 +286,7 @@ impl Context {
             if now >= self.wheel_due {
                 self.wheel_due = 0;
             }
-            self.publish();
+            self.publish("deadline");
         }
     }
     fn wait_seconds(&self) -> f64 {
@@ -336,7 +338,7 @@ impl Context {
         }
         if kind != 5 && kind != 6 && kind != 7 && kind != 27 && self.pending_move {
             self.pending_move = false;
-            self.publish();
+            self.publish("pointer");
         }
         match kind {
             10 | 11 => {
@@ -348,7 +350,11 @@ impl Context {
                         self.state.key_up(code)
                     };
                     if changed {
-                        self.publish();
+                        self.publish(if kind == 10 {
+                            "native_key_down"
+                        } else {
+                            "native_key_up"
+                        });
                     }
                 }
             }
@@ -358,14 +364,14 @@ impl Context {
                     if code == 57 {
                         self.state.key_down(code);
                         self.caps_due = now + 100;
-                        self.publish();
+                        self.publish("native_modifier");
                     } else if matches!(code, 54 | 55 | 56 | 58 | 59 | 60 | 61 | 62) {
                         if unsafe { CGEventGetFlags(event) } & modifier_bit(code) != 0 {
                             self.state.key_down(code);
                         } else {
                             self.state.key_up(code);
                         }
-                        self.publish();
+                        self.publish("native_modifier");
                     }
                 }
             }
@@ -373,7 +379,11 @@ impl Context {
                 let raw = unsafe { CGEventGetIntegerValueField(event, 3) };
                 if let Ok(button) = u8::try_from(raw) {
                     if self.state.button(button, matches!(kind, 1 | 3 | 25)) {
-                        self.publish();
+                        self.publish(if matches!(kind, 1 | 3 | 25) {
+                            "native_mouse_down"
+                        } else {
+                            "native_mouse_up"
+                        });
                     }
                 }
             }
@@ -390,7 +400,7 @@ impl Context {
                         if now >= self.move_at {
                             self.pending_move = false;
                             self.move_at = now + 16;
-                            self.publish();
+                            self.publish("pointer");
                         }
                     }
                 }
@@ -401,7 +411,7 @@ impl Context {
                 if self.state.wheel(x, y, now) {
                     self.mouse_due = now + 180;
                     self.wheel_due = now + 180;
-                    self.publish();
+                    self.publish("native_wheel");
                 }
             }
             _ => {}
@@ -442,7 +452,7 @@ fn modifier_family(key: u16) -> u64 {
     }
 }
 fn system_key_pressed(key: u16) -> bool {
-    if unsafe { CGEventSourceKeyState(1, key) } {
+    if unsafe { CGEventSourceKeyState(COMBINED_SESSION_STATE, key) } {
         return true;
     }
     // Some macOS versions expose only family state for right modifiers. A held
@@ -451,7 +461,7 @@ fn system_key_pressed(key: u16) -> bool {
     if family == 0 {
         return false;
     }
-    let flags = unsafe { CGEventSourceFlagsState(1) };
+    let flags = unsafe { CGEventSourceFlagsState(COMBINED_SESSION_STATE) };
     let pair = match key {
         54 | 55 => 24,
         56 | 60 => 6,
@@ -535,7 +545,7 @@ pub fn run(sink: Sink, ready: SyncSender<()>) {
         }
     };
     context.status(2);
-    context.publish();
+    context.publish("startup");
     let _ = ready.send(());
     loop {
         if service::stopping() {
@@ -582,7 +592,7 @@ pub fn run(sink: Sink, ready: SyncSender<()>) {
     // Only after detaching the tap may the worker wait for JS queue capacity.
     // This guarantees that overload cannot leave the last delivered key held.
     let reset =
-        serde_json::json!({"v":1,"type":"state","state":context.state.snapshot(context.now())})
+        serde_json::json!({"v":1,"type":"state","cause":"reset","state":context.state.snapshot(context.now())})
             .to_string();
     let _ = (context.sink)(reset, true);
     service::set_status(code);

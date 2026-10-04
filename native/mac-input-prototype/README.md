@@ -96,3 +96,29 @@ restriction; Rust cannot promise to bypass or eliminate it.
 See LICENSE, NOTICE, THIRD_PARTY_NOTICES.md and generated BUNDLED-RUST.txt. The fixed
 BongoCat v2.1.1 and previously reviewed bf090794… refs have identical macOS input files.
 Only the relevant native design was adapted. No whole upstream project was executed.
+
+## OS event-pipeline QA (test app only)
+
+The separate `qa/os_event_driver.rs` example is an event generator, not a second
+listener. It is loaded only by the isolated test app. It checks the current
+`CGPreflightPostEventAccess` result and never calls a permission-request API.
+If existing listen or post capability is absent, OS event validation is explicitly
+skipped; no TCC setting is modified.
+
+When allowed, the app focuses its own blank fixture window and posts known virtual
+key down/up, modifier flags, mouse movement/buttons and scroll events through
+`CGEventPost`. Assertions wait for the listening addon's callbacks returned through
+the OS tap; they never call its event handlers or synthesize a JS listener callback.
+`qa/key-cases.json` fixes the 83 expected virtual-code/physical-ID cases for this
+protocol. Posted events are not physical hardware, and this codebook check cannot
+prove a user's keyboard/firmware/layout.
+
+The report separates `nativePackets` from `ownerResetPackets`. A reset produced by
+the JS owner is not evidence of native input. `macOSPipelineValidated` can become
+true only after all OS-event assertions succeed. Hardware, real permission
+revocation, Secure Input and sleep/wake flags remain false until separately tested.
+
+State packets carry a finite anonymous `cause` enum. Native up-edge assertions
+require `native_key_up`, `native_modifier` or `native_mouse_up`, so held-state
+reconciliation and owner resets cannot pass as release callbacks. CapsLock's
+separate latch pulse is reported as `caps_pulse`, not physical release evidence.

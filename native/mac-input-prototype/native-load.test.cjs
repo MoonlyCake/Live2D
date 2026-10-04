@@ -22,3 +22,9 @@ test('native stop invalidates an older deferred start before it can attach',asyn
   assert.ok(['cancelled','backend_unavailable'].includes(await started));assert.equal(await stopped,'stopped');assert.equal(native.serviceStatus(),'stopped');
  }
 });
+
+test('separate QA driver is inert without the supported platform and rejects invalid ranges',()=>{
+ const driver=require('./build/os-event-driver.node');
+ assert.equal(driver.postMouse(999,0,0,0),false);assert.equal(driver.postWheel(-2147483648,0),false);assert.equal(driver.postKey(65535,true),false);
+ if(process.platform!=='darwin'){assert.equal(driver.postAccess(),false);assert.equal(driver.postKey(0,true),false);assert.equal(driver.postWheel(0,1),false);}
+});

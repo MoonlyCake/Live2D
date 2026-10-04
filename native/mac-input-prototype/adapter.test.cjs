@@ -28,3 +28,18 @@ test('OFF detaches consumer before reset, preventing recursive stop/reset callba
  const native={stop:async()=> 'stopped',start:async()=> 'running'};const input=new MacInputPrototype(native);let resets=0;
  await input.start(()=>{resets++;void input.stop();});await input.stop();assert.equal(resets,1);
 });
+
+test('owner reset metadata is distinct from an actual native callback',async()=>{
+ let cb;const native={stop:async()=> 'stopped',start:async(callback)=>{cb=callback;return'running'}};const seen=[];const input=new MacInputPrototype(native);
+ await input.start((_packet,meta)=>seen.push(meta.native));cb(null,JSON.stringify({v:1,type:'state',state}));await input.stop();assert.deepEqual(seen,[true,false]);
+});
+
+test('native edge cause cannot be confused with reconciliation or owner reset',()=>{
+ for(const cause of ['native_key_up','native_mouse_up','reconcile','reset','caps_pulse'])assert.equal(parsePacket(JSON.stringify({v:1,type:'state',cause,state})).cause,cause);
+ assert.throws(()=>parsePacket(JSON.stringify({v:1,type:'state',cause:'arbitrary user data',state})));
+});
+
+test('CI key-case codebook covers the same 83 IDs and QA driver contains no permission request',()=>{
+ const fs=require('node:fs'),cases=require('./qa/key-cases.json');assert.deepEqual(cases.map(k=>k.id),keys);assert.equal(new Set(cases.map(k=>k.code)).size,83);
+ const driver=fs.readFileSync(require('node:path').join(__dirname,'qa/os_event_driver.rs'),'utf8');assert.ok(driver.includes('CGPreflightPostEventAccess'));assert.doesNotMatch(driver,/CGRequest|tccutil|AXIsProcessTrustedWithOptions/);
+});

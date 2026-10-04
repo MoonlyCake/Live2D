@@ -1,0 +1,334 @@
+[
+  {
+    "id": "Backquote",
+    "code": 50
+  },
+  {
+    "id": "Digit1",
+    "code": 18
+  },
+  {
+    "id": "Digit2",
+    "code": 19
+  },
+  {
+    "id": "Digit3",
+    "code": 20
+  },
+  {
+    "id": "Digit4",
+    "code": 21
+  },
+  {
+    "id": "Digit5",
+    "code": 23
+  },
+  {
+    "id": "Digit6",
+    "code": 22
+  },
+  {
+    "id": "Digit7",
+    "code": 26
+  },
+  {
+    "id": "Digit8",
+    "code": 28
+  },
+  {
+    "id": "Digit9",
+    "code": 25
+  },
+  {
+    "id": "Digit0",
+    "code": 29
+  },
+  {
+    "id": "Minus",
+    "code": 27
+  },
+  {
+    "id": "Equal",
+    "code": 24
+  },
+  {
+    "id": "Backspace",
+    "code": 51
+  },
+  {
+    "id": "Tab",
+    "code": 48
+  },
+  {
+    "id": "KeyQ",
+    "code": 12
+  },
+  {
+    "id": "KeyW",
+    "code": 13
+  },
+  {
+    "id": "KeyE",
+    "code": 14
+  },
+  {
+    "id": "KeyR",
+    "code": 15
+  },
+  {
+    "id": "KeyT",
+    "code": 17
+  },
+  {
+    "id": "KeyY",
+    "code": 16
+  },
+  {
+    "id": "KeyU",
+    "code": 32
+  },
+  {
+    "id": "KeyI",
+    "code": 34
+  },
+  {
+    "id": "KeyO",
+    "code": 31
+  },
+  {
+    "id": "KeyP",
+    "code": 35
+  },
+  {
+    "id": "BracketLeft",
+    "code": 33
+  },
+  {
+    "id": "BracketRight",
+    "code": 30
+  },
+  {
+    "id": "Backslash",
+    "code": 42
+  },
+  {
+    "id": "CapsLock",
+    "code": 57
+  },
+  {
+    "id": "KeyA",
+    "code": 0
+  },
+  {
+    "id": "KeyS",
+    "code": 1
+  },
+  {
+    "id": "KeyD",
+    "code": 2
+  },
+  {
+    "id": "KeyF",
+    "code": 3
+  },
+  {
+    "id": "KeyG",
+    "code": 5
+  },
+  {
+    "id": "KeyH",
+    "code": 4
+  },
+  {
+    "id": "KeyJ",
+    "code": 38
+  },
+  {
+    "id": "KeyK",
+    "code": 40
+  },
+  {
+    "id": "KeyL",
+    "code": 37
+  },
+  {
+    "id": "Semicolon",
+    "code": 41
+  },
+  {
+    "id": "Quote",
+    "code": 39
+  },
+  {
+    "id": "Enter",
+    "code": 36
+  },
+  {
+    "id": "ShiftLeft",
+    "code": 56
+  },
+  {
+    "id": "KeyZ",
+    "code": 6
+  },
+  {
+    "id": "KeyX",
+    "code": 7
+  },
+  {
+    "id": "KeyC",
+    "code": 8
+  },
+  {
+    "id": "KeyV",
+    "code": 9
+  },
+  {
+    "id": "KeyB",
+    "code": 11
+  },
+  {
+    "id": "KeyN",
+    "code": 45
+  },
+  {
+    "id": "KeyM",
+    "code": 46
+  },
+  {
+    "id": "Comma",
+    "code": 43
+  },
+  {
+    "id": "Period",
+    "code": 47
+  },
+  {
+    "id": "Slash",
+    "code": 44
+  },
+  {
+    "id": "ShiftRight",
+    "code": 60
+  },
+  {
+    "id": "ControlLeft",
+    "code": 59
+  },
+  {
+    "id": "AltLeft",
+    "code": 58
+  },
+  {
+    "id": "MetaLeft",
+    "code": 55
+  },
+  {
+    "id": "Space",
+    "code": 49
+  },
+  {
+    "id": "MetaRight",
+    "code": 54
+  },
+  {
+    "id": "AltRight",
+    "code": 61
+  },
+  {
+    "id": "ControlRight",
+    "code": 62
+  },
+  {
+    "id": "Escape",
+    "code": 53
+  },
+  {
+    "id": "F1",
+    "code": 122
+  },
+  {
+    "id": "F2",
+    "code": 120
+  },
+  {
+    "id": "F3",
+    "code": 99
+  },
+  {
+    "id": "F4",
+    "code": 118
+  },
+  {
+    "id": "F5",
+    "code": 96
+  },
+  {
+    "id": "F6",
+    "code": 97
+  },
+  {
+    "id": "F7",
+    "code": 98
+  },
+  {
+    "id": "F8",
+    "code": 100
+  },
+  {
+    "id": "F9",
+    "code": 101
+  },
+  {
+    "id": "F10",
+    "code": 109
+  },
+  {
+    "id": "F11",
+    "code": 103
+  },
+  {
+    "id": "F12",
+    "code": 111
+  },
+  {
+    "id": "Insert",
+    "code": 114
+  },
+  {
+    "id": "Home",
+    "code": 115
+  },
+  {
+    "id": "PageUp",
+    "code": 116
+  },
+  {
+    "id": "Delete",
+    "code": 117
+  },
+  {
+    "id": "End",
+    "code": 119
+  },
+  {
+    "id": "PageDown",
+    "code": 121
+  },
+  {
+    "id": "ArrowUp",
+    "code": 126
+  },
+  {
+    "id": "ArrowLeft",
+    "code": 123
+  },
+  {
+    "id": "ArrowDown",
+    "code": 125
+  },
+  {
+    "id": "ArrowRight",
+    "code": 124
+  }
+]

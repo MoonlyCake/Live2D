@@ -7,3 +7,8 @@ const library=process.platform==='darwin'?'libwhale_mac_input_prototype.dylib':p
 if(!library)throw Error('Experimental build supports macOS ARM and Linux test stub only');
 mkdirSync(`${root}/build`,{recursive:true});copyFileSync(`${root}/target/release/${library}`,`${root}/build/whale-mac-input.node`);
 console.log('Built experimental addon. Production input selection remains unchanged.');
+
+// The event generator is deliberately a separate CI-only module.
+const qa=spawnSync('cargo',['build','--release','--locked','--example','os_event_driver'],{cwd:root,stdio:'inherit'});if(qa.status!==0)process.exit(qa.status??1);
+const driver=process.platform==='darwin'?'libos_event_driver.dylib':'libos_event_driver.so';
+copyFileSync(`${root}/target/release/examples/${driver}`,`${root}/build/os-event-driver.node`);
